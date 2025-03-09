@@ -1,3 +1,49 @@
 site_name: start
 theme:
     name: material
+
+    icon: 
+      logo: material/dog
+
+    language: zh
+
+    features:
+      - navigation.tabs #顶部导航
+      - navigation.top  #返回顶部
+      - search.suggest  #搜索建议
+      - search.highlight #搜索高亮
+
+    palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: cyan
+      toggle: 
+        icon: material/brightness-4
+        name: Switch to light mode
+    font:
+      text: 'Roboto'
+      code: 'Roboto Mono'
+
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/yourusername
+      - icon: fontawesome/brands/twitter
+        link: https://twitter.com/yourusername
+
+    plugins:
+      - search
+      - mkdocs-material-extensions
+
+markdown_extensions:
+  - codehilite
+  - admonition
+
+copyright: Copyright © 2006-2025 郭响宇 All rights Reserved
