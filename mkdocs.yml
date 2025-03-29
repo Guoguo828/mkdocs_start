@@ -1,9 +1,9 @@
-site_name: start
+site_name: gxy的小空间
 theme:
     name: material
 
     icon: 
-      logo: material/dog
+      logo: material/cat
 
     language: zh
 
@@ -47,3 +47,11 @@ markdown_extensions:
   - admonition
 
 copyright: Copyright © 2006-2025 郭响宇 All rights Reserved
+
+nav:
+
+  - 首页: 
+    - 快速开始: 首页文章\gxy介绍.md
+    - 快速开始: 首页文章\关于我.md
+  - fds:
+    - tree: fds学习\tree.md
