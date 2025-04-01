@@ -51,7 +51,22 @@ copyright: Copyright © 2006-2025 郭响宇 All rights Reserved
 nav:
 
   - 首页: 
-    - 快速开始: 首页文章\gxy介绍.md
-    - 快速开始: 首页文章\关于我.md
+    - 自我介绍: 首页文章\gxy介绍.md
+    - 简介: 首页文章\关于我.md
   - fds:
-    - tree: fds学习\tree.md
+    - tree1: fds\tree1.md
+    - tree2: fds\tree2.md
+    - 堆: fds\heap.md
+    - 堆栈和队列: fds\stack_and_queue.md
+    - 并查集: fds\并查集.md
+    - 图1: fds\graph1.md
+  - 数逻:
+    - 第二节课（命题公式和卡诺图）: sl\sl_and_ls_circuit_op.md
+    - 第三节课（门的类型）: sl\2.3_ Additional_Gates_and_Circuits.md
+    - 第四节课（实现一个数字逻辑设计）: sl\3.1_impletation_technology_and_logic_design.md
+    - 第五节课（特殊模块介绍）: sl\3.2_combinational_logic.md
+  - 离散数学:
+    - 第二节课（逻辑命题）: ls\class_2_logic.md
+    - 第三节课（集合论）: ls\class_3_set.md
+  - 数分:
+    - 小测1: 数分\数分小测.md
