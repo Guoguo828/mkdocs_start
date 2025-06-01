@@ -2,6 +2,8 @@
 
 ## 定义
 
+完全二叉树：1-N，最后一个非叶子节点序号为N/2下取整，叶子节点序号为N/2+1到N。
+
 1. heap用来解决什么问题？：堆（优先队列）一开始是用来解决一堆数删除最大/最小值的问题，当然也有插入操作。  
 2. 我们发现，如果用链表或者数组来解决，都会出现O(n)的操作，heap就应运而生了。  
 3. heap的定义：堆是一个完全二叉树，并且每个节点都大于等于它的左右孩子，或者小于等于它的左右孩子。由于是完全二叉树，所以可以用数组来表示，数组的索引从1开始，数组的索引为i的节点的父节点为i/2，左子节点为2i，右子节点为2i+1。
@@ -85,17 +87,47 @@ ElementType  DeleteMin( PriorityQueue  H )
 
 这就完成啦！！
 
+稍等，我在期中卷里发现了一个指定删除位置的代码：
+
+```c
+Deletion ( PriorityQueue H,  int p )  /* delete the element H->Elements[p] */
+{
+   ElementType temp;
+   int child;
+
+   temp = H-> Elements[ H->Size-- ];
+   if ( temp < H->Elements[p] ) {
+      while ( (p != 1) && (temp < H->Elements[p/2]) ) { 
+         
+        H->Elements[p]=H->Elements[p/2];
+         p /= 2;
+      } 
+   }
+   else {
+      while( (child = 2*p) <= H->Size) {
+         if ( child != H->Size && H->Elements[child+1]<H->Elements[child])
+            child ++;
+         if ( H->Elements[child]<temp) {
+            H->Elements[p] = H->Elements[child];
+            p = child;
+         }
+         else
+            break;
+      }
+   }
+   H->Elements[p] = temp;
+}
+```
+
 ### 其他操作
 
 #### 优先级变化
-
-
 
 #### 一个树（数组）变成堆
 
 1.首先，如果一个一个插入，那么插入的时间复杂度是O(logn)，但是插入的次数是n，所以总时间复杂度是O(nlogn)。  
 
-2.但其实我们可以直接在原来的树组上进行操作，只需要从最后一个非叶子节点开始，依次上浮，直到根节点，这样时间复杂度就是O(n)（因为每个节点的操作数最多是他的高度，可以证明总操作数是O(n)）。
+2.但其实我们可以直接在原来的数组（可以理解成一棵没什么规律的树）上进行操作，只需要从最后一个非叶子节点开始，依次下沉（到合适的位置记得交换之后还要从上到下检查调整），直到根节点，这样时间复杂度就是O(n)（因为每个节点的操作数最多是他的高度，可以证明总操作数是O(n)）。
 
 3.代码： 这里的代码包括了变成堆和堆排序
 
@@ -112,10 +144,10 @@ void swap(int* a, int i, int m){
 void heapify(int* a, int k, int index){
     int min = index;
     while(true){
-        if(index*2+1<k &amp;&amp; a[index*2+1] < a[index]){
+        if(index*2+1<k && a[index*2+1] < a[index]){
             min = index*2+1;
         }
-        if(index*2+2<k &amp;&amp; a[index*2+2] < a[min]){
+        if(index*2+2<k && a[index*2+2] < a[min]){
             min = index*2+2;
         }
         if(min == index)break;
@@ -155,7 +187,7 @@ int main() {
 
 1. 堆排序：堆排序就是利用堆这个数据结构，将数组变成堆，然后依次删除堆顶元素，最后剩下的就是有序的数组。
 
-2. 优先队列：堆排序就是利用堆这个数据结构，将数组变成堆，然后依次删除堆顶元素，最后剩下的就是有序的数组。
+2. 优先队列：优先队列就是用堆来实现的，插入和删除操作都是O(logn)，而且可以随时获取最小值。
 
 3. 【Example】Given a list of N elements and an integer k.  
 Find the kth largest element.

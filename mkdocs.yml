@@ -4,20 +4,26 @@ theme:
 
     icon: 
       logo: material/cat
+      annotation: material/arrow-right-circle 
 
     language: zh
 
     features:
       - navigation.tabs #顶部导航
       - navigation.top  #返回顶部
+      - navigation.tabs.sticky
       - search.suggest  #搜索建议
       - search.highlight #搜索高亮
-
+      - navigation.instant
+      - navigation.instant.progress
+      - navigation.path
+      
     palette: 
 
     # Palette toggle for light mode
     - scheme: default
       primary: blue
+      accent : yellow
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
@@ -25,6 +31,7 @@ theme:
     # Palette toggle for dark mode
     - scheme: slate
       primary: cyan
+      accent : yellow
       toggle: 
         icon: material/brightness-4
         name: Switch to light mode
@@ -45,7 +52,12 @@ theme:
 markdown_extensions:
   - codehilite
   - admonition
-
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true
 copyright: Copyright © 2006-2025 郭响宇 All rights Reserved
 
 nav:
@@ -60,13 +72,33 @@ nav:
     - 堆栈和队列: fds\stack_and_queue.md
     - 并查集: fds\并查集.md
     - 图1: fds\graph1.md
+    - 图2: fds\graph2.md
+    - 图3: fds\graph3.md
+    - 图4: fds\graph4.md
+    - 排序: fds\sort.md
+    - 哈希: fds\hashing.md
+    - 我的报告: fds\3240102521_report.md
   - 数逻:
     - 第二节课（命题公式和卡诺图）: sl\sl_and_ls_circuit_op.md
     - 第三节课（门的类型）: sl\2.3_ Additional_Gates_and_Circuits.md
     - 第四节课（实现一个数字逻辑设计）: sl\3.1_impletation_technology_and_logic_design.md
     - 第五节课（特殊模块介绍）: sl\3.2_combinational_logic.md
+    - 第六节课（算数器）: sl\3.3_arithmetic_functions.md
+    - 第七节课（时序电路）: sl\4.1_sequential_circuits_part1.md
+    - 第八节课（时序电路设计）: sl\4.2 Sequencial circuit design.md
+    - 第九节课（可编程逻辑）: sl\5.2progammable-implementation-technologyies.md
+    - 第十节课（寄存器）: sl\6.1 register.md
+    - 第十一节课（内存）: sl\7.1_memory.md
   - 离散数学:
     - 第二节课（逻辑命题）: ls\class_2_logic.md
     - 第三节课（集合论）: ls\class_3_set.md
+    - 第四节课（计数）: ls\class_4 counting.md
+    - 第五节课（高级计数原理）: ls\class_5 advanced counting.md
+    - 第六节课（关系）: ls\class_6_relations.md
+    - 第七节课（图）: ls\class_7_graphs.md
+    - 第八节课（树）: ls\class_8_tree.md
   - 数分:
     - 小测1: 数分\数分小测.md
+    - 小测2: 数分\数分小测2.md
+  - 线性代数 :
+    - 期中考试 : 线代\期中考试.md
