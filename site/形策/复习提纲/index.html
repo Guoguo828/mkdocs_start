@@ -1,0 +1,4667 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E7%BA%BF%E4%BB%A3/%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95/">
+      
+      
+        <link rel="next" href="../%E5%8E%86%E5%B9%B4%E5%8D%B7%E8%80%83%E9%A2%98%E7%BB%BC%E5%90%88/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>整理的笔记1 - gxy的小空间</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#i" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="gxy的小空间" class="md-header__button md-logo" aria-label="gxy的小空间" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            gxy的小空间
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              整理的笔记1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="yellow"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
+          
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fds/tree1/" class="md-tabs__link">
+          
+  
+  fds
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sl/sl_and_ls_circuit_op/" class="md-tabs__link">
+          
+  
+  数逻
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ls/class_2_logic/" class="md-tabs__link">
+          
+  
+  离散数学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%95%B0%E5%88%86/%E6%95%B0%E5%88%86%E5%B0%8F%E6%B5%8B/" class="md-tabs__link">
+          
+  
+  数分
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%BA%BF%E4%BB%A3/%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95/" class="md-tabs__link">
+          
+  
+  线性代数
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  形策
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%BB%8F%E9%AA%8C/%E6%95%B0%E5%88%86/" class="md-tabs__link">
+          
+  
+  经验part
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="gxy的小空间" class="md-nav__button md-logo" aria-label="gxy的小空间" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    gxy的小空间
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自我介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/%E5%85%B3%E4%BA%8E%E6%88%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/tree1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tree1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/tree2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tree2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/heap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/stack_and_queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    堆栈和队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/graph1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/graph2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/graph3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/graph4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/hashing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/3240102521_report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    我的报告
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数逻
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            数逻
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/sl_and_ls_circuit_op/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二节课（命题公式和卡诺图）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/2.3_%20Additional_Gates_and_Circuits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第三节课（门的类型）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/3.1_impletation_technology_and_logic_design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第四节课（实现一个数字逻辑设计）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/3.2_combinational_logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五节课（特殊模块介绍）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/3.3_arithmetic_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第六节课（算数器）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/4.1_sequential_circuits_part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第七节课（时序电路）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/4.2%20Sequencial%20circuit%20design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第八节课（时序电路设计）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/5.2progammable-implementation-technologyies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第九节课（可编程逻辑）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/6.1%20register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十节课（寄存器）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sl/7.1_memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十一节课（内存）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    离散数学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            离散数学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_2_logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二节课（逻辑命题）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_3_set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第三节课（集合论）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_4%20counting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第四节课（计数）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_5%20advanced%20counting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五节课（高级计数原理）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_6_relations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第六节课（关系）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_7_graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第七节课（图）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ls/class_8_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第八节课（树）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数分
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            数分
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%88%86/%E6%95%B0%E5%88%86%E5%B0%8F%E6%B5%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    小测1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E5%88%86/%E6%95%B0%E5%88%86%E5%B0%8F%E6%B5%8B2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    小测2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性代数
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            线性代数
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BA%BF%E4%BB%A3/%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    期中考试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    形策
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            形策
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    整理的笔记1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    整理的笔记1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一讲 浙大传统与我们的责任
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一讲 浙大传统与我们的责任">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      鲜明内涵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==浙大校训==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==浙大精神==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      校歌
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      浙大传统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      浙大使命愿景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浙大使命愿景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      办学使命
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      发展愿景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三讲 当前国际格局中的国际关系与国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三讲 当前国际格局中的国际关系与国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      国际格局体系的演变
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前国际格局的主要特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      当今时代面临的四大课题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      层次
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      领域
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是国际关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      联合国的宗旨
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      东盟十国
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      美国的两大优势、一大弱点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      对非工作四字箴言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==利益分析法==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国外交怎样维护国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中国外交怎样维护国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      现阶段我国外交策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国特色外交方略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中国特色外交方略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国外交方针原则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      大学生应怎样有效维护国家利益
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      第四讲 谱写乡村全面振兴新篇章
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第四讲 谱写乡村全面振兴新篇章">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      全面乡村振兴的总要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      全面推进乡村振兴的必要性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==全面推进乡村振兴的“三农”工作的重要任务总要求==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      第五讲 海洋强国战略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第五讲 海洋强国战略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      建设海洋强国的重要性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==海洋强国战略的主要内容==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      第六讲 人类命运共同体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第六讲 人类命运共同体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      人类命运共同体提出的背景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      人类命运共同体理念和内涵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="人类命运共同体理念和内涵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==目标要求==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何构建人类命运共同体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      内含的治理观
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      思想渊源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      推动构建人类命运共同体的中国实践
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推动构建人类命运共同体的中国实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==五通==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      三同
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==一带一路建设成效==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来建设“一带一路”可从四个方面发力
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      第七讲 全面从严治党与反腐败
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第七讲 全面从严治党与反腐败">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐败的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐败的构成要素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国共产党历来重视腐败治理和纪律约束
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      把握全面从严治党形势任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      反腐败斗争总体形势
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反腐败斗争总体形势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==十八大以来反腐的五大特点==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==十八大以来腐败治理的新特点==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      反腐败成效
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国当前反腐败的对策
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国当前反腐败的启示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      第八讲 当前我国经济形势与推动经济高质量发展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第八讲 当前我国经济形势与推动经济高质量发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      我国国民经济运行体系的基本框架（核算体系）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="我国国民经济运行体系的基本框架（核算体系）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      分配角度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用角度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产角度：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济形势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济发展的含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      新发展理念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      我国高质量发展的非凡成就
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国经济的底气与信心
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么能取得这样的成就
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前我国发展面临的形势：挑战和机遇
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="当前我国发展面临的形势：挑战和机遇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      国内
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      国际环境
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年经济工作要坚持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年着眼于九项重点工作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年政府工作任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      扎实推进中国高质量发展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==什么是新质生产力==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==发展新质生产力的核心要素==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      第九讲 坚持总体国家安全观共同维护国家安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第九讲 坚持总体国家安全观共同维护国家安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      国家安全的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      国家安全的重要性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="国家安全的重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      三个问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==总体国家安全观的基本内涵==
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="==总体国家安全观的基本内涵==">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      内涵和意义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      路径
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的核心要义和内涵要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总体国家安全观的核心要义和内涵要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观五大要素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      五个统筹
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观核心要义集中体现为“十个坚持”
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的涵盖领域
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      大学生应如何维护国家安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="大学生应如何维护国家安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的基本观点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      “全民国家安全教育日”的重要意义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      第十章 读懂”国之大者“的深刻内涵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第十章 读懂”国之大者“的深刻内涵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==何谓国之大者==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==新时代的国之大者——当今的时代格局==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务国之大者的生动实践
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      做服务国之大者的先锋力量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      科技创新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="科技创新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      三个第一 战略 强国
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      历史性成就
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8E%86%E5%B9%B4%E5%8D%B7%E8%80%83%E9%A2%98%E7%BB%BC%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    整理的笔记2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%B0%E9%97%BB%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    整理的笔记3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    经验part
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            经验part
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    H课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            H课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E6%95%B0%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数分
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E7%BA%BF%E4%BB%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线代
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E6%99%AE%E7%89%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    普物
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机专业课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机专业课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字逻辑
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BB%8F%E9%AA%8C/%E7%A6%BB%E6%95%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    离散数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一讲 浙大传统与我们的责任
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一讲 浙大传统与我们的责任">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      鲜明内涵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==浙大校训==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==浙大精神==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      校歌
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      浙大传统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      浙大使命愿景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浙大使命愿景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      办学使命
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      发展愿景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三讲 当前国际格局中的国际关系与国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三讲 当前国际格局中的国际关系与国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      国际格局体系的演变
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前国际格局的主要特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      当今时代面临的四大课题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      层次
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      领域
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是国际关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      联合国的宗旨
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      东盟十国
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      美国的两大优势、一大弱点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      对非工作四字箴言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==利益分析法==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国外交怎样维护国家利益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中国外交怎样维护国家利益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      现阶段我国外交策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国特色外交方略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中国特色外交方略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国外交方针原则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      大学生应怎样有效维护国家利益
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      第四讲 谱写乡村全面振兴新篇章
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第四讲 谱写乡村全面振兴新篇章">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      全面乡村振兴的总要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      全面推进乡村振兴的必要性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==全面推进乡村振兴的“三农”工作的重要任务总要求==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      第五讲 海洋强国战略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第五讲 海洋强国战略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      建设海洋强国的重要性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==海洋强国战略的主要内容==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      第六讲 人类命运共同体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第六讲 人类命运共同体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      人类命运共同体提出的背景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      人类命运共同体理念和内涵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="人类命运共同体理念和内涵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==目标要求==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何构建人类命运共同体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      内含的治理观
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      思想渊源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      推动构建人类命运共同体的中国实践
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推动构建人类命运共同体的中国实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==五通==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      三同
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==一带一路建设成效==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      未来建设“一带一路”可从四个方面发力
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      第七讲 全面从严治党与反腐败
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第七讲 全面从严治党与反腐败">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐败的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐败的构成要素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国共产党历来重视腐败治理和纪律约束
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      把握全面从严治党形势任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      反腐败斗争总体形势
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反腐败斗争总体形势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==十八大以来反腐的五大特点==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==十八大以来腐败治理的新特点==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      反腐败成效
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国当前反腐败的对策
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国当前反腐败的启示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      第八讲 当前我国经济形势与推动经济高质量发展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第八讲 当前我国经济形势与推动经济高质量发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      我国国民经济运行体系的基本框架（核算体系）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="我国国民经济运行体系的基本框架（核算体系）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      分配角度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用角度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产角度：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济形势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济发展的含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      新发展理念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      我国高质量发展的非凡成就
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      中国经济的底气与信心
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么能取得这样的成就
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前我国发展面临的形势：挑战和机遇
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="当前我国发展面临的形势：挑战和机遇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      国内
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      国际环境
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年经济工作要坚持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年着眼于九项重点工作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024年政府工作任务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      扎实推进中国高质量发展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==什么是新质生产力==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==发展新质生产力的核心要素==
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      第九讲 坚持总体国家安全观共同维护国家安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第九讲 坚持总体国家安全观共同维护国家安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      国家安全的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      国家安全的重要性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="国家安全的重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      三个问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==总体国家安全观的基本内涵==
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="==总体国家安全观的基本内涵==">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      内涵和意义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      路径
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的核心要义和内涵要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总体国家安全观的核心要义和内涵要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观五大要素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      五个统筹
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观核心要义集中体现为“十个坚持”
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的涵盖领域
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      大学生应如何维护国家安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="大学生应如何维护国家安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体国家安全观的基本观点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      “全民国家安全教育日”的重要意义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      第十章 读懂”国之大者“的深刻内涵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第十章 读懂”国之大者“的深刻内涵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==何谓国之大者==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      ==新时代的国之大者——当今的时代格局==
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务国之大者的生动实践
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      做服务国之大者的先锋力量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      科技创新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="科技创新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      三个第一 战略 强国
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      历史性成就
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="i">形势与政策Ⅰ考前背诵</h1>
+<h2 id="_1">第一讲 浙大传统与我们的责任</h2>
+<blockquote>
+<h3 id="_2">鲜明内涵</h3>
+<p>图治、育才、实学</p>
+</blockquote>
+<h3 id="_3">==浙大校训==</h3>
+<p>求是创新</p>
+<h3 id="_4">==浙大精神==</h3>
+<p>海纳江河、启真厚德、开物前民、树我邦国</p>
+<blockquote>
+<h3 id="_5">校歌</h3>
+<p>首章：世界观</p>
+<p>中章：认识论和方法论</p>
+<p>末章：价值观和使命</p>
+</blockquote>
+<h3 id="_6">浙大传统</h3>
+<p>PRIDE</p>
+<p>爱国奉献、百折不挠、改革创新、服务人民、追求卓越</p>
+<blockquote>
+<h3 id="_7">浙大使命愿景</h3>
+<h4 id="_8">办学使命</h4>
+<p>以天下为己任、以真理为依归，致力于思想引领和知识创新，培育担当民族复兴大任的时代新人，为中国式现代化和人类文明进步作出卓越贡献</p>
+<h4 id="_9">发展愿景</h4>
+<p>建设世界一流的综合型、研究型、创新型大学，成为卓越人才培养和汇聚的战略基地、文化传承和交流的重要平台、国家战略科技力量和全球创新高地</p>
+</blockquote>
+<h2 id="_10">第三讲 当前国际格局中的国际关系与国家利益</h2>
+<h3 id="_11">国际格局体系的演变</h3>
+<p>维也纳体系——凡尔赛-华盛顿体系——雅尔塔体系（两极格局）——一超（美国）多强（中国、日本、欧盟、俄罗斯）与多极化</p>
+<h3 id="_12">当前国际格局的主要特征</h3>
+<p>三个总体：总体缓和（脆弱性、动态性、变革性同时存在）、总体和平、总体稳定</p>
+<p>三个局部：局部紧张、局部战争、局部冲突</p>
+<p>三个继续：世界和平、发展潮流继续发展、世界多极化、全球化趋势继续推进、对大多数国家而言，机遇大于挑战的态势继续存在</p>
+<p>时代主题明朗化</p>
+<blockquote>
+<p>战争与革命——和平与发展，和平发展vs新型冲突</p>
+</blockquote>
+<p>世界格局多极化</p>
+<blockquote>
+<p>基本共识是：国际关系具有建设性的多极化进程，有助于建立一个平衡、稳定、民主、不对抗的新秩序，这一趋势客观上符合所有国家的根本利益。</p>
+</blockquote>
+<p>经济贸易全球化</p>
+<blockquote>
+<p>全球化vs脱钩断链逆全球化</p>
+</blockquote>
+<p>安全环境复杂化</p>
+<blockquote>
+<p>全球性范围：霸权主义、强权政治</p>
+<p>地区性范围：恐怖主义、极端主义、分裂主义</p>
+</blockquote>
+<p>非政府组织的兴起</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h3 id="_13">当今时代面临的四大课题</h3>
+<p>地缘政治局势持续紧张</p>
+<p>世界经济复苏乏力</p>
+<p>全球治理体系受到冲击</p>
+<p>粮食和能源等危机叠加</p>
+<h3 id="_14">什么是国家利益</h3>
+<blockquote>
+<p>满足或能够满足国家以生存发展为基础的各方面需要并且对国家在整体上有利的事物，一个国家在经济、政治、军事或文化上的目标和抱负。也指一个国家内有利于其绝大多数居民的共同生活与进一步发展的诸因素的综合。</p>
+<h4 id="_15">层次</h4>
+<p>独立与生存、稳定与发展、国际参与</p>
+<p>主权利益：最根本</p>
+<p>发展利益：国际竞争力</p>
+<p>参与利益：制度性舆论性话语权</p>
+<h4 id="_16">领域</h4>
+<p>政治、经济、文化、社会、安全、外交、军事</p>
+</blockquote>
+<h3 id="_17">什么是国际关系</h3>
+<p>国与国（最主要）、国与国际组织、国际组织与国际组织</p>
+<blockquote>
+<p>是政治学的一个分支，研究国际社会之间的外交事务和关系。</p>
+<p>权力分配：均势、两极、多极</p>
+<p>国际关系样态</p>
+<p>空间范围：全球性国际关系、地区性国际关系、重要的双边关系</p>
+<p>双边关系，特别是大国之间的双边关系是国际关系中最重要的组成部分。</p>
+<p>中美关系是当今世界最重要的双边关系</p>
+<p>合作、竞争、冲突（对抗）</p>
+</blockquote>
+<h3 id="_18">联合国的宗旨</h3>
+<p>维护国家和平与安全</p>
+<p>发展各国之间友好关系</p>
+<p>促进国际合作，解决争端问题</p>
+<p>作为协调各国行动的中心</p>
+<blockquote>
+<h3 id="_19">东盟十国</h3>
+<p>泰国、马来西亚、印度尼西亚、文莱、新加坡、菲律宾、老挝、缅甸、越南、柬埔寨</p>
+<p>《区域全面经济伙伴关系协定》（RECP）:中国、日本、韩国、新西兰、澳大利亚、东盟十国，人口最多、经贸规模最大、最具发展潜力的自由贸易区</p>
+<h3 id="_20">美国的两大优势、一大弱点</h3>
+<p>1.地缘位置以及在传统军事领域的绝对领先地位；</p>
+<p>2.有吸引全世界人才的良好物质基础、发展环境及激励机制；</p>
+<p>3.缺乏内生的具有明显社会主义/进步主义倾向的改革动力和能力。</p>
+</blockquote>
+<h3 id="_21">对非工作四字箴言</h3>
+<p>真、实、亲、诚</p>
+<blockquote>
+<p>中非友好合作精神</p>
+<p>真诚友好、平等相待，互利共赢、共同发展，主持公道、捍卫正义，顺应时势、开放包容</p>
+</blockquote>
+<h3 id="_22">==利益分析法==</h3>
+<p>国家利益是国家对外活动的出发点和归宿。任何国家总是根据自身的利益而行动的。坚决维护国家主权、安全、发展利益是新时代中国外交的出发点和落脚点。</p>
+<p>国家利益是主权国家制定和实施对外政策的基本依据，是其对外活动的主要目的。</p>
+<p>国家对外政策的实施过程，从现象上看是其对外活动的过程，从本质上看是国家利益实现、维护和扩大与否及其程度如何的过程。</p>
+<p>国家间共同的利益是国家合作的基础，利益的对立是国家间分歧、磨擦乃至冲突的根源。</p>
+<p>由于各国都以本国利益为最高原则来处理国家之间的关系，因而形成了国家之间复杂的利益关系。</p>
+<h3 id="_23">中国外交怎样维护国家利益</h3>
+<p><img alt="alt text" src="../image-3.png" />
+抓住机遇，果断出击</p>
+<blockquote>
+<p>维护国家稳定</p>
+<p>参与全球治理</p>
+<blockquote>
+<p>中国参与全球治理面临难得契机</p>
+<p>中国积极参与并引领全球治理</p>
+<p>中国特色的全球治理观特点鲜明</p>
+</blockquote>
+</blockquote>
+<p>元首外交，战略引领</p>
+<p>核心利益，坚决捍卫</p>
+<p>内外有别，有所作为</p>
+<h4 id="_24">现阶段我国外交策略</h4>
+<p>对外与美国巧妙周旋、坚决斗争，争取发展自己的时间；</p>
+<p>对内保持清醒头脑，紧紧抓住难得的机遇期，加快发展自己，不断壮大自身实力</p>
+<h3 id="_25">中国特色外交方略</h3>
+<p>当前和今后一个时期，在以习近平同志为核心的党中央坚强领导下，中国特色大国外交将以<strong>习近平外交思想</strong>为指导，坚持<strong>维护世界和平、促进共同发展的外交政策宗旨</strong>，致力于推动构建人类命运共同体，全力推进实现民族复兴和促进人类进步的历史征程。</p>
+<p>坚持独立自主，推动国际公平正义</p>
+<p>坚持拓展全球伙伴关系，深化全方位外交布局</p>
+<p>坚持对外开放，推动共同发展</p>
+<p>坚持共商共建共享，完善全球治理体系</p>
+<p>坚持胸怀天下，构建人类命运共同体</p>
+<h4 id="_26">中国外交方针原则</h4>
+<p>自信自立、开放包容、公道正义、合作共赢</p>
+<h3 id="_27">大学生应怎样有效维护国家利益</h3>
+<p>正确全面理解我国的外交方针政策</p>
+<p>充分认识国力壮大是维护国家利益的根本保证</p>
+<p>大学生应以实际行动维护国家利益</p>
+<h2 id="_28">第四讲 谱写乡村全面振兴新篇章</h2>
+<h3 id="_29">全面乡村振兴的总要求</h3>
+<p>要全面学习贯彻党的二十大精神，坚持农业农村优先发展，发扬延安精神和红旗渠精神，巩固拓展脱贫攻坚成果，全面推进乡村振兴，为实现农业农村现代化而不懈奋斗。</p>
+<h3 id="_30">全面推进乡村振兴的必要性</h3>
+<p>中国要强，农业必须强</p>
+<p>从中华民族伟大复兴战略全局来看，民族要复兴，乡村必振兴</p>
+<p>中国共产党成立一百周年全面建成小康社会</p>
+<p>新中国成立一百周年建成社会主义现代化国家</p>
+<p>2035年基本实现现代化，2050年建成现代化强国</p>
+<p>乡村振兴是全面建设现代化国家的历史任务</p>
+<p>农业农村现代化是国家现代化的重要组成</p>
+<h3 id="_31">==全面推进乡村振兴的“三农”工作的重要任务总要求==</h3>
+<p>产业振兴</p>
+<blockquote>
+<p>科技赋能、数字赋能、特色品牌赋能、三产融合赋能、农业现代化转型</p>
+</blockquote>
+<p>人才振兴</p>
+<blockquote>
+<p>促进农村专业人才队伍建设</p>
+<p>鼓励社会人才投身乡村建设</p>
+<p>创新农村人才引育使用机制</p>
+</blockquote>
+<p>文化振兴</p>
+<blockquote>
+<p>繁荣振兴乡村文化，培育现代农村新风尚</p>
+<p>加强农村思想道德建设，弘扬中华优秀传统文化</p>
+<p>既要体现五千年历史传承的农耕文明，又要彰显与现代工业化、城市化、信息化社会发展相适应的现代文明。</p>
+</blockquote>
+<p>生态振兴</p>
+<blockquote>
+<p>生态环境转型：云南洱海</p>
+<p>城郊融合：五生农业</p>
+<p>集聚提升：安吉鲁家村</p>
+<p>村容整治</p>
+</blockquote>
+<p>组织振兴</p>
+<blockquote>
+<p>四智融合：自治、法治、德智、智治</p>
+<p>基层治理模式</p>
+<p>主体推动</p>
+<p>合作经营，共富工坊</p>
+<p>公共服务改进</p>
+<p>八八战略</p>
+</blockquote>
+<h2 id="_32">第五讲 海洋强国战略</h2>
+<h3 id="_33">建设海洋强国的重要性</h3>
+<p>建设海洋强国，是中国特色社会主义事业的重要组成部分</p>
+<p>海洋是重要的战略资源</p>
+<p>作为战略性资源，海洋既是世界贸易的重要通道，又是解决当今全球人口剧增、资源匮乏、环境恶化等一系列严重挑战人类生存与可持续发展问题的诸多矛盾的重要途径。</p>
+<p>1992年联合国环境和发展大会通过的《21世纪议程》指出，海洋不仅是生命支持系统的重要组成部分，而且是可持续发展的宝贵财富。</p>
+<p>中国是”陆海兼备“的大国</p>
+<p>我国既是陆地大国，也是海洋大国，拥有广泛的海洋战略利益。</p>
+<h3 id="_34">==海洋强国战略的主要内容==</h3>
+<p>提高海洋意识</p>
+<blockquote>
+<p>陆海统筹的海洋国土意识</p>
+<p>依海富国的海洋经济意识</p>
+<p>与海为善的海洋环保意识</p>
+<p>守海有责的海洋权益意识</p>
+<p>和谐包容的海洋合作意识</p>
+</blockquote>
+<p>坚持陆海统筹</p>
+<blockquote>
+<p>一带一路：积极发展与沿线国家的经济合作伙伴关系，共同打造政治互信、经济融合、文化包容的利益共同体、命运共同体和责任共同体。</p>
+<p>中欧班列</p>
+</blockquote>
+<p>发展海洋科技</p>
+<p>保护海洋生态</p>
+<p>建设强大海军</p>
+<p>发展海洋经济</p>
+<h2 id="_35">第六讲 人类命运共同体</h2>
+<h3 id="_36">人类命运共同体提出的背景</h3>
+<p>全球性相互依赖促使人类命运紧密相连</p>
+<blockquote>
+<p>相互依存是历史大势</p>
+<p>全球性挑战需要全球应对</p>
+<p>新时代呼唤新理念</p>
+</blockquote>
+<p>全球治理体系需要变革和发展</p>
+<blockquote>
+<p>现有全球治理体系无法反映国际政治经济发展的现实</p>
+<p>现有全球治理体系无法有效应对当前人类面临的共同挑战</p>
+<p>一种是重拾冷战思维，挑动分裂对立，制造集团对抗</p>
+<p>一种是从人类共同福祉出发，致力团结合作，倡导开放共赢，践行平等尊重。两种取向、两种选择的博弈和较量，将深刻影响人类和地球的未来。</p>
+</blockquote>
+<p>中国有意愿也有能力为世界作出更大贡献</p>
+<p>人类命运共同体的首次提出2012年11月，党的十八大明确提出要倡导“人类命运共同体”意识。</p>
+<p>2013年3月23日，国家主席习近平在莫斯科国际关系学院发表演讲，首次在国际社会提出人类命运共同体理念。</p>
+<h3 id="_37">人类命运共同体理念和内涵</h3>
+<p>我们全面推进中国特色大国外交，推动构建人类命运共同体，坚定维护国际公平正义，倡导践行
+真正的多边主义，旗帜鲜明反对一切霸权主义和强权政治，毫不动摇反对任何单边主义、保护主义、
+霸凌行径。我们完善外交总体布局，积极建设覆盖全球的伙伴关系网络，推动构建新型国际关系</p>
+<p>坚定奉行独立自主的和平外交政策
+坚持在和平共处五项原则基础上
+同各国发展友好合作
+坚持对外开放的基本国策
+坚定奉行互利共赢的开放战略
+积极参与全球治理体系改革和建设
+践行共商共建共享的全球治理观</p>
+<h4 id="_38">特征</h4>
+<p>开放包容</p>
+<p>公平正义</p>
+<p>和谐共处</p>
+<p>多元互鉴</p>
+<p>团结协作</p>
+<h4 id="_39">==目标要求==</h4>
+<p>政治：持久和平</p>
+<p>安全：普遍安全</p>
+<p>经济：共同繁荣</p>
+<p>文明：开放包容</p>
+<p>生态：清洁美丽</p>
+<h4 id="_40">如何构建人类命运共同体</h4>
+<p>政治：对话协商，建立平等相待、互商互谅的伙伴关系格局</p>
+<p>安全：共建共享，建立公道正义、共建共享的安全格局</p>
+<blockquote>
+<p>共同、综合、合作、可持续的安全观</p>
+</blockquote>
+<p>经济：合作共赢，建立开放创新、包容互惠的发展格局</p>
+<p>文明：交流互鉴，建立和而不同、兼收并蓄的文明交流格局</p>
+<p>生态：绿色低碳，建立尊崇自然、绿色发展的生态格局</p>
+<blockquote>
+<p>绿色、低碳、循环、可持续发展之路</p>
+</blockquote>
+<h4 id="_41">内含的治理观</h4>
+<p>共同命运观</p>
+<p>可持续发展观</p>
+<p>全球治理观</p>
+<p><strong>习近平外交思想是构建人类命运共同体的行动指南</strong></p>
+<h4 id="_42">思想渊源</h4>
+<p>中国传统文化渊源</p>
+<p>马克思主义共同体哲学阐释</p>
+<p>中国共产党的世界情怀</p>
+<h3 id="_43">推动构建人类命运共同体的中国实践</h3>
+<p>习近平外交思想是构建人类命运共同体的行动指南</p>
+<p>推动全球和平</p>
+<blockquote>
+<p>全球安全倡议</p>
+</blockquote>
+<p>推动全球发展</p>
+<blockquote>
+<p>全球发展倡议</p>
+</blockquote>
+<p>践行可持续发展</p>
+<blockquote>
+<p>支持落实联合国2030年可持续发展议程</p>
+</blockquote>
+<p>提供国际公共产品（一带一路10年）</p>
+<blockquote>
+<p>当今世界规模最大的国际合作平台和最受欢迎的国际公共产品</p>
+<p>丝绸之路经济带和21世纪海上丝绸之路</p>
+</blockquote>
+<p>促进文明交流互鉴</p>
+<p>共商共建共享原则</p>
+<blockquote>
+<p>全球文明倡议</p>
+<p>杭州亚运会</p>
+<p>浙江大学学科会聚计划：亚洲文明研究院</p>
+</blockquote>
+<p>推动全球公共卫生治理</p>
+<blockquote>
+<p>浙江大学实践：”一带一路“国际医学院</p>
+</blockquote>
+<h4 id="_44">==五通==</h4>
+<p>政策沟通、设施联通、贸易畅通、资金融通、民心相通</p>
+<h4 id="_45">三同</h4>
+<p>利益共同体、命运共同体、责任共同体</p>
+<h4 id="_46">==一带一路建设成效==</h4>
+<p>政策沟通取得积极进展</p>
+<p>设备联通不断完善</p>
+<p>贸易畅通取得卓著成果</p>
+<p>资金融通和产能合作取得显著进展</p>
+<p>民心相通稳步推进</p>
+<h4 id="_47">未来建设“一带一路”可从四个方面发力</h4>
+<p>一是进一步提升基础设施互联互通对产业合作的促进作用，持续深化和共建国家的产业链供应链合作，共同维护跨国产业链供应链安全。</p>
+<p>二是加速推动实施一批“小而美”项目，进一步提升共建“一带一路”对改善当地民生、推动绿色发展等方面的促进作用。</p>
+<p>三是在一些已经取得很多成功经验的领域，如跨境投融资、绿色产业园区建设等方面总结形成符合大多数国家利益的新型规则体系，并积极推动其成为国际通行规则。</p>
+<p>四是鼓励各级地方政府创新思路参与共建“一带一路”合作，打造一批优质合作品牌</p>
+<h2 id="_48">第七讲 全面从严治党与反腐败</h2>
+<blockquote>
+<h3 id="_49">腐败的定义</h3>
+<p>腐败界定为任何公职人员在任何时候，以实际的或者潜在的行使或者不行使公职人员的职能为交换条件，为自己、他人或者任何机构索要、同意接受或者接受不论何种性质的不正当利益。”</p>
+</blockquote>
+<h3 id="_50">腐败的构成要素</h3>
+<p>主体：公职人员</p>
+<p>动机或目的：追逐私人利益</p>
+<p>手段：凭借机构或职务上的便利</p>
+<p>方式：非规范地运用或滥用公共权力</p>
+<p>后果：公共利益或公民利益受到损害</p>
+<blockquote>
+<h3 id="_51">中国共产党历来重视腐败治理和纪律约束</h3>
+<p>纪律建设是我们党创建、发展、壮大的根本保障，也是我们党区别于其他一切政党和派别组织的独特优势和“政治基因”。</p>
+</blockquote>
+<h3 id="_52">把握全面从严治党形势任务</h3>
+<p>推进党的建设的制度化、常态化、系统化安排</p>
+<p>把思想统一到党中央对形势的判断上来</p>
+<blockquote>
+<p>抓思想从严</p>
+<p>抓治吏从严</p>
+<p>抓管党从严</p>
+<p>抓作风从严</p>
+<p>抓执纪从严</p>
+<p>抓反腐从严</p>
+</blockquote>
+<p>推动党和国家治理体系和治理能力现代化的关键所在</p>
+<blockquote>
+<p>全面从严治党为其他三个“全面”引领正确方向</p>
+<p>全面从严治党为其他三个“全面”提供坚强政治保证</p>
+</blockquote>
+<p>破除自我监督难题的有益探索</p>
+<blockquote>
+<p>一体推进”三项改革“</p>
+<p>”三不腐“一体推进</p>
+</blockquote>
+<p>把严的主基调长期坚持下去</p>
+<h3 id="_53">反腐败斗争总体形势</h3>
+<p>2024.01：反腐败斗争取得压倒性胜利并全面巩固</p>
+<blockquote>
+<p>十八大后自上而下全面从严治党，一个节点一个节点抓，一年接着一年干，以一个个具体问题的突破，带动了作风整体转变。</p>
+</blockquote>
+<h4 id="_54">==十八大以来反腐的五大特点==</h4>
+<p>不因身份、数量而例外</p>
+<p>不因行业、领域而止步</p>
+<p>不因敏感时期、特殊节点而放松</p>
+<p>不因小官小利而轻纵</p>
+<p>不因空间、地域而区别</p>
+<h4 id="_55">==十八大以来腐败治理的新特点==</h4>
+<p>不松劲、不歇脚</p>
+<p>真追责、敢追责、严追责，持之以恒正风肃气</p>
+<p>把权力关进制度的笼子</p>
+<p>坚持不敢腐不能腐不想腐一体推进</p>
+<p>落实无禁区全覆盖零容忍深入开展</p>
+<p>整治群众身边的腐败问题</p>
+<p>聚焦政治问题和经济问题交织的腐败案件防止党内形成利益集团</p>
+<h4 id="_56">反腐败成效</h4>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<h3 id="_57">中国当前反腐败的对策</h3>
+<p>一条主线：二十大精神</p>
+<p>一个持之以恒：八项规定、享乐奢靡</p>
+<p>一个重中之重</p>
+<p>三个防：防反弹回潮、防隐形变异、防疲劳厌战，形式主义、官僚主义</p>
+<p>四个问题：层层加码、麻痹松懈、任性用权、不担当不作为</p>
+<h3 id="_58">中国当前反腐败的启示</h3>
+<p>正确认识</p>
+<blockquote>
+<p>把握三观点看待腐败</p>
+<p>历史的观点</p>
+<p>理性的观点</p>
+<p>实事求是的观点</p>
+</blockquote>
+<p>把好关口</p>
+<blockquote>
+<p>常服两剂药</p>
+<p>警钟长鸣、防微杜渐</p>
+</blockquote>
+<p>牢记代价</p>
+<blockquote>
+<p>算准七笔账</p>
+<p>政治账、经济账、名誉账、亲情账、家庭账、健康账、自由帐</p>
+</blockquote>
+<p>踏实做人</p>
+<blockquote>
+<p>铭记四建议</p>
+<p>时刻注意四类人：名声不好而特别能往你身上贴的人，地位不高可活动能力特别强的人，能力不强但特别想当官的人，收入不多却特别能花钱的人</p>
+<p>时刻提醒自己：大贪源于小利 ，大腐源于小蚀</p>
+<p>在任何时候、任何地点、任何地位均积极争取做到：莫存一分非份之想，莫占一文不义之财；莫拿一件非己之物，莫受一次不情之请</p>
+<p>力争做一个：走在河边永不湿鞋的人、夜半敲门心却不惊的人、一身正气两袖清风的人</p>
+</blockquote>
+<h2 id="_59">第八讲 当前我国经济形势与推动经济高质量发展</h2>
+<blockquote>
+<h3 id="_60">我国国民经济运行体系的基本框架（核算体系）</h3>
+<h4 id="_61">分配角度：</h4>
+<p>居民收入、企业利润、财政收入</p>
+<h4 id="_62">使用角度：</h4>
+<p>总消费、总投资、净出口</p>
+<h4 id="_63">生产角度：</h4>
+<p>第一产业</p>
+<p>第二产业</p>
+<p>第三产业</p>
+<h3 id="_64">经济形势</h3>
+<p>长期：劳动力、资本、资源、结构、制度创新、技术创新</p>
+<p>短期：消费、投资、出口</p>
+<p>克强指数：发电量、铁路的货运量和中长期的银行贷款</p>
+</blockquote>
+<h3 id="_65">经济发展的含义</h3>
+<p>经济发展就是在经济增长的基础上，一个国家或地区经济结构和社会结构持续高级化的创新过程或变化过程。</p>
+<p>经济量的增长</p>
+<p>经济结构的改进和优化</p>
+<p>经济质量的改善和提高</p>
+<h3 id="_66">新发展理念</h3>
+<p>创新、协调、绿色、开放、共享</p>
+<h3 id="_67">我国高质量发展的非凡成就</h3>
+<p>八个方面的非凡成就</p>
+<p>宏观经济运行保持稳中向好</p>
+<p>科技创新取得重大突破</p>
+<p>现代化产业体系建设取得重要进展</p>
+<p>现代化基础设施体系加快构建</p>
+<p>如期实现全面小康</p>
+<p>城乡区域发展协调性增强</p>
+<p>高水平对外开放扎实推进</p>
+<p>生态环境保护发生历史性、转折性、全局性变化</p>
+<h3 id="_68">中国经济的底气与信心</h3>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<h3 id="_69">为什么能取得这样的成就</h3>
+<p>在于习近平新时代中国特色社会主义思想的科学指引</p>
+<p>在于中国共产党的坚强领导</p>
+<p>在于中国特色社会主义制度显著优势</p>
+<p>在于全面从严治党提供的坚强政治保证</p>
+<h3 id="_70">当前我国发展面临的形势：挑战和机遇</h3>
+<h4 id="_71">国内</h4>
+<p>国内有效需求不足</p>
+<p>市场主体预期偏弱</p>
+<p>财政金融风险有所加大</p>
+<h4 id="_72">国际环境</h4>
+<p>世界经济增长分化加剧</p>
+<p>颠覆性技术带来的深刻影响</p>
+<p>歧视性区域主义加速兴起与扩散</p>
+<p>“去风险”政策加剧全球经济脱钩的风险</p>
+<p>美国等国家大选年的不确定因素</p>
+<h3 id="2024">2024年经济工作要坚持</h3>
+<p>稳中求进、以进促稳、先立后破</p>
+<h3 id="2024_1">2024年着眼于九项重点工作</h3>
+<p>1.以科技创新引领现代化产业体系建设</p>
+<p>2.着力扩大国内需求</p>
+<p>3.深化重点领域改革</p>
+<p>4.扩大高水平对外开放</p>
+<p>5.持续防范化解重点领域风险</p>
+<p>6.坚持不懈抓好“三农工作”；</p>
+<p>7.推动城乡融合、区域协调发展；</p>
+<p>8.深入推进生态文明建设和绿色低碳发展；</p>
+<p>9.切实保障和改善民生。</p>
+<h3 id="2024_2">2024年政府工作任务</h3>
+<p>1.大力推进现代产业体系建设，加快发展新质生产力；</p>
+<p>2.深入实施科教兴国战略，强化高质量发展的基础支撑；</p>
+<p>3.着力扩大国内需求，推动经济实现良性循环；</p>
+<p>4.坚定不移深化改革，增强发展内生动力；</p>
+<p>5.扩大高水平对外开放，促进互利共赢；</p>
+<p>6.更好统筹发展和安全，有效防范化解重点领域风险；</p>
+<p>7.坚持不懈抓好“三农”工作，扎实推进乡村全面振兴；</p>
+<p>8.推动城乡融合和区域协调发展，大力优化经济布局；</p>
+<p>9.加强生态文明建设，推进绿色低碳发展；</p>
+<p>10.切实保障和改善民生，加强和创新社会治理。</p>
+<h3 id="_73">扎实推进中国高质量发展</h3>
+<p>1.加快发展新质生产力</p>
+<p>2.深入实施科教兴国战略</p>
+<p>3.着力扩大国内需求，推动经济良性循环</p>
+<p>4.推动高质量共建“一带一路”走深走实</p>
+<p>5.有效防范化解重点领域风险</p>
+<h3 id="_74">==什么是新质生产力==</h3>
+<p>创新起主导作用，摆脱传统的经济增长模式，生产力发展路径，具有高科技、高质量、高效能的先进生产力质态</p>
+<p>由技术革命性突破、生产要素创新性配置、产业深度转型升级而催生</p>
+<p>以劳动者、劳动对象、劳动资料及其优化组合为基本内涵</p>
+<p>以全要素生产力大幅提升为核心标志</p>
+<p>特点是创新</p>
+<p>关键在质优</p>
+<p>本质是先进生产力</p>
+<h3 id="_75">==发展新质生产力的核心要素==</h3>
+<p>科技创新能够催生新产业、新模式、新动能，是发展新质生产力的核心要素</p>
+<h2 id="_76">第九讲 坚持总体国家安全观共同维护国家安全</h2>
+<blockquote>
+<h3 id="_77">国家安全的概念</h3>
+<p>国家安全是指国家政权、主权、统一和领土完整、人民福祉、经济社会可持续发展和国家其他重大利益相对处于没有危险和不受内外威胁的状态，以及保障持续安全状态的能力。</p>
+</blockquote>
+<h3 id="_78">国家安全的重要性</h3>
+<h4 id="_79">三个问题</h4>
+<p>前提性问题：国家安全是改革发展的前提</p>
+<p>原则性问题：居安思危是治党治国的一个重大原则</p>
+<p>现实性问题：国家安全面临风险挑战</p>
+<p>党的二十大首次将“推进国家安全体系和能力现代化，坚决维护国家安全和社会稳定”以专章形式写入大会报告，强调“国家安全是民族复兴的根基，社会稳定是国家强盛的前提。必须坚定不移贯彻总体国家安全观，把维护国家安全贯穿党和国家工作各方面全过程，确保国家安全和社会稳定”。</p>
+<blockquote>
+<p>2014年4月，习近平在中央国家安全委员会第一次全体会议上首次正式提出“总体国家安全观”</p>
+</blockquote>
+<h3 id="_80">==总体国家安全观的基本内涵==</h3>
+<h4 id="_81">内涵和意义</h4>
+<p>第二条 国家安全是指国家政权、主权、统一和领土完整、人民福祉、经济社会可持续发展和国家其他重大利益相对处于没有危险和不受内外威胁的状态，以及保障持续安全状态的能力。</p>
+<h4 id="_82">路径</h4>
+<p>第三条 国家安全工作应当坚持总体国家安全观，以人民安全为宗旨，以政治安全为根本，以经济安全为基础，以军事、文化、社会安全为保障，以促进国际安全为依托，维护各领域国家安全，构建国家安全体系，走中国特色国家安全道路。</p>
+<h4 id="_83">方法</h4>
+<p>第八条 维护国家安全，应当与经济社会发展相协调。国家安全工作应当统筹内部安全和外部安全、国土安全和国民安全、传统安全和非传统安全、自身安全和共同安全。</p>
+<h3 id="_84">总体国家安全观的核心要义和内涵要求</h3>
+<h4 id="_85">总体国家安全观五大要素</h4>
+<p>以人民安全为宗旨，以政治安全为根本，以经济安全为基础，以军事、文化、社会安全为保障，以促进国际安全为依托</p>
+<h4 id="_86">五个统筹</h4>
+<p>统筹内部安全和外部安全、国土安全和国民安全、传统安全和非传统安全、自身安全和共同安全</p>
+<h4 id="_87">总体国家安全观核心要义集中体现为“十个坚持”</h4>
+<p>坚持党对国家安全工作的绝对领导</p>
+<p>坚持中国特色国家安全道路</p>
+<p>坚持以人民安全为宗旨</p>
+<p>坚持统筹发展和安全</p>
+<p>坚持把政治安全放在首要位置</p>
+<p>坚持统筹推进各领域安全</p>
+<p>坚持把防范化解国家安全风险摆在突出位置</p>
+<p>坚持推进国际共同安全</p>
+<p>坚持推进国家安全体系和能力现代化</p>
+<p>坚持加强国家安全干部队伍建设</p>
+<blockquote>
+<h3 id="_88">总体国家安全观的涵盖领域</h3>
+<p>总体国家安全观关键在“总体”，突出的是“大安全”理念</p>
+<p>强调“大安全理念“，涵盖诸多领域</p>
+<p>强调”系统思维和方法“，注重解决不平衡不充分问题</p>
+<p>强调国家安全要贯穿党和国家工作各方面全过程，安全</p>
+<p>与发展同样重要</p>
+<p>强调打总体战，形成强大合力</p>
+</blockquote>
+<h3 id="_89">大学生应如何维护国家安全</h3>
+<p>国家安全和利益的自觉维护者</p>
+<p>（1）每个学科都是国家安全领域的组成部分，学好本领，每个学生都应该具有知识报国、科技报国的家国情怀和远大理想。</p>
+<p>（2）从大局意识上了解把握中央维护国家安全的战略目标、基本原则、重点内容、策略方法等。树立总体国家安全观，维护国家利益和国家安全。</p>
+<p>（3）履行公民职责：《国家安全法》第七十七条公民和组织应当履行的维护国家安全的义务</p>
+<h4 id="_90">总体国家安全观的基本观点</h4>
+<p>践行正确义利观，推动构建以合作共赢为核心的新型国际关系</p>
+<p>打造人类命运共同体，构建遍布全球的伙伴关系网络</p>
+<p>倡导共同、综合、合作、可持续的安全观等理念</p>
+<blockquote>
+<p>大学生保密知识应知应会</p>
+<p>强意识、重程序、管终端、控圈子、严纪律、知敬畏</p>
+</blockquote>
+<h3 id="_91">“全民国家安全教育日”的重要意义</h3>
+<p>有利于贯彻落实“总体国家安全观”</p>
+<p>有利于提高政府和社会公众维护国家安全的法律意识</p>
+<p>有利于增强国家安全法普法宣传效果</p>
+<p>动员政府和全社会共同参与到维护国家安全的各项工作</p>
+<blockquote>
+<p>2024年4月15日是第九个全民国家安全教育日</p>
+</blockquote>
+<h2 id="_92">第十章 读懂”国之大者“的深刻内涵</h2>
+<h3 id="_93">==何谓国之大者==</h3>
+<p>要从历史发展的角度看待“国之大者”</p>
+<p>从历史发展的视角来说，“国之大者”在不同历史时期有不同的核心内涵。百年来，始终心怀“国之大者”，是中国共产党带领人民取得百年奋斗伟大历史成就的重要原因。</p>
+<p>在我国新民主主义革命时期，最根本的“国之大者”是通过推翻帝国主义、封建主义、官僚资本主义三座大山，实现民族独立和人民解放，建立人民当家作主的中华人民共和国</p>
+<p>在社会主义革命和建设时期，最根本的“国之大者”是消灭在中国延续几千年的封建剥削压迫制度，确立社会主义基本制度，推进建设一个社会主义新世界。</p>
+<p>在改革开放和社会主义现代化建设时期，最根本的“国之大者”是启动并推进改革开放，开创和发展中国特色社会主义，实现人民生活从温饱不足到总体小康再奔向全面小康的历史性跨越。</p>
+<p>在中国特色社会主义新时代，最根本的“国之大者”是统揽伟大斗争、伟大工程、伟大事业、伟大梦想，统筹推进“五位一体”总体布局，协调推进“四个全面”战略布局，实现全面建成小康社会目标，开启全面建设社会主义现代化强国新征程，为实现中华民族伟大复兴中国梦而不懈奋斗。实现中华民族伟大复兴是中国共产党百年奋斗的主题，也是中华民族和中国人民百年奋斗历程中最核心、最突出的“国之大者”</p>
+<h3 id="_94">==新时代的国之大者——当今的时代格局==</h3>
+<p>“国之大者”是指关乎党和国家前途、民族命运的大使命、大方向、大格局、大利益、大战略，是党和政府关注的最核心、最关键、最迫切的问题。</p>
+<p>价值层面：以人民为中心</p>
+<p>理论层面：理论之树常青</p>
+<p>实践层面：行胜于言、实干兴邦</p>
+<p>国际：当今世界百年未有之大变局</p>
+<p>国内：实现中华民族伟大复兴的战略全局</p>
+<p>面向世界科技前沿、面向经济主战场、面向国家重大需求，面向人民生命健康</p>
+<h3 id="_95">服务国之大者的生动实践</h3>
+<p>“我国高等教育要立足中华民族伟大复兴战略全局和世界百年未有之大变局，心怀“国之大者”，把握大势，敢于担当，善于作为，为服务国家富强、民族复兴、人民幸福贡献力量。 ”——习近平</p>
+<p>勇立潮头的时代“弄潮儿”、服务“国之大者”的重要生力军</p>
+<p>牢记嘱托 走在前列</p>
+<p>廿载奋发 奔竞一流</p>
+<p>奋进双一流 建功新时</p>
+<h3 id="_96">做服务国之大者的先锋力量</h3>
+<p>心怀“国之大者“要树立远大理想</p>
+<p>心怀“国之大者“要练就过硬本领</p>
+<blockquote>
+<p>向书本学习、向实践学习、向榜样学习</p>
+</blockquote>
+<p>心怀“国之大者“要勇于担当使命</p>
+<blockquote>
+<p>以时不我待的强烈时代责任感，以党的旗帜为旗帜、以党的方向为方向、以党的意志为意志，将个人的发展汇入时代洪流之中。</p>
+</blockquote>
+<h2 id="_97">科技创新</h2>
+<h3 id="_98">三个第一 战略 强国</h3>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<h3 id="_99">历史性成就</h3>
+<p><img alt="alt text" src="../image-5.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2006-2025 郭响宇 All rights Reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tabs.sticky", "search.suggest", "search.highlight", "navigation.instant", "navigation.instant.progress", "navigation.path"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
