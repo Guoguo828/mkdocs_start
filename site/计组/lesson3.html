@@ -1,0 +1,2565 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="课程笔记、论文阅读与个人知识整理站">
+      
+      
+      
+        <link rel="canonical" href="https://guoguo828.github.io/mkdocs_start/%E8%AE%A1%E7%BB%84/lesson3.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>指令：Language of the Machine - gxy 的学习空间</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#language-of-the-machine" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="gxy 的学习空间" class="md-header__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
+      
+  <img src="../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            gxy 的学习空间
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              指令：Language of the Machine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="lime"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Guoguo828/mkdocs_start
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-tabs__link">
+          
+  
+    
+  
+  关于我
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="index.html" class="md-tabs__link">
+          
+  
+    
+  
+  计算机系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../oop/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  程序设计与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  理论与数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  研究与专题
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="gxy 的学习空间" class="md-nav__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
+      
+  <img src="../assets/images/logo.svg" alt="logo">
+
+    </a>
+    gxy 的学习空间
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Guoguo828/mkdocs_start
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标签索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    关于我
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            关于我
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GXY 介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/%E5%85%B3%E4%BA%8E%E6%88%91.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机系统
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机体系结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sl/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字逻辑
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../H265/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    H.265 编码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../oop/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    程序设计与算法
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            程序设计与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fds/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ads/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级数据结构与算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    理论与数据库
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            理论与数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ls/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    离散数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    研究与专题
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            研究与专题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alphafold2/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlphaFold2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BD%A2%E7%AD%96/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    形势与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算机硬件的操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="计算机硬件的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stored-program-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      stored program concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      原则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算机硬件的操作数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="计算机硬件的操作数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      运算命令符都用寄存器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存命令符
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内存命令符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 内存用于存储复合数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 算术运算与内存的交互
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-byte-addressed" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 内存的寻址方式：按字节寻址（Byte Addressed）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-little-endian" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 字节序：小端序（Little Endian）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 内存对齐要求：无强制对齐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      例子
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-and-immediate-oprands" class="md-nav__link">
+    <span class="md-ellipsis">
+      constant and immediate oprands 常量或立即数操作数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      有符号和无符号数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有符号和无符号数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      有符号数的补码（都存补码）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      补码下有符号数取反
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算机中指令的表示
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="计算机中指令的表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppt" class="md-nav__link">
+    <span class="md-ellipsis">
+      例子见ppt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      指令格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    <span class="md-ellipsis">
+      R类指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      I类指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    <span class="md-ellipsis">
+      S类指令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      logical operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="logical operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shift-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      shift operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      and operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      make decision 的指令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="make decision 的指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      改进
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loopsfor" class="md-nav__link">
+    <span class="md-ellipsis">
+      它可以支持循环loops（for）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whilewhilefor" class="md-nav__link">
+    <span class="md-ellipsis">
+      它也可以支持循环while（区别就是先判断再执行（while）还是先执行再判断（for））
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-on-less-than" class="md-nav__link">
+    <span class="md-ellipsis">
+      更多指令 set on less than
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unsigned-and-signed" class="md-nav__link">
+    <span class="md-ellipsis">
+      unsigned and signed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    <span class="md-ellipsis">
+      case 的语法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="case 的语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.基本知识
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump-address-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      jump address table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case构建
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supporting-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supporting Procedures（函数）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supporting Procedures（函数）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数的定义和步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      看第一个 如何控制转移 跳转
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-more-registers-" class="md-nav__link">
+    <span class="md-ellipsis">
+      using more registers（寄存器不够用了--反复用）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈(解决寄存器不够用的情况)（这是memory的一块空间）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      例子例子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      超级例子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      帧指针
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心主题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 栈帧的结构（右边的图）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存的布局
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内存的布局">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 内存的4个核心区域
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 内存地址的分布（右边的图）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. C变量的“存储类”对应关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      两页很重要的ppt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      加很大的立即数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="加很大的立即数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      大立即数指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      解决
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址跳转
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地址跳转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支跳转（注意这里是PC偏移量）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      无条件跳转（也注意是PC偏移量）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      当分支跳转太远了
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      反推
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synchronization-in-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      synchronization in RISC-V
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="synchronization in RISC-V">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 多处理器共享内存的竞争问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 同步所需的硬件支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 原子操作的指令实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="相关命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-reserved-lrd-rd-rs1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 保留加载指令（Load Reserved: lr.d rd, (rs1)）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-store-conditional-scd-rd-rs1-rs2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 条件存储指令（Store Conditional: sc.d rd, (rs1), rs2）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translating-and-starting-a-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      translating and starting a program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组和指针
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mips" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIPs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x86-ia32" class="md-nav__link">
+    <span class="md-ellipsis">
+      还有x86 IA32
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-risc-v-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      other RISC-V instructions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些易错
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      这里说一下递归函数应该怎么写
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充补码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../tags.html#tag:计算机系统" class="md-tag">计算机系统</a>
+      
+    
+      
+      
+      
+        <a href="../tags.html#tag:计算机组成" class="md-tag">计算机组成</a>
+      
+    
+  </nav>
+
+
+  
+    <a href="https://github.com/Guoguo828/mkdocs_start/edit/main/docs/计组/lesson3.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Guoguo828/mkdocs_start/raw/main/docs/计组/lesson3.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="language-of-the-machine">指令：Language of the Machine<a class="headerlink" href="#language-of-the-machine" title="Permanent link">&para;</a></h1>
+<h2 id="_1">介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>指令有指令集 我们这里讲的是RISC-V指令集 全称是Reduced Instruction Set Computer</p>
+<p>设计目标是提高表现 降低消费 减少设计时间</p>
+<p><img alt="alt text" src="image-23.png" /></p>
+<p>指令都是由操作符（add）还有操作数（a b c）组成</p>
+<p>影响指令特性的关键因素有以上五条</p>
+<h2 id="_2">计算机硬件的操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="stored-program-concept">stored program concept<a class="headerlink" href="#stored-program-concept" title="Permanent link">&para;</a></h3>
+<p>所有的东西存下来都是以数字形式的（01）</p>
+<h3 id="_3">原则<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>1.一个指令只能有一个操作（只能加 或者 只能减）
+2.只能有三个变量（操作数）</p>
+<p><strong>design principle1</strong> simplicity favors regularity</p>
+<h2 id="_4">计算机硬件的操作数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">运算命令符都用寄存器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>运算指令是用寄存器作为（存储）操作数</p>
+<p>RISV-C用32个*64位的寄存器(64位叫做doubleword)</p>
+<p>寄存器是用来存频繁访问的数据</p>
+<p>注意了 register是寄存器 memory是内存 二者概念不同 内存是用地址对应数据 一个地址对应8位。</p>
+<p>命令也会有地址（命令是32位，所以一个命令占四个地址） 寄存器也可以存地址</p>
+<p><img alt="alt text" src="image-24.png" /></p>
+<p>这是32个寄存器</p>
+<p>有个基本的例子见ppt</p>
+<p>大概就是 add x1 x2 x3的意思是把 x2 x3 加起来写到 x1中</p>
+<h3 id="_6">内存命令符<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 内存用于存储复合数据<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>主内存（Main Memory）适合存放<strong>“复合数据”</strong>，比如：</p>
+<ul>
+<li>数组（Arrays）：多个相同类型元素的集合（如<code>int arr[100]</code>）；</li>
+<li>结构体（Structures）：多种类型元素的组合（如包含<code>int</code>、<code>float</code>的自定义结构）；</li>
+<li>动态数据（Dynamic data）：堆上分配的、运行时才确定大小的数据（如C++的<code>new</code>、Python的列表）。
+→ 原因：寄存器容量小（仅几十个），而内存容量大，能承载体积更大、更复杂的数据结构。</li>
+</ul>
+<h4 id="2">2. 算术运算与内存的交互<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>CPU的<strong>算术运算（如加减乘除）</strong> 主要在<strong>寄存器</strong>中进行（寄存器速度远快于内存）。因此，数据需要在“内存”和“寄存器”间搬运：</p>
+<ul>
+<li>先通过 <strong>Load指令</strong>：把内存中的数据加载到寄存器；</li>
+<li>运算完成后，通过 <strong>Store指令</strong>：把寄存器中的结果写回内存。</li>
+</ul>
+<h4 id="3-byte-addressed">3. 内存的寻址方式：按字节寻址（Byte Addressed）<a class="headerlink" href="#3-byte-addressed" title="Permanent link">&para;</a></h4>
+<p>内存的<strong>每个地址</strong>唯一对应一个 <strong>8位的字节（Byte）</strong>。也就是说，内存的“寻址粒度”是1字节——地址空间里的每个“单元”都是1字节，这是内存访问的基本规则。</p>
+<h4 id="4-little-endian">4. 字节序：小端序（Little Endian）<a class="headerlink" href="#4-little-endian" title="Permanent link">&para;</a></h4>
+<p>RISC-V采用<strong>小端序</strong>存储多字节数据（如“字（Word，通常4/8字节）”）。“小端序”的规则是：</p>
+<ul>
+<li>一个多字节数据中，<strong>最低有效字节（LSB，Least-Significant Byte）</strong> 存放在该数据的<strong>最低地址</strong>处。</li>
+<li>对比“大端序（Big Endian）”：大端序中，<strong>最高有效字节（MSB，Most-Significant Byte）</strong> 存放在最低地址处。</li>
+</ul>
+<p>→ 举例：存储数值 <code>0x12345678</code>（4字节）：</p>
+<ul>
+<li>小端序：地址从低到高，依次存 <code>78</code>、<code>56</code>、<code>34</code>、<code>12</code>；</li>
+<li>大端序：地址从低到高，依次存 <code>12</code>、<code>34</code>、<code>56</code>、<code>78</code>。</li>
+</ul>
+<h4 id="5">5. 内存对齐要求：无强制对齐<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<p>RISC-V<strong>不要求“字（Word）”在内存中必须“对齐”存储</strong>（“对齐”指：数据的起始地址是其长度的整数倍。比如4字节的字，对齐的地址是<code>0x...0</code>、<code>0x...4</code>等4的倍数）。
+→ 对比：有些其他指令集架构（如早期ARM、MIPS）会强制内存对齐，否则触发错误或性能损失。RISC-V的设计更灵活，但非对齐访问可能需要额外硬件逻辑处理。</p>
+<h4 id="_7">例子<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><img alt="alt text" src="image-25.png" /></p>
+<p>ld是load指令 是把一个地址的东西读到寄存器中</p>
+<p>64（x22）是说从x22存的地址+64开始读，因为每个doublewordrd占8个字节（8个地址） 88=64</p>
+<p>sd 就是把寄存器的东西写回地址（memory）中</p>
+<h3 id="constant-and-immediate-oprands">constant and immediate oprands 常量或立即数操作数<a class="headerlink" href="#constant-and-immediate-oprands" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-26.png" /></p>
+<p>就是加常数也有自己的命令addi</p>
+<h3 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-27.png" /></p>
+<h2 id="_9">有符号和无符号数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">无符号数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>看ppt</p>
+<h3 id="_11">有符号数的补码（都存补码）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_12">补码下有符号数取反<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>1.所有位按位取反
+2.加1
+3.得到的还是补码！</p>
+<h2 id="_13">计算机中指令的表示<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">简介<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>信息的二进制本质</strong>：计算机中所有信息（包括指令、数据）都由<strong>二进制位（bits）</strong>组成。</li>
+<li><strong>指令的二进制编码</strong>：指令会被编码为二进制形式，称为<strong>机器码（machine code）</strong>，是CPU能直接识别执行的格式。</li>
+<li><strong>寄存器的数字映射</strong>：RISC-V的32个通用寄存器（<code>x0</code>~<code>x31</code>）被<strong>映射为数字0~31</strong>，便于指令编码时表示寄存器编号。</li>
+<li><strong>RISC-V指令的编码特性</strong>：</li>
+<li>每条指令被编码为<strong>32位的指令字</strong>（固定长度，简化硬件解码）。</li>
+<li>采用<strong>少量统一的格式</strong>，编码“操作码（opcode，指定指令类型）”“寄存器编号”等关键信息。</li>
+<li>设计具有<strong>规整性（Regularity）</strong>，让硬件解码更高效，也便于编译器生成/优化代码。</li>
+</ol>
+<h3 id="ppt">例子见ppt<a class="headerlink" href="#ppt" title="Permanent link">&para;</a></h3>
+<h3 id="_15">指令格式<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-28.png" /></p>
+<p>大概就是这个格式</p>
+<p>先看几个重点</p>
+<p>op 操作符 7位</p>
+<p>rd 目标寄存器 5位</p>
+<p>rs1 操作数1（寄存器编号） 5位（提供数值的）</p>
+<p>rs2 操作数2（寄存器编号） 5位（提供数值的）</p>
+<p>还有一些在不同指令下不同</p>
+<h3 id="r">R类指令<a class="headerlink" href="#r" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-29.png" /></p>
+<h3 id="i">I类指令<a class="headerlink" href="#i" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-30.png" /></p>
+<p>1231
+这里的immediate是立即数 就是可以理解成一个常数或者要加在地址上的数</p>
+<h3 id="s">S类指令<a class="headerlink" href="#s" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-31.png" /></p>
+<p>只有rd ld是能让寄存器和内存交互的</p>
+<p>注意是写二进制还是16进制！</p>
+<h2 id="_16">存储<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>1.命令 data（包括程序原代码）都是用二进制数据存储的</p>
+<p>2.Instrcutions 和 data都是存在内存中</p>
+<h2 id="logical-operation">logical operation<a class="headerlink" href="#logical-operation" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-32.png" /></p>
+<p>就是什么按位与 左移 右移</p>
+<h3 id="shift-operation">shift operation<a class="headerlink" href="#shift-operation" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-33.png" /></p>
+<p>注意这里immed是表示移动多少位（只有6位）</p>
+<h3 id="and-operation">and operation<a class="headerlink" href="#and-operation" title="Permanent link">&para;</a></h3>
+<p>and x9 x10 x11</p>
+<p>or</p>
+<p>xor 都差不多</p>
+<h3 id="1_1">总结1<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-34.png" /></p>
+<p>注意这里算数右移 是最高位补符号位的</p>
+<h2 id="make-decision">make decision 的指令<a class="headerlink" href="#make-decision" title="Permanent link">&para;</a></h2>
+<p>beq r1 r2 L1 如果r1==r2跳转到L1
+bne r1 r2 L1 如果r1!=r2跳转到L1</p>
+<p>但是<img alt="alt text" src="image-35.png" /></p>
+<p>如果写成这样 会是无论如何都会执行L1 因为是顺序执行的</p>
+<h3 id="_17">改进<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-36.png" /></p>
+<p>我们加一个bnq x0 x0 Exit 就可以成功跳出了(用不相等做跳出 可以效率提高)</p>
+<h3 id="loopsfor">它可以支持循环loops（for）<a class="headerlink" href="#loopsfor" title="Permanent link">&para;</a></h3>
+<p>只需要把第一语句叫做 loop</p>
+<p>最后一个放bne x1 x2 loop就好了</p>
+<p><img alt="alt text" src="image-37.png" /></p>
+<p>首先 slli x10 x22 x3 相当于x10=8*i
+之后x10 变成A[i]的地址
+之后写到19
+加到20
+x22=x22+x23
+判断是否相等 否则回到loop</p>
+<h3 id="whilewhilefor">它也可以支持循环while（区别就是先判断再执行（while）还是先执行再判断（for））<a class="headerlink" href="#whilewhilefor" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-38.png" /></p>
+<h2 id="set-on-less-than">更多指令 set on less than<a class="headerlink" href="#set-on-less-than" title="Permanent link">&para;</a></h2>
+<p>slt x5 x1 x2 就是 x5=x1&lt;x2</p>
+<p>blt x1 x2 L1 如果x1&lt;x2跳转到L1</p>
+<p>bge x1 x2 L1 如果x1&gt;=x2跳转到L1</p>
+<h2 id="unsigned-and-signed">unsigned and signed<a class="headerlink" href="#unsigned-and-signed" title="Permanent link">&para;</a></h2>
+<p>unsigned 就是指令后面加个U</p>
+<h2 id="case">case 的语法<a class="headerlink" href="#case" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-39.png" /></p>
+<p>这个怎么写 听我慢慢说</p>
+<h3 id="1_2">1.基本知识<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>两个语句</p>
+<p>1.jal x1 100 就是说x1=pc+4(PC是这一个语句的地址，+4就是下一个) 再跳转到以100（相对的！）为地址的地方（注意，这里存的是一个语句（32位））</p>
+<p>2.jalr x1 （100）x2 就是说x1=pc+4 再跳转到以x2+100为地址的地方（存的也是语句）相当于执行语句了</p>
+<h3 id="jump-address-table">jump address table<a class="headerlink" href="#jump-address-table" title="Permanent link">&para;</a></h3>
+<p>这四个case语句都会有一个地址</p>
+<p>还有一个表 这个表就是存这几个地址的</p>
+<p>就相当于一个数组 数组每一位有个地址 每一位存了一个地址（语句的地址）</p>
+<p><img alt="alt text" src="image-40.png" /></p>
+<h3 id="case_1">case构建<a class="headerlink" href="#case_1" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-41.png" /></p>
+<p>重点几句 slli x7 x25 3 就是x7=8*k 这里的x7是用来存表的偏移地址的（因为一个地址可能是64位的）</p>
+<p>add x7 x7 x6 就是把x7变成真正要查的数组元素的地址</p>
+<p>ld x7 0(x7) 就是把x7这个地址的元素读到x7中 此时x7是语句地址</p>
+<p>jalr x1 0(x7) 就是跳到x7这个地址的语句</p>
+<p>后面再跳回x1 就是接着往下执行</p>
+<h2 id="_18">基本块<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ol>
+<li>基本块的定义与特征</li>
+</ol>
+<p>基本块是一段指令序列，具有两个关键特征：
+「无嵌入式分支（末尾除外）」：在基本块内部不会出现分支指令（如跳转、条件分支等），仅在块的末尾可能存在分支操作。
+「无分支目标 / 分支标签（开头除外）」：只有基本块的开头可以作为分支指令的目标位置（即被跳转指令指向），块内部不能有分支标签或成为分支目标。</p>
+<ol>
+<li>基本块的作用
+对于编译器：识别基本块是编译优化的基础。编译器可以基于基本块进行各类优化操作（如常量传播、死代码消除、指令重排等），提升代码执行效率。
+对于处理器：先进的处理器可通过指令级并行等技术，加速基本块的执行，从而提升程序运行速度。</li>
+</ol>
+<h2 id="supporting-procedures">Supporting Procedures（函数）<a class="headerlink" href="#supporting-procedures" title="Permanent link">&para;</a></h2>
+<p>就是说函数调用的问题，也就是说一个程序调用另一个</p>
+<p>首先我们明白 程序是由一行行命令组成的</p>
+<h3 id="_19">函数的定义和步骤<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>函数是什么：就是一段程序，基于传入参数执行任务</p>
+<p>步骤</p>
+<p>1.参数传递：将参数放置在过程（函数）可访问的位置，例如 MIPS 架构通过函数参数寄存器a0-a7 传递参数。
+2.控制转移：通过 “跳转” 操作，将程序控制权转移到过程的入口。
+3.获取存储资源：为过程分配所需的存储资源（如栈空间，用于保存局部变量、寄存器值等）。
+4.执行任务：运行过程内部逻辑，完成特定功能。
+5.结果返回：将结果放置在调用者程序可访问的位置，例如 MIPS 架构通过返回值寄存器a0-a1 传递结果。
+6.控制返回：将程序控制权返回给调用点，通过返回地址寄存器ra 定位调用时的原位置。</p>
+<h3 id="_20">看第一个 如何控制转移 跳转<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-42.png" /></p>
+<p>这里就是上面说的jal jalr</p>
+<p>其实就是先jal 跳到函数 x1存的是主程序的下一条命令。</p>
+<p>之后再通过jalr跳到x1 就是回到主程序</p>
+<h3 id="using-more-registers-">using more registers（寄存器不够用了--反复用）<a class="headerlink" href="#using-more-registers-" title="Permanent link">&para;</a></h3>
+<p>1.a0-a7 函数参数寄存器(对应x10-x17) 这个是负责传参 需要保存 返回主程序的的寄存器</p>
+<p>2；ra/x1 是返回地址寄存器（用来存应该返回到的命令的地址）</p>
+<h3 id="memory">栈(解决寄存器不够用的情况)（这是memory的一块空间）<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-43.png" /></p>
+<p>说白了就是把寄存器的值先放到memory，之后再还回去，保证了不该变的不变。哦对！还有最重要的 其实是传参</p>
+<p>这里的栈长得和之前学的那个一样 也是先进后出</p>
+<p>有一个栈指针寄存器 sp 指的是栈顶位置</p>
+<p>栈是从高地址向低地址存储</p>
+<p>所以 入栈是sp=sp-8</p>
+<p>出栈是sp=sp+8</p>
+<h3 id="_21">例子例子<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>ppt有一个返回f=g+h-i-j的例子。
+函数的参数是g h i j</p>
+<p>注意入栈和弹栈的方式</p>
+<p>注意的就是这样的操作保证了中间用到的寄存器x5 x6 x20的值不会被改变 因为别人后面也要用</p>
+<p>但是这样很没有效率 因为把x5 x6 只是为了做中间变量，对callar（调用者没有意义）</p>
+<p>所以 我们划分了两种寄存器</p>
+<p>t0-t6 是临时寄存器 根本不用保存 随便改</p>
+<p>s0-s11是保存寄存器 需要保存值（也就是要传到栈里）</p>
+<h3 id="_22">超级例子<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>ppt递归</p>
+<p>也可以发现 栈的作用是保存一下需要记住 但迫不得已改变的量（比如计算需要，因此saved register也是可以改变的 只不过最后要回复）</p>
+<p>而且这里的保留和不保留是针对于被调用者来说的，即被调用者返回时要不要把这个寄存器改回原来的值。</p>
+<p>其实就算是a0-a7可能也需要保存，但这个是调用者的责任。</p>
+<p><img alt="alt text" src="image-44.png" /></p>
+<h3 id="_23">帧指针<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-46.png" /></p>
+<p>先看一下不同东西存的结构</p>
+<p>这里的帧指针的作用是什么？ 因为栈指针一直指的是栈顶 会变动 不方便加偏移量使用</p>
+<p>而帧指针是不变的 一直指的是那些saved的东西的第一个（这样方便偏移查询）</p>
+<h3 id="1_3">1. 核心主题<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<p>讲解<strong>函数调用时，如何在栈里为函数分配空间</strong>（存局部变量、保存的寄存器等数据）。</p>
+<h3 id="2_1">2. 关键概念<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>过程帧/活动记录（Procedure frame/activation record）</strong>
+  栈里的一段“专属区域”，用来存某个函数的：</p>
+</li>
+<li>
+<p>被保存的寄存器（比如之前说的s寄存器）；</p>
+</li>
+<li>
+<p>函数的局部变量（这不是寄存器）。
+  简单说：每个函数调用时，栈都会单独划一块空间存它的临时数据，这就是“过程帧”。</p>
+</li>
+<li>
+<p><strong>帧指针（Frame pointer，简称FP）</strong>
+  一个“标记”（存在寄存器里，比如RISC-V的<code>s0/fp</code>），用来定位当前函数的过程帧位置——通过FP能快速找到这个函数的局部变量、保存的寄存器存在栈的哪里。</p>
+</li>
+<li>
+<p><strong>被调用方分配的局部数据</strong>
+  比如C语言里的“自动变量”（就是函数内的局部变量，比如<code>int x;</code>），这些数据是由“被调用的函数”（callee）在栈上分配空间的。</p>
+</li>
+</ul>
+<h3 id="3">3. 栈帧的结构（右边的图）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>栈是“高地址在上、低地址在下”（栈向下增长），图里的<code>SP</code>是栈指针（指向栈顶），<code>FP</code>是帧指针（指向当前函数栈帧的起始位置）。
+栈帧里通常会存这些内容：</p>
+<ul>
+<li>保存的参数寄存器；</li>
+<li>保存的返回地址；</li>
+<li>保存的s寄存器；</li>
+<li>局部数组、结构体等数据（因为寄存器放不下）。</li>
+</ul>
+<h2 id="_24">内存的布局<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-47.png" /></p>
+<p>这里写的很明白了。</p>
+<p>这页PPT讲的是<strong>程序运行时的“内存布局”</strong>——也就是程序在内存里被分成了哪几个功能区域，每个区域存什么数据，拆解如下：</p>
+<h3 id="1-4">1. 内存的4个核心区域<a class="headerlink" href="#1-4" title="Permanent link">&para;</a></h3>
+<p>程序运行时，内存会被划分为4个独立的“段”，每个段有明确的用途：</p>
+<ul>
+<li><strong>Text段</strong>：存<strong>程序的代码（指令）</strong>，比如你写的函数逻辑对应的机器指令，PC（程序计数器）会指向这个段的地址来执行代码。</li>
+<li>
+<p><strong>Static data段</strong>：存<strong>全局变量、静态变量</strong>（比如C里的<code>static int a;</code>、常量数组、字符串常量）。
+  这里还提到RISC-V的<code>x3（全局指针gp）</code>——它会被初始化为这个段的地址，方便快速访问全局变量。</p>
+</li>
+<li>
+<p><strong>Dynamic data段（堆）</strong>：存<strong>动态分配的数据</strong>（比如C里<code>malloc</code>申请的内存、Java里<code>new</code>创建的对象），需要手动申请/释放。</p>
+</li>
+<li><strong>Stack段（栈）</strong>：存<strong>自动变量</strong>（也就是函数的局部变量），随函数调用自动分配/销毁（之前讲的栈帧就在这里）。</li>
+</ul>
+<h3 id="2_2">2. 内存地址的分布（右边的图）<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p>内存地址是“从低到高”排列的：</p>
+<ul>
+<li>最底部是<code>Reserved</code>（保留区域）；</li>
+<li>往上是<code>Text</code>（程序代码，PC指针指向这里）；</li>
+<li>再往上是<code>Static data</code>（全局/静态变量）；</li>
+<li>然后是<code>Dynamic data（堆）</code>（堆是<strong>向上增长</strong>的）；</li>
+<li>最顶部是<code>Stack（栈）</code>（栈是<strong>向下增长</strong>的）。
+（堆和栈中间的区域，是它们动态扩展的空间）</li>
+</ul>
+<h3 id="3-c">3. C变量的“存储类”对应关系<a class="headerlink" href="#3-c" title="Permanent link">&para;</a></h3>
+<p>C里的变量类型，会对应到不同的内存段：</p>
+<ul>
+<li><code>automatic</code>（自动变量）：对应<strong>Stack段</strong>（函数局部变量）；</li>
+<li><code>static</code>（静态变量）：对应<strong>Static data段</strong>（全局/静态变量）。</li>
+</ul>
+<h2 id="ppt_1">两页很重要的ppt<a class="headerlink" href="#ppt_1" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-48.png" /></p>
+<p>寄存器</p>
+<p><img alt="指令" src="image-49.png" /></p>
+<p>指令</p>
+<h2 id="character-data">Character Data<a class="headerlink" href="#character-data" title="Permanent link">&para;</a></h2>
+<p>就是字符编码</p>
+<p>1.acsll编码 128个字符 95个图形 33个控制</p>
+<p>2.Latin-1编码 256个字符</p>
+<p>3.Unicode 32位字符集合 涵盖绝大多数字母表和符号</p>
+<p>你看这里有8位 16位 32位 和之前的doubleword 64位不同</p>
+<p>因此指令也不会太一样</p>
+<ol>
+<li>
+<p>带符号扩展的加载指令
+指令：lb（加载字节8）、lh（加载半字16）、lw（加载字32）
+功能：从内存中读取 8 位、16 位、32 位数据后，符号扩展到 64 位，存入目标寄存器rd。</p>
+</li>
+<li>
+<p>无符号扩展的加载指令
+指令：lbu（加载无符号字节）、lhu（加载无符号半字）、lwu（加载无符号字）
+功能：从内存中读取 8 位、16 位、32 位数据后，零扩展到 64 位，存入目标寄存器rd。</p>
+</li>
+<li>
+<p>存储指令
+指令：sb（存储字节）、sh（存储半字）、sw（存储字）
+功能：将源寄存器rs2中最右侧的 8 位、16 位、32 位数据，存储到由offset（偏移量）和rs1（基地址）计算出的内存地址中。</p>
+</li>
+</ol>
+<p>不过和ld rd语法也都差不多喽</p>
+<p>ppt有个例子</p>
+<p>这就是一个叶子程序（里面没有分支或者循环）</p>
+<p>所以其实这里用s3（saved 寄存器）不太合适 因为还要先压栈记住再弹栈回来 没什么必要</p>
+<h2 id="_25">加很大的立即数<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>我们之前指令加的立即数的位数是12位</p>
+<p>但如果想加很大的呢？</p>
+<h3 id="_26">大立即数指令<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>我们这里用20位立即数</p>
+<p>U型指令</p>
+<p>lui rd,imm 就是把imm这个数放到rd这个寄存器里</p>
+<p><img alt="alt text" src="image-50.png" /></p>
+<p>格式 左边20位是立即数 右边七位是opcode 中间是寄存器</p>
+<p>注意 <strong>实际传到寄存器的值是imm左移12位</strong>（这起到了解决大立即数的作用）</p>
+<p>但是这样你会说不是这后面12位怎么办？</p>
+<p>注意 这里说的lui 976不是加976 而是976*2的12次方</p>
+<p>欸 很简单 再来一个addi的指令不就好了</p>
+<p><img alt="alt text" src="image-51.png" /></p>
+<p>看这个例子 注意是放在64位的右边32位</p>
+<p>但这里有个问题！</p>
+<p>addi的立即数最高位是符号位！ 这里表达有问题</p>
+<p>那怎么办呢？</p>
+<h3 id="_27">解决<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>很简单 我们在976那里+1就好了 具体ppt也有（ppt的图是错的！应该是变成lui s3 977以及addi s3 s3 2304）</p>
+<p>原理大概就是2304-(111100000000)=2的13次方 这里的意思就是本来该加2304 结果加了一个负数 11110000000就是这个负数补码的源码</p>
+<p>当然如果加的数小于2048就没这种麻烦了</p>
+<h3 id="_28">地址跳转<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h4 id="pc">分支跳转（注意这里是PC偏移量）<a class="headerlink" href="#pc" title="Permanent link">&para;</a></h4>
+<p>跳转指令(比如分支跳转) SB-type</p>
+<p>例子：bne x10 x11 2000(2000=0111 1101 0000)</p>
+<p><img alt="alt text" src="image-52.png" /></p>
+<p>不过你也看到 这里拆的很散 而且再组合成2000也很怪异</p>
+<p>还有一个注意的点 指令里面其实存的是1000 因为后面组成的时候会默认最后补0 也就是乘二（但bne那里就是2000 就是要跳到2000！）</p>
+<p>也就是偏移字段是1000  实际偏移量是2000</p>
+<h3 id="pc_1">无条件跳转（也注意是PC偏移量）<a class="headerlink" href="#pc_1" title="Permanent link">&para;</a></h3>
+<p>UJ-type</p>
+<p>就是我们之前看到的jal 它支持20位的地址输入</p>
+<p><img alt="alt text" src="image-53.png" /></p>
+<p>所以大跳转 我们可以先用lui 再用jalr</p>
+<p>注意 这个也有上面乘2的问题！</p>
+<p>注意 jalr是<strong>i型</strong>指令！<strong>而且是绝对地址</strong></p>
+<h3 id="_29">当分支跳转太远了<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>我们知道无条件比分支的跳转范围大</p>
+<p>所以可以先让分支跳到无条件 再从无条件跳到目标</p>
+<p>还可以通过lui与jalr（不用乘2的）的组合</p>
+<h2 id="_30">反推<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p>给你一个32位指令 推什么命令</p>
+<p>先从右边7位判断什么类型 再对应这个类型编码规则 翻译。</p>
+<h2 id="synchronization-in-risc-v">synchronization in RISC-V<a class="headerlink" href="#synchronization-in-risc-v" title="Permanent link">&para;</a></h2>
+<p>讲的是<strong>RISC-V架构中的同步机制</strong></p>
+<h3 id="1_4">1. 多处理器共享内存的竞争问题<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<p>当两个处理器（P1、P2）共享一块内存区域时：</p>
+<ul>
+<li>若执行“P1写内存 → P2读内存”的操作，<strong>若不同步会引发数据竞争（Data race）</strong>；</li>
+<li>数据竞争的结果会依赖于访问顺序，导致程序行为不可预测。</li>
+</ul>
+<h3 id="2_3">2. 同步所需的硬件支持<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<p>为解决数据竞争，需要<strong>硬件级的原子读写操作</strong>：</p>
+<ul>
+<li>原子操作要求“读-写”过程中，该内存位置不允许其他处理器访问；</li>
+<li>确保操作的“原子性”（不可分割性），避免中间状态被干扰。</li>
+</ul>
+<h3 id="3_1">3. 原子操作的指令实现<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>原子同步可通过<strong>单条指令或原子指令对</strong>实现：</p>
+<ul>
+<li>示例：寄存器与内存的“原子交换”指令（atomic swap）；</li>
+<li>或通过一对原子指令组合，保证操作的原子性。</li>
+</ul>
+<h3 id="_31">相关命令<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>这一页讲解的是<strong>RISC-V架构中用于同步的两条关键指令：保留加载（Load Reserved）和条件存储（Store Conditional）</strong>，它们配合实现原子操作，解决多处理器共享内存的同步问题，具体如下：</p>
+<h4 id="1-load-reserved-lrd-rd-rs1">1. 保留加载指令（Load Reserved: <code>lr.d rd, (rs1)</code>）<a class="headerlink" href="#1-load-reserved-lrd-rd-rs1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>功能：从寄存器<code>rs1</code>指定的内存地址加载数据到寄存器<code>rd</code>；</li>
+<li>关键特性：对该内存地址<strong>设置“保留标记”</strong>，用于后续检测该地址是否被其他处理器修改。</li>
+</ul>
+<h4 id="2-store-conditional-scd-rd-rs1-rs2">2. 条件存储指令（Store Conditional: <code>sc.d rd, (rs1), rs2</code>）<a class="headerlink" href="#2-store-conditional-scd-rd-rs1-rs2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>功能：将寄存器<code>rs2</code>中的数据存储到<code>rs1</code>指定的内存地址；</li>
+<li>执行结果判断：</li>
+<li><strong>成功</strong>：若从<code>lr.d</code>执行后到<code>sc.d</code>执行前，该内存地址<strong>未被修改</strong>，存储成功，<code>rd</code>返回<code>0</code>；</li>
+<li><strong>失败</strong>：若该内存地址的值<strong>已被修改</strong>，存储失败，<code>rd</code>返回<strong>非零值</strong>。</li>
+</ul>
+<p>这两条指令配合使用，可实现<strong>原子性的“读-改-写”操作</strong>，是RISC-V处理多处理器内存同步、避免数据竞争的核心硬件支持手段（例如用于实现互斥锁、原子变量更新等场景）。</p>
+<h2 id="translating-and-starting-a-program">translating and starting a program<a class="headerlink" href="#translating-and-starting-a-program" title="Permanent link">&para;</a></h2>
+<p>这里看ppt 问ai 了解即可</p>
+<h2 id="_32">数组和指针<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<p>数组要先看每个元素大小 再加到基础地址 才能得到每个位置的地址</p>
+<p>指针就是直接指过去</p>
+<h2 id="mips">MIPs<a class="headerlink" href="#mips" title="Permanent link">&para;</a></h2>
+<p>Mips和RISC-V一样 都是32个通用 还有32个浮点计算器 都是只有ld rd能和内存沟通</p>
+<p>但是mips采用先比较再标记 再分支的结构 就是用slt sltu比较 再用 beq bne实现跳转</p>
+<h2 id="x86-ia32">还有x86 IA32<a class="headerlink" href="#x86-ia32" title="Permanent link">&para;</a></h2>
+<p>见ppt吧 都是其他的指令集</p>
+<h2 id="other-risc-v-instructions">other RISC-V instructions<a class="headerlink" href="#other-risc-v-instructions" title="Permanent link">&para;</a></h2>
+<p>就比如一些addw 代表32位加减 （寄存器64位的时候）</p>
+<p>RISC-V有基本指令集 还有扩展</p>
+<p>指令集扩展：</p>
+<p><img alt="alt text" src="image-54.png" /></p>
+<h2 id="_33">一些易错<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>在ppt最后</p>
+<h2 id="_34">这里说一下递归函数应该怎么写<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<p>有几个原则：</p>
+<ol>
+<li>每次调用要准备2个位置 也就是sp=sp-16 一个用来放回去的位置x1 一个放回去的值</li>
+<li>在最后的时候写jalr x0 0(x1) 也就是回去</li>
+<li>你在同一层执行的东西 不用管下面几层这个变量怎么变 就看这一层就好了。你要记住 写的对的话肯定会还原的。</li>
+<li>一般递归的命令就是 jal x1 函数（比如fib fact）</li>
+</ol>
+<h2 id="_35">附录<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p>在RISC-V指令集中，不同类型指令的<strong>opcode（操作码，低7位）</strong> 如下：</p>
+<table>
+<thead>
+<tr>
+<th>指令类型</th>
+<th>opcode（二进制）</th>
+<th>opcode（十进制）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R型（寄存器-寄存器操作）</td>
+<td><code>0110011</code></td>
+<td>51</td>
+<td>用于算术逻辑运算（如ADD、SUB、AND等），需结合funct3、funct7进一步区分指令</td>
+</tr>
+<tr>
+<td>I型（立即数/加载操作）</td>
+<td>- <code>0000011</code>（加载指令，如LB、LW）<br>- <code>0010011</code>（立即数运算，如ADDI、XORI）<br>- <code>1100111</code>（跳转并链接寄存器，如JALR）</td>
+<td>- 3<br>- 19<br>- 103</td>
+<td>涵盖短立即数运算、内存加载、寄存器跳转操作</td>
+</tr>
+<tr>
+<td>S型（存储操作）</td>
+<td><code>0100011</code></td>
+<td>35</td>
+<td>用于内存存储（如SB、SW）</td>
+</tr>
+<tr>
+<td>B型（条件跳转）</td>
+<td><code>1100011</code></td>
+<td>99</td>
+<td>用于条件分支（如BEQ、BGE）</td>
+</tr>
+<tr>
+<td>U型（长立即数）</td>
+<td>- <code>0010111</code>（AUIPC）<br>- <code>0110111</code>（LUI）</td>
+<td>- 23<br>- 55</td>
+<td>用于长立即数加载（如LUI将立即数左移12位）</td>
+</tr>
+<tr>
+<td>J型（无条件跳转）</td>
+<td><code>1101111</code></td>
+<td>127</td>
+<td>用于无条件跳转（如JAL）</td>
+</tr>
+</tbody>
+</table>
+<p>这些opcode是指令解码的关键标识，通过低7位即可快速区分指令的大类别，再结合<code>funct3</code>、<code>funct7</code>等字段可进一步确定具体指令功能。</p>
+<h3 id="_36">补充补码<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p>补充补码一个小知识：其实负数的补码就是他的正数全部取反+1；</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <script
+    src="https://utteranc.es/client.js"
+    repo="Guoguo828/mkdocs_start"
+    issue-term="pathname"
+    label="documentation"
+    theme="preferred-color-scheme"
+    crossorigin="anonymous"
+    async
+  ></script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2006-2026 郭响宇
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

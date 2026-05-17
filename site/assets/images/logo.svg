@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="gxy logo">
+  <defs>
+    <linearGradient id="gxyGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect x="28" y="40" width="200" height="176" rx="28" fill="url(#gxyGrad)"/>
+  <path d="M84 72h88c20 0 36 16 36 36v64c0 20-16 36-36 36H84c-20 0-36-16-36-36v-64c0-20 16-36 36-36Z" fill="#ffffff" opacity="0.16"/>
+  <path d="M92 86h72c18 0 32 14 32 32v42c0 18-14 32-32 32H92c-18 0-32-14-32-32v-42c0-18 14-32 32-32Z" fill="#ffffff"/>
+  <path d="M92 86h16v106H92z" fill="#ccfbf1"/>
+  <path d="M122 118h48v10h-48zm0 24h48v10h-48zm0 24h32v10h-32z" fill="#0f766e"/>
+  <circle cx="82" cy="128" r="12" fill="#14b8a6"/>
+  <circle cx="82" cy="160" r="12" fill="#0f766e"/>
+</svg>

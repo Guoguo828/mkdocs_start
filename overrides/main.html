@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    // 自动计算预计阅读时长与字数
+    document.addEventListener("DOMContentLoaded", function() {
+      const article = document.querySelector(".md-content__inner");
+      if (article) {
+        // 获取正文内容并去除多余空白
+        const text = article.textContent || article.innerText;
+        // 中英文混合字数估算
+        const cnCharacters = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+        const enWords = (text.replace(/[\u4e00-\u9fa5]/g, '').match(/\b\w+\b/g) || []).length;
+        const totalWords = cnCharacters + enWords;
+        
+        // 按照每分钟平均阅读 300 字计算
+        const readingTime = Math.ceil(totalWords / 300); 
+
+        // 仅在字数大于 10 时显示
+        if (totalWords > 10) {
+          const h1 = article.querySelector("h1");
+          if (h1) {
+            const timeLabel = document.createElement("p");
+            timeLabel.style.color = "var(--md-default-fg-color--light)";
+            timeLabel.style.fontSize = "0.85rem";
+            timeLabel.style.marginTop = "-0.5rem";
+            timeLabel.style.marginBottom = "1.5rem";
+            timeLabel.innerHTML = `⏱️ 预计阅读时长: <b>${readingTime} 分钟</b> （约 ${totalWords} 字）`;
+            h1.insertAdjacentElement('afterend', timeLabel);
+          }
+        }
+      }
+    });
+  </script>
+{% endblock %}

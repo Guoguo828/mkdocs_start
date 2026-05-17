@@ -1,122 +1,114 @@
-site_name: gxy的小空间
+site_name: "gxy 的学习空间"
+site_description: "课程笔记、论文阅读与个人知识整理站"
+site_url: "https://guoguo828.github.io/mkdocs_start/"
+docs_dir: "docs"
+site_dir: "site"
+use_directory_urls: false
+repo_url: "https://github.com/Guoguo828/mkdocs_start"
+repo_name: "Guoguo828/mkdocs_start"
+edit_uri: "edit/main/docs/"
+
 theme:
-    name: material
-
-    icon: 
-      logo: material/cat
-      annotation: material/arrow-right-circle 
-
-    language: zh
-
-    features:
-      - navigation.tabs #顶部导航
-      - navigation.top  #返回顶部
-      - navigation.tabs.sticky
-      - search.suggest  #搜索建议
-      - search.highlight #搜索高亮
-      - navigation.instant
-      - navigation.instant.progress
-      - navigation.path
-      
-    palette: 
-
-    # Palette toggle for light mode
-    - scheme: default
-      primary: blue
-      accent : yellow
+  name: "material"
+  language: "zh"
+  logo: "assets/images/logo.svg"
+  custom_dir: "overrides"
+  icon:
+    repo: "fontawesome/brands/github"
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  palette:
+    - scheme: "default"
+      primary: "teal"
+      accent: "amber"
       toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
+        icon: "material/weather-night"
+        name: "切换到深色模式"
+    - scheme: "slate"
+      primary: "cyan"
+      accent: "lime"
+      toggle:
+        icon: "material/white-balance-sunny"
+        name: "切换到浅色模式"
+  font:
+    text: "Noto Sans SC"
+    code: "JetBrains Mono"
 
-    # Palette toggle for dark mode
-    - scheme: slate
-      primary: cyan
-      accent : yellow
-      toggle: 
-        icon: material/brightness-4
-        name: Switch to light mode
-    font:
-      text: 'Roboto'
-      code: 'Roboto Mono'
-
-    social:
-      - icon: fontawesome/brands/github
-        link: https://github.com/yourusername
-      - icon: fontawesome/brands/twitter
-        link: https://twitter.com/yourusername
-
-    plugins:
-      - search
-      - mkdocs-material-extensions
+plugins:
+  - meta
+  - search:
+      lang:
+        - "zh"
+        - "en"
+  - tags
 
 markdown_extensions:
-  - codehilite
   - admonition
-  - pymdownx.details
-  - pymdownx.superfences
   - attr_list
   - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-copyright: Copyright © 2006-2025 郭响宇 All rights Reserved
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - "assets/stylesheets/extra.css"
+
+extra:
+  analytics:
+    provider: custom
+
+validation:
+  nav:
+    omitted_files: ignore
+copyright: "Copyright © 2006-2026 郭响宇"
 
 nav:
-
-  - 首页: 
-    - 自我介绍: 首页文章\gxy介绍.md
-    - 简介: 首页文章\关于我.md
-  - fds:
-    - tree1: fds\tree1.md
-    - tree2: fds\tree2.md
-    - 堆: fds\heap.md
-    - 堆栈和队列: fds\stack_and_queue.md
-    - 并查集: fds\并查集.md
-    - 图1: fds\graph1.md
-    - 图2: fds\graph2.md
-    - 图3: fds\graph3.md
-    - 图4: fds\graph4.md
-    - 排序: fds\sort.md
-    - 哈希: fds\hashing.md
-    - 我的报告: fds\3240102521_report.md
-  - 数逻:
-    - 第二节课（命题公式和卡诺图）: sl\sl_and_ls_circuit_op.md
-    - 第三节课（门的类型）: sl\2.3_ Additional_Gates_and_Circuits.md
-    - 第四节课（实现一个数字逻辑设计）: sl\3.1_impletation_technology_and_logic_design.md
-    - 第五节课（特殊模块介绍）: sl\3.2_combinational_logic.md
-    - 第六节课（算数器）: sl\3.3_arithmetic_functions.md
-    - 第七节课（时序电路）: sl\4.1_sequential_circuits_part1.md
-    - 第八节课（时序电路设计）: sl\4.2 Sequencial circuit design.md
-    - 第九节课（可编程逻辑）: sl\5.2progammable-implementation-technologyies.md
-    - 第十节课（寄存器）: sl\6.1 register.md
-    - 第十一节课（内存）: sl\7.1_memory.md
-  - 离散数学:
-    - 第二节课（逻辑命题）: ls\class_2_logic.md
-    - 第三节课（集合论）: ls\class_3_set.md
-    - 第四节课（计数）: ls\class_4 counting.md
-    - 第五节课（高级计数原理）: ls\class_5 advanced counting.md
-    - 第六节课（关系）: ls\class_6_relations.md
-    - 第七节课（图）: ls\class_7_graphs.md
-    - 第八节课（树）: ls\class_8_tree.md
-  - 数分:
-    - 小测1: 数分\数分小测.md
-    - 小测2: 数分\数分小测2.md
-  - 线性代数 :
-    - 期中考试 : 线代\期中考试.md
-  - 形策 :
-    - 整理的笔记1: 形策\复习提纲.md
-    - 整理的笔记2: 形策\历年卷考题综合.md
-    - 整理的笔记3: 形策\新闻重点.md
-  - 经验part :
-    - H课 : 
-      - 数分: 经验\数分.md
-      - 线代: 经验\线代.md
-      - 普物: 经验\普物.md
-    - 计算机专业课 :
-      - 数据结构: 经验\数据结构.md
-      - 数字逻辑: 经验\数字逻辑.md
-      - 离散数学: 经验\离散.md
-    - 水课 : 
-      - 军训: 经验\军训.md
-      - 思政类: 经验\思政类课程.md
-  - 科研 :
-    - 服务器: 科研之路\服务器的使用.md
+  - "首页":
+      - "欢迎页": "index.md"
+      - "使用指南": "使用指南.md"
+      - "更新记录": "更新记录.md"
+      - "标签索引": "tags.md"
+  - "关于我":
+      - "GXY 介绍": "首页文章/gxy介绍.md"
+      - "简介": "首页文章/关于我.md"
+  - "计算机系统":
+      - "计算机组成": "计组/index.md"
+      - "计算机体系结构": "体系结构/index.md"
+      - "数字逻辑": "sl/index.md"
+      - "H.265 编码": "H265/index.md"
+  - "程序设计与算法":
+      - "面向对象编程": "oop/index.md"
+      - "数据结构基础": "fds/index.md"
+      - "高级数据结构与算法": "ads/index.md"
+  - "理论与数据库":
+      - "数据库": "数据库/index.md"
+      - "离散数学": "ls/index.md"
+  - "研究与专题":
+      - "论文笔记": "论文笔记/index.md"
+      - "AlphaFold2": "alphafold2/index.md"
+      - "形势与政策": "形策/index.md"

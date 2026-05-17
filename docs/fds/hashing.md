@@ -81,7 +81,7 @@ struct  HashTbl {
 }; 
 ```
 
-分析：这里是利用一个相当于二维数组的哈希表来存储，首先定义了每一个节点的结构（组成链表），然后定义了哈希表结构，里面有表大小和指针数组（这个数组的下标就是哈希函数的值，同时数组的每一个节点都是一个链表的开头，这个链表存储了所有的哈希值相同的值的节点）。
+分析：这里是利用一个相当于二维数组的哈希表来存储，首先定义了每一个节点的结构（组成链表），然后定义了哈希表结构，里面有表大小（指的是数组大小T）和指针数组（这个数组的下标就是哈希函数的值，同时数组的每一个节点都是一个链表的开头，这个链表存储了所有的哈希值相同的值的节点）。
 
 ---
 
@@ -219,8 +219,8 @@ Position  Find ( ElementType Key, HashTable H )
     CurrentPos = Hash( Key, H->TableSize ); 
     while( H->TheCells[ CurrentPos ].Info != Empty && 
 	H->TheCells[ CurrentPos ].Element != Key ) { 
-	CurrentPos += 2 * ++CollisionNum  1; 
-	if ( CurrentPos >= H->TableSize )  CurrentPos  = H->TableSize; 
+	CurrentPos += 2 * ++CollisionNum + 1; 
+	if ( CurrentPos >= H->TableSize )  CurrentPos -= H->TableSize; 
     } 
     return CurrentPos; 
 } 
@@ -237,7 +237,8 @@ Position  Find ( ElementType Key, HashTable H )
 ### double hash
 
 事实上，我们可以用一个哈希函数作为偏移量，这样，当发生碰撞的时候，我们就可以利用第二个函数，来计算出下一个位置。
-![alt text](image-23.png)
+
+> 这里原本对应一张 double hashing 的示意图，但当前源文件中缺少配套图片，后续可以补回。
 
 ### rehashing
 

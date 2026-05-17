@@ -1,0 +1,13 @@
+{% if not page.is_homepage %}
+  <h2 id="__comments">{{ lang.t("meta.comments") | default("评论") }}</h2>
+  <!-- 默认使用 Utterances 基于 Issue 的评论系统。请前往 https://utteranc.es/ 安装 GitHub App 以激活。 -->
+  <script
+    src="https://utteranc.es/client.js"
+    repo="Guoguo828/mkdocs_start"
+    issue-term="title"
+    label="💬 comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+{% endif %}

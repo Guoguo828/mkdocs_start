@@ -1,27 +1,103 @@
-# 欢迎来到gxy的私人空间
+# gxy 的学习空间
 
-## 这里会分享一些学习笔记
+## 站点说明
 
-## 本人就读于浙江大学混合班
+这里收录了计算机系统、算法、数据库、离散数学、OOP、论文阅读等方向的课程与专题笔记，适合按课程阅读，也适合按关键词检索。
 
-??? danger
-    如果不是<font size=6>芝士蛋糕</font>，赶快退出吧
+- 专题目录：`12`
+- Markdown 笔记：`96`
+- 配套资源：`479`
+- 最近同步：`2026-05-17 23:25`
 
-我超级帅哦(1) 你信了吧.
-{ .annotate }
+[快速上手](使用指南.md){ .md-button .md-button--primary }
+[去看论文笔记](论文笔记/index.md){ .md-button }
 
-1. : 我其实是wjt
+## 学习分区
 
-[神秘传送门](https://www.bilibili.com){ .md-button }
+### 计算机系统
 
-=== "Unordered list"
+<div class="grid cards" markdown>
+-   __[计算机组成](计组/index.md)__
+    ---
+    这个目录存放计算机组成相关课程笔记，当前以 `lesson1.md` 到 `lesson7.md` 为主，并配有大量课程截图图片。
+    `7 篇笔记 · 0 份 PDF`
 
-    * Sed sagittis eleifend rutrum
-    * Donec vitae suscipit est
-    * Nulla tempor lobortis orci
+-   __[计算机体系结构](体系结构/index.md)__
+    ---
+    偏体系结构和高级处理器设计的课程整理。
+    `6 篇笔记 · 0 份 PDF`
 
-=== "Ordered list"
+-   __[数字逻辑](sl/index.md)__
+    ---
+    数字逻辑课程笔记，覆盖组合逻辑、时序逻辑和存储器。
+    `10 篇笔记 · 1 份 PDF`
 
-    1. Sed sagittis eleifend rutrum
-    2. Donec vitae suscipit est
-    3. Nulla tempor lobortis orci
+-   __[H.265 编码](H265/index.md)__
+    ---
+    H.265/HEVC 相关概述、预测、量化和熵编码笔记。
+    `8 篇笔记 · 1 份 PDF`
+
+</div>
+
+### 程序设计与算法
+
+<div class="grid cards" markdown>
+-   __[面向对象编程](oop/index.md)__
+    ---
+    这个目录存放 C++ / 面向对象编程课程笔记，内容既覆盖基础语法，也覆盖类、继承、多态、模板、STL 等主题。
+    `13 篇笔记 · 0 份 PDF`
+
+-   __[数据结构基础](fds/index.md)__
+    ---
+    树、堆、并查集、图、排序、哈希等数据结构笔记。
+    `12 篇笔记 · 0 份 PDF`
+
+-   __[高级数据结构与算法](ads/index.md)__
+    ---
+    AVL、红黑树、回溯、分治、动态规划、随机化与近似算法。
+    `15 篇笔记 · 0 份 PDF`
+
+</div>
+
+### 理论与数据库
+
+<div class="grid cards" markdown>
+-   __[数据库](数据库/index.md)__
+    ---
+    这个目录存放数据库课程笔记，既有按章节整理的主线内容，也有若干专题笔记。
+    `9 篇笔记 · 0 份 PDF`
+
+-   __[离散数学](ls/index.md)__
+    ---
+    逻辑、集合、计数、关系、图论与树的课程笔记。
+    `7 篇笔记 · 0 份 PDF`
+
+</div>
+
+### 研究与专题
+
+<div class="grid cards" markdown>
+-   __[论文笔记](论文笔记/index.md)__
+    ---
+    论文阅读记录、解读和阶段性整理。
+    `5 篇笔记 · 5 份 PDF`
+
+-   __[AlphaFold2](alphafold2/index.md)__
+    ---
+    AlphaFold2 学习笔记与相关图示材料。
+    `1 篇笔记 · 1 份 PDF`
+
+-   __[形势与政策](形策/index.md)__
+    ---
+    形策课程整理、复习提纲与热点材料。
+    `3 篇笔记 · 2 份 PDF`
+
+</div>
+
+## 站点亮点
+
+- 支持全文搜索、关键词高亮和搜索建议。
+- 课程分区页面使用 Material 原生 cards 结构。
+- 标签索引页支持按课程和专题交叉浏览。
+- 顶部仓库入口可直接跳到 GitHub 查看源码。
+- 左侧目录适合顺序学习，顶部标签适合在不同课程之间快速切换。

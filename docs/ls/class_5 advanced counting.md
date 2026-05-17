@@ -27,7 +27,8 @@
 2.找非齐次方程的特解（特解也是一个通项公式啊！）(待定系数)
 3.通解=齐次解+非齐次特解
 4.代入初始条件求解常数
-5.那这个特解怎么找呢：![alt text](image.png)!  例子：[alt text](image-1.png)
+5.那这个特解怎么找呢：![alt text](image.png)!
+ 例子：[1](image-1.png)
 
 ## 母函数(Generating Functions)
 
