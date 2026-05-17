@@ -1381,12 +1381,13 @@ $$
 
 
   <h2 id="__comments">评论</h2>
+  <!-- 默认使用 Utterances 基于 Issue 的评论系统。请前往 https://utteranc.es/ 安装 GitHub App 以激活。 -->
   <script
     src="https://utteranc.es/client.js"
     repo="Guoguo828/mkdocs_start"
-    issue-term="pathname"
-    label="documentation"
-    theme="preferred-color-scheme"
+    issue-term="title"
+    label="💬 comment"
+    theme="github-light"
     crossorigin="anonymous"
     async
   ></script>
@@ -1440,8 +1441,37 @@ $$
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
+  
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var article = document.querySelector(".md-content__inner");
+      if (!article) return;
+      
+      var text = article.innerText || article.textContent;
+      
+      var cnWords = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+      var enWords = (text.replace(/[\u4e00-\u9fa5]/g, '').match(/\b\w+\b/g) || []).length;
+      var totalWords = cnWords + enWords;
+      
+      var readingTime = Math.ceil(totalWords / 300);
+      
+      if (totalWords > 20) {
+        var h1 = article.querySelector("h1");
+        if (h1) {
+          var timeLabel = document.createElement("p");
+          timeLabel.style.color = "var(--md-default-fg-color--light)";
+          timeLabel.style.fontSize = "0.85rem";
+          timeLabel.style.marginTop = "-0.5rem";
+          timeLabel.style.marginBottom = "1.5rem";
+          timeLabel.innerHTML = "&#x23F1;&#xFE0F; 预计阅读时长: <b>" + readingTime + " 分钟</b> （约 " + totalWords + " 字）";
+          h1.parentNode.insertBefore(timeLabel, h1.nextSibling);
+        }
+      }
+    });
+  </script>
+
   </body>
 </html>
