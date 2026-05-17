@@ -1,0 +1,1688 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="课程笔记、论文阅读与个人知识整理站">
+      
+      
+      
+        <link rel="canonical" href="https://guoguo828.github.io/mkdocs_start/ads/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>外部排序 - gxy 的学习空间</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="gxy 的学习空间" class="md-header__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
+      
+  <img src="../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            gxy 的学习空间
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              外部排序
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="lime"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Guoguo828/mkdocs_start
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-tabs__link">
+          
+  
+    
+  
+  关于我
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E8%AE%A1%E7%BB%84/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  计算机系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../oop/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  程序设计与算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  理论与数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  研究与专题
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="gxy 的学习空间" class="md-nav__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
+      
+  <img src="../assets/images/logo.svg" alt="logo">
+
+    </a>
+    gxy 的学习空间
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Guoguo828/mkdocs_start
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用指南
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标签索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    关于我
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            关于我
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GXY 介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/%E5%85%B3%E4%BA%8E%E6%88%91.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E8%AE%A1%E7%BB%84/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机系统
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机体系结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sl/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字逻辑
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../H265/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    H.265 编码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../oop/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    程序设计与算法
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            程序设计与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fds/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级数据结构与算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    理论与数据库
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            理论与数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ls/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    离散数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    研究与专题
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            研究与专题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alphafold2/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlphaFold2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BD%A2%E7%AD%96/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    形势与政策
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础的外部排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基础的外部排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 生成“初始顺串（Run）”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 多轮归并顺串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤1：计算“初始顺串数量”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤2：计算“归并趟数”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      外部排序的归并操作是怎么做的
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      部分名词解释
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="部分名词解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、外部排序要关注的时间成本（Concerns）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、外部排序的优化目标（Targets）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      减少归并趟数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-k1" class="md-nav__link">
+    <span class="md-ellipsis">
+      我能不能只用 k路归并 只用k+1个磁盘
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      优化缓冲区管理 支持并行
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="优化缓冲区管理 支持并行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-2-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 先以2-way归并为例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. k路归并的缓冲区通用规则
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. k值增大的连锁影响
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. k值的最优选择
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      更长顺串的生成方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更长顺串的生成方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 要解决的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 算法核心逻辑（结合例子）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 例子效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 适用场景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      如果串不同 怎么归并时间小
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="如果串不同 怎么归并时间小">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 问题背景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 例子的处理方式（霍夫曼树的应用）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 为什么这样能最小化时间？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../tags.html#tag:程序设计与算法" class="md-tag">程序设计与算法</a>
+      
+    
+      
+      
+      
+        <a href="../tags.html#tag:高级数据结构与算法" class="md-tag">高级数据结构与算法</a>
+      
+    
+  </nav>
+
+
+  
+    <a href="https://github.com/Guoguo828/mkdocs_start/edit/main/docs/ads/外部排序.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Guoguo828/mkdocs_start/raw/main/docs/ads/外部排序.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">外部排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">引入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>核心是解释“为啥不能在磁盘上直接用快速排序”：</p>
+<ul>
+<li>内存里访问数据（比如取a[i]）是“秒拿”，时间复杂度O(1)；</li>
+<li>但磁盘（硬盘）访问数据得走三步：找磁道→找扇区→传输，是机械/设备级的慢操作（随机访问开销超大）。</li>
+</ul>
+<p>而快速排序需要频繁“随机挑数据、交换数据”，在磁盘上这么折腾的话，IO耗时会把效率拖到崩溃~</p>
+<p>所以外部排序的常用工具是<strong>归并排序</strong>：它适合“顺序访问”的存储（比如磁带），搭配至少3个磁带驱动器，靠“分块排序+顺序归并”来减少磁盘/磁带的随机IO开销。</p>
+<p>说到底 外部排序是给磁盘的数据排序</p>
+<h2 id="_3">基础的外部排序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>这张幻灯片是<strong>外部归并排序的具体示例</strong>，演示了“内存有限时，如何给大数据集排序”（这里内存一次只能存3条记录），步骤分2个核心阶段：</p>
+<h3 id="1-run">1. 生成“初始顺串（Run）”<a class="headerlink" href="#1-run" title="Permanent link">&para;</a></h3>
+<p>待排序数据存在磁带T₁里，先把T₁的数据<strong>按内存容量（3条）分块</strong>：</p>
+<ul>
+<li>每3条读入内存，内部排序后，写到其他磁带（T₂、T₃）；</li>
+<li>比如T₁里的<code>81、94、11</code>读入内存，排好是<code>11、81、94</code>，写到T₂；</li>
+<li>下一块<code>96、12、35</code>读入内存排好<code>12、35、96</code>，写到T₃；</li>
+<li>以此类推，最后T₂、T₃上会存多个“有序的小块（顺串）”。</li>
+</ul>
+<h3 id="2">2. 多轮归并顺串<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>把小的有序顺串，合并成更大的有序顺串，直到整个数据集有序：</p>
+<ul>
+<li>第一轮归并：把T₂、T₃上的顺串两两归并（比如T₂的<code>11、81、94</code>和T₃的<code>12、35、96</code>归并），得到更大的顺串，写到T₁、T₄；</li>
+<li>第二轮归并：再把T₁、T₄上的大顺串归并，得到最终的完整有序序列，写到T₂。</li>
+</ul>
+<p>整个过程是“<strong>分块内部排序→多轮外部归并</strong>”，核心是利用“顺序访问”的磁带/磁盘，减少内存不足时的IO开销。</p>
+<p>这里我说一下 你给两个磁盘上的东西进行归并 在这里 一次只能归并两个 之后必须写到另一个磁盘中。</p>
+<h3 id="_4">计算题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="image-82.png" /></p>
+<p>要解决这道外部排序的<strong>归并趟数问题</strong>，需分两步计算：</p>
+<h3 id="1">步骤1：计算“初始顺串数量”<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>外部排序的第一步是将大数据集分成若干“内存大小的块”，每个块内部排序后形成<strong>初始顺串</strong>。</p>
+<ul>
+<li>内存容量：( 4\text{MB} = 4 \times 1024 \times 1024 = 4194304 ) 字节</li>
+<li>内存可容纳的记录数：( \frac{4194304}{128} = 32768 ) 条（每条记录128字节）</li>
+<li>总记录数：10,000,000条</li>
+<li>初始顺串数 ( r )：( \lceil \frac{10000000}{32768} \rceil = \lceil 305.18 \rceil = 306 )（向上取整，因为剩下的记录也要形成一个顺串）</li>
+</ul>
+<h3 id="2_1">步骤2：计算“归并趟数”<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>外部排序的归并趟数，默认采用<strong>2路归并</strong>（若题目无特殊说明），公式为：
+[ \text{归并趟数} = \lceil \log_2 r \rceil ]</p>
+<p>计算 ( \log_2 306 )：</p>
+<ul>
+<li>( 2^8 = 256 )（小于306）</li>
+<li>( 2^9 = 512 )（大于306）</li>
+</ul>
+<p>因此 ( \lceil \log_2 306 \rceil = 9 )</p>
+<p>最终结论：需要 <strong>9趟归并</strong>。</p>
+<h3 id="_5">外部排序的归并操作是怎么做的<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>你的疑惑很关键——外部归并<strong>不是把整个顺串都载入内存操作</strong>，而是靠「<strong>缓冲区+顺序读写</strong>」的方式，用有限内存完成归并，具体逻辑是：</p>
+<p>归并阶段的内存会被<strong>拆分成分区（缓冲区）</strong>，不需要加载整个顺串，只需要加载顺串的“片段”：
+以2路归并为例，内存会分成3个缓冲区：</p>
+<ul>
+<li>2个「输入缓冲区」：分别读取<strong>两个顺串的部分数据</strong>（比如各读几百条记录，远小于内存总容量）；</li>
+<li>1个「输出缓冲区」：临时存储归并后的结果，满了就写回外存。</li>
+</ul>
+<p>操作流程是：</p>
+<ol>
+<li>从第一个顺串读一批数据到“输入缓冲区1”，从第二个顺串读一批到“输入缓冲区2”；</li>
+<li>对比两个缓冲区里的记录，按顺序写入“输出缓冲区”；</li>
+<li>某一个输入缓冲区空了，就从对应的顺串<strong>继续读下一批数据</strong>到该缓冲区；</li>
+<li>输出缓冲区分满了，就把数据写回外存；</li>
+<li>重复以上步骤，直到两个顺串的所有数据都归并完成。</li>
+</ol>
+<h2 id="_6">部分名词解释<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>顺串（Run）：外部排序中，内存容量大小的有序数据块，经过内部排序后形成。</li>
+<li>归并趟数：外部排序中，将多个顺串合并成一个完整有序序列所需的轮数。</li>
+<li>缓冲区：外部排序中，内存的<strong>片段</strong>，用于存储<strong>输入</strong>和<strong>输出</strong>数据。</li>
+</ul>
+<p>这张幻灯片讲的是<strong>外部排序的“核心成本与优化目标”</strong>，分两部分：</p>
+<h3 id="concerns">一、外部排序要关注的时间成本（Concerns）<a class="headerlink" href="#concerns" title="Permanent link">&para;</a></h3>
+<p>外部排序的耗时主要来自4类操作，这些是需要重点考虑的开销：</p>
+<ul>
+<li><strong>寻道时间</strong>：和归并趟数挂钩（趟数越多，外存设备来回切换数据的次数越多），时间复杂度是O(归并趟数)。</li>
+<li><strong>块读写时间</strong>：外存是按“块”读写数据的，这部分是读取/写入一整块记录的耗时。</li>
+<li><strong>内部排序时间</strong>：把内存里的M条记录做内部排序的时间（这里什么排序都行）。</li>
+<li><strong>缓冲区归并时间</strong>：把输入缓冲区里的N条记录，归并到输出缓冲区的时间（也是在内存中完成的）。</li>
+</ul>
+<p>同时补充了一个优化点：计算机可以让<strong>IO（外存读写）和CPU处理（排序、归并）并行进行</strong>，这样能同时干活、节省总时间。</p>
+<h3 id="targets">二、外部排序的优化目标（Targets）<a class="headerlink" href="#targets" title="Permanent link">&para;</a></h3>
+<p>为了提升外部排序的效率，核心要优化这几点：</p>
+<ul>
+<li>减少归并趟数（降低寻道等开销）；</li>
+<li>优化顺串的归并过程；</li>
+<li>优化缓冲区管理，支持IO和CPU并行；</li>
+<li>优化初始顺串的生成方式（比如生成更长的顺串）。</li>
+</ul>
+<h2 id="_7">减少归并趟数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-83.png" /></p>
+<p>最简单的方法就是用同时使用K个磁盘，进行K路归并。</p>
+<p>但是这样就是一共要使用2k个磁盘，这会增加IO开销。</p>
+<p>以及需要用堆处理归并</p>
+<h2 id="k-k1">我能不能只用 k路归并 只用k+1个磁盘<a class="headerlink" href="#k-k1" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="image-84.png" /></p>
+<p>其实是可以的，这里我们就有一种蠢方法。还有一种更聪明的用斐波那契数列的方法。具体可以看看ppt，这样子的方法聪明的在于，每次都可以刚好清空一个磁盘。这样就为下一次归并腾出空间。</p>
+<p><img alt="alt text" src="image-85.png" /></p>
+<p>但是这种做法只在斐波那契数的runs数列中才有效。</p>
+<p>如果不是 我们可以考虑补0把他变成是。</p>
+<h2 id="_8">优化缓冲区管理 支持并行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="1-2-way">1. 先以2-way归并为例<a class="headerlink" href="#1-2-way" title="Permanent link">&para;</a></h3>
+<p>图里展示了2路归并的缓冲区划分：</p>
+<ul>
+<li>用多组输入缓冲区存待归并的数据，搭配输出缓冲区存归并结果；</li>
+<li>这样能实现“一边从外存读数据到输入缓冲区，一边用CPU处理已读数据”的并行操作。</li>
+</ul>
+<h3 id="2-k">2. k路归并的缓冲区通用规则<a class="headerlink" href="#2-k" title="Permanent link">&para;</a></h3>
+<p>要实现并行操作，<strong>k路归并需要 ( 2k ) 个输入缓冲区 + 2个输出缓冲区</strong>：</p>
+<ul>
+<li>2k个输入缓冲区：可以“同时读k路顺串的下一块数据”+“同时处理当前块数据”（保证IO和CPU并行）；</li>
+<li>2个输出缓冲区：可以“一边写满一个缓冲区到外存，一边用另一个缓冲区存新的归并结果”。</li>
+</ul>
+<p>这里我说一下 写进去可以理解为 每次每个路可以写进一个buffer（一定是自己的两个中的一个） 之后merge的时候会从buffer里读数据（应该是merge k个）</p>
+<h3 id="3-k">3. k值增大的连锁影响<a class="headerlink" href="#3-k" title="Permanent link">&para;</a></h3>
+<p>当归并路数 ( k ) 增加时：</p>
+<ul>
+<li>输入缓冲区的数量会跟着增加 → 每个缓冲区的大小会缩小；</li>
+<li>缓冲区变小→磁盘读写的块尺寸也会变小→外存的寻道次数变多、寻道时间增加。</li>
+</ul>
+<h3 id="4-k">4. k值的最优选择<a class="headerlink" href="#4-k" title="Permanent link">&para;</a></h3>
+<p>k不是越大越好：</p>
+<ul>
+<li>虽然k增大能减少归并趟数，但超过某个临界值后，“缓冲区缩小导致的IO时间增加”会抵消趟数减少的优势，反而让总耗时上升；</li>
+<li>最优的k值，需要结合<strong>磁盘的读写参数</strong>（比如寻道速度）和<strong>内存中可分配给缓冲区的空间</strong>来确定。</li>
+</ul>
+<p>简单说：这页是在讲“k路归并的缓冲区怎么配，以及k值要选合适的，否则会越归并越慢”。</p>
+<h2 id="_9">更长顺串的生成方式<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>这页PPT讲的是<strong>外部排序中生成“更长初始顺串”的算法——置换选择排序（Replacement Selection）</strong>，核心是解决“传统分块内部排序顺串太短”的问题。</p>
+<h3 id="1_1">1. 要解决的问题<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>传统外部排序生成初始顺串时，是把数据按“内存容量M”分块，每块内部排序得到长度为M的顺串。而<strong>置换选择排序能生成更长的顺串</strong>（平均长度约2M），从而减少后续归并的趟数。</p>
+<h3 id="2_2">2. 算法核心逻辑（结合例子）<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p>置换选择排序借助“堆”来实现：</p>
+<ul>
+<li>先把部分数据（比如内存能容纳的大小）构建成堆（图中绿色堆，堆顶是15）；</li>
+<li>每次取出堆顶元素（A）并加入当前顺串，并把堆顶元素弹出；（注意 此时仍然围护堆）
+，加入当前顺串；</li>
+<li>从输入数据中读入一个新元素：</li>
+<li>如果新元素<strong>大于等于堆顶（这个堆顶是弹出的那个A）</strong>，就插入堆；（也维护堆）</li>
+<li>如果新元素<strong>小于堆顶</strong>，就暂存起来（不插入堆）；</li>
+<li>重复上述步骤，直到堆为空，此时生成一个顺串；然后用暂存的元素重新建堆，生成下一个顺串。</li>
+</ul>
+<h3 id="3">3. 例子效果<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>图中输入数据用置换选择排序后，生成了更长的顺串（比如中间那串<code>12 17 28...99</code>长度远大于“内存分块的长度”），最终顺串的<strong>平均长度约为2M</strong>（M是内存容量）。</p>
+<h3 id="4">4. 适用场景<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>当输入数据<strong>接近有序</strong>时，置换选择排序的效果更好（能生成极长的顺串，进一步减少归并开销）。</p>
+<p>简单说：置换选择排序是通过“堆+选择性插入”的方式，让初始顺串长度翻倍，从而优化外部排序的整体效率。</p>
+<h2 id="_10">如果串不同 怎么归并时间小<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>这页PPT讲的是<strong>外部排序中“最小化归并时间”的策略——用霍夫曼树（Huffman Tree）安排顺串的归并顺序</strong>，核心是让“长顺串少参与归并，短顺串多参与”，从而降低总开销。</p>
+<h3 id="1_2">1. 问题背景<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>归并时间的核心开销是“顺串的长度 × 它被归并的次数”：顺串越长，被归并的次数越多，总耗时越大。所以需要合理安排归并顺序，让<strong>长顺串尽量少参与归并</strong>。</p>
+<h3 id="2_3">2. 例子的处理方式（霍夫曼树的应用）<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<p>已知4个顺串的长度：2、4、5、15，用霍夫曼树安排归并：</p>
+<ul>
+<li>霍夫曼树的构建规则：每次选<strong>长度最小的两个顺串</strong>合并，合并后的新节点长度是两者之和；</li>
+<li>步骤：</li>
+<li>先合并最短的2和4，得到新顺串长度6；</li>
+<li>再合并6和5，得到新顺串长度11；</li>
+<li>最后合并11和最长的15，得到最终顺串长度26。</li>
+</ul>
+<h3 id="3_1">3. 为什么这样能最小化时间？<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>霍夫曼树的<strong>带权外部路径长度</strong>（每个顺串长度 × 它在树中的路径长度，即归并次数）是所有可能的归并顺序中最小的：</p>
+<ul>
+<li>长顺串（15）的路径长度是1（只归并1次）；</li>
+<li>短顺串（2、4）的路径长度是3（归并3次）。</li>
+</ul>
+<p>总归并时间 = O(带权外部路径长度)，这样的安排能让长顺串的归并次数最少，从而总耗时最小。</p>
+<p>简单说：这页是用霍夫曼树的“短的先合并、长的后合并”规则，让长顺串少参与归并，实现归并时间的最小化。
+<img alt="alt text" src="image-86.png" /></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <script
+    src="https://utteranc.es/client.js"
+    repo="Guoguo828/mkdocs_start"
+    issue-term="pathname"
+    label="documentation"
+    theme="preferred-color-scheme"
+    crossorigin="anonymous"
+    async
+  ></script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2006-2026 郭响宇
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
