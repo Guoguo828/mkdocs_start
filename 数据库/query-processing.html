@@ -1920,6 +1920,333 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#indexed-nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、高阶优化：索引嵌套循环连接（Indexed Nested-Loop Join）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、高阶优化：索引嵌套循环连接（Indexed Nested-Loop Join）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 适用条件与原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 成本计算（最坏情况）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、具体案例计算：不同Join算法的成本大比拼
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、具体案例计算：不同Join算法的成本大比拼">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      两种算法开销对抗：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-join-sort-merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、排序归并连接（Merge-Join / Sort-Merge Join）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、排序归并连接（Merge-Join / Sort-Merge Join）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 算法执行的两大步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 成本怎么算？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hybrid-merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 混合归并连接 (Hybrid merge-join)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、哈希连接（Hash-Join）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、哈希连接（Hash-Join）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 算法执行的两大核心阶段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 参数设定与内存要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-recursive-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 特殊情况：递归划分（Recursive partitioning）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-handling-of-overflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 哈希溢出（Handling of Overflows）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cost-of-hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 哈希连接的成本计算（Cost of Hash-Join）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 哈希连接的成本计算（Cost of Hash-Join）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      情境 A：不需要递归划分（最常见）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bb_s-m-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      情境 B：需要递归划分（内存极端不足，$b_s &gt; (M - 1)^2$ 时）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      最完美情境（Best Case）：完全装入内存！
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-joins" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、复杂连接（Complex Joins）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、复杂连接（Complex Joins）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conjunctive-condition-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 带有合取条件的连接（Conjunctive condition - AND）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-disjunctive-condition-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 带有析取条件的连接（Disjunctive condition - OR）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、其他关系操作的处理（Other Operations）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、其他关系操作的处理（Other Operations）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-duplicate-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 去重（Duplicate elimination）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 投影（Projection）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 聚合操作（Aggregation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-operations-cup-cap-" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 集合操作（Set Operations: $\cup, \cap, -$）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-outer-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 外连接（Outer Join）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-of-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      十一、完整表达式的执行评估（Evaluation of Expressions）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十一、完整表达式的执行评估（Evaluation of Expressions）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-materialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 实体化 / 物化计算（Materialization）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pipelining" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 流水线计算（Pipelining）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-joins-involving-three-relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      十二、多表关联查询的连接策略（Complex Joins involving three relations）
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2726,7 +3053,241 @@
 </tbody>
 </table>
 <p>可以看到，从普通Nested-Loop到Block Nested-Loop，再到利用更多内存优化，成本下降非常明显，这就是为什么数据库里基本不用普通Nested-Loop，而是用Block Nested-Loop的原因。</p>
+<hr />
+<h2 id="indexed-nested-loop-join">五、高阶优化：索引嵌套循环连接（Indexed Nested-Loop Join）<a class="headerlink" href="#indexed-nested-loop-join" title="Permanent link">&para;</a></h2>
+<p>如果内表的连接属性上有索引，我们可以用<strong>索引查找（Index lookups）</strong>代替暴力的文件扫描。</p>
+<h3 id="1_7">1. 适用条件与原理<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>条件</strong>：必须是等值连接（equi-join）或自然连接（natural join），且内表（<code>s</code>）的连接字段上建有索引。甚至有时候为了加速连接，会临时建一个索引。</li>
+<li><strong>原理</strong>：对于外表（<code>r</code>）中的每一条元组 $t_r$，直接用它的连接字段值去内表（<code>s</code>）的索引里查，快速精准定位满足条件的内表元组。</li>
+</ul>
+<h3 id="2_6">2. 成本计算（最坏情况）<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<p>假设内存缓冲池极小，只能放下外表 $r$ 的仅仅一个磁盘块。那么外表 $r$ 的每一条元组，都需要在 $s$ 上执行一次索引查找。</p>
+<ul>
+<li>
+<p><strong>连接总成本</strong>：$b_r(t_T + t_S) + n_r \times c$</p>
+<blockquote>
+<p><strong>解析</strong>：
+- $b_r(t_T + t_S)$：把外表 $r$ 的所有块（$b_r$个）全读进内存的成本。
+- $n_r \times c$：外表共有 $n_r$ 条元组，每条元组都要查一次内表索引。
+- $c$ 则是指单次查索引并取出所有匹配 $s$ 元组的 I/O 代价（可以约等于在 $s$ 表上做单次选择查询的代价）。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>选择外表的必考原则</strong>：如果两张表都有索引，<strong>一定要选元组条数（$n_r$）更少的那张表作为外表</strong>，因为公式中 $n_r \times c$ 的倍增效应最为明显。</p>
+</li>
+</ul>
+<hr />
+<h2 id="join_1">六、具体案例计算：不同Join算法的成本大比拼<a class="headerlink" href="#join_1" title="Permanent link">&para;</a></h2>
+<p>PPT这页给出了更直观的数据算例，继续以 $depositor \bowtie customer$ 为例，并规定 <strong>$depositor$ 作为外表</strong>。
+- $depositor$ 的参数：$n_r=5000$（元组数），$b_r=100$（块数）
+- $customer$ 的参数：$n_s=10000$（元组数），$b_s=400$（块数）</p>
+<p><strong>新增条件</strong>：假设 $customer$ 在关联属性 $ID$ 上有一个<strong>主B+树索引</strong>。树节点每个分支20条，对应10000条记录树高为 4，为了拿到数据还需要多访问 1 次数据。也就是：单次索引检索 $c$ = 5 次块传输/寻道。</p>
+<h3 id="_30">两种算法开销对抗：<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>块嵌套循环连接（Block Nested-Loops Join）</strong>：</li>
+<li>块传输：$100 \times 400 + 100 = 40,100$ 次</li>
+<li>寻道次数：$2 \times 100 = 200$ 次</li>
+<li>
+<p><em>(注：这是最坏情况的内存。如果可用内存大，花费会明显降低。)</em></p>
+</li>
+<li>
+<p><strong>索引嵌套循环连接（Indexed Nested-Loops Join）</strong>：</p>
+</li>
+<li>套用上面学到的公式（将传输和寻道合在一起算）：$100 + 5000 \times 5 = 25,100$ 次。</li>
+<li><strong>结论</strong>：I/O开销直线降低到 25,100。它凭借索引的精准性避开了内表的重复遍历。不仅如此，因为比较次数的大幅降低，它的 CPU 计算成本也很有可能比Block Nested-Loop性能要好！</li>
+</ol>
 <p><img alt="alt text" src="image-40.png" /></p>
+<hr />
+<h2 id="merge-join-sort-merge-join">七、排序归并连接（Merge-Join / Sort-Merge Join）<a class="headerlink" href="#merge-join-sort-merge-join" title="Permanent link">&para;</a></h2>
+<p>前面讲的 Nested-Loop 类算法依靠的是“循环”和“索引”，而 <strong>Merge-Join（排序归并连接）</strong> 依靠的是<strong>“有序”</strong>。这种算法专门用于<strong>等值连接（equi-joins）</strong>和<strong>自然连接（natural joins）</strong>。</p>
+<h3 id="1_8">1. 算法执行的两大步骤<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>排序（Sort）</strong>：如果参与连接的两张表在连接属性上还没有排序，那就先对它们进行排序（利用前面学过的外部归并排序）。</li>
+<li><strong>归并（Merge）</strong>：既然两张表都已经按连接属性排好序，直接用两个指针（游标）分别从头扫描两张表，将匹配的元组拼接输出即可。</li>
+<li>归并过程和外部排序的归并阶段非常像。</li>
+<li><strong>唯一区别（处理重复值）</strong>：如果在连接属性上有重复值，那么内表和外表中具有相同关联值的<strong>每一对</strong>元组都要成功匹配。（如果某一相同值的元组太多导致内存装不下所有的，还需要用到特殊的块读取策略）。可以参考 PPT 第一张图的左边和右边两个指针 <code>pr</code> 和 <code>ps</code> 的扫描过程。</li>
+</ol>
+<h3 id="2_7">2. 成本怎么算？<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<p>由于两张表都是有序的，合并的时候<strong>每个磁盘块只需要被读取1次</strong>（前提是具有相同连接值的元组可以放进内存）。这样一来，不需要像嵌套循环那样重复扫描内表了！</p>
+<ul>
+<li><strong>块传输次数</strong>：$b_r + b_s$ </li>
+<li><strong>寻道次数</strong>：$\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil$ （$b_b$为每次顺序读写的块数）</li>
+<li><strong>总体合并成本</strong>：$b_r + b_s$ 次传输 + $\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil$ 次寻道</li>
+</ul>
+<p><em>(注意：如果表不是预先排好序的，记得还要把对两张表做“外部归并排序”的成本加进去！即便如此，因为排序的开销是可控的顺序读写，通常也比最坏情况下的嵌套循环要快。)</em></p>
+<h3 id="3-hybrid-merge-join">3. 混合归并连接 (Hybrid merge-join)<a class="headerlink" href="#3-hybrid-merge-join" title="Permanent link">&para;</a></h3>
+<p>这是针对特定情况的巧妙优化：
+- <strong>场景</strong>：一张表已经按连接属性<strong>排好序</strong>了，而另一张表没有排序，但在连接属性上有一个<strong>二级B+树索引</strong>。
+- <strong>痛点</strong>：如果去查二级索引，会产生极其可怕的<strong>随机I/O</strong>（还记得前面讲的因为物理上未排序导致的跳跃寻道吗？）。
+- <strong>解决方案算法</strong>：
+  1. 首先，把已经有序的表，去和另一个表的 <strong>B+树叶子节点</strong>（存放的是该表的记录地址/指针）进行<strong>归并</strong>。
+  2. 然后，对刚才得到的结果（这堆结果里包含了符合连接条件的那些地址），按照<strong>物理存放地址（physical address order）</strong>进行<strong>一次排序</strong>。
+  3. 最后，按排序好的物理地址顺序，去没排序的那张表里把相应的实际元组按顺序扫描拿出来，替换掉刚才的地址指针。
+  - <strong>核心好处</strong>：把原本因为二级索引导致的可怕“随机查找/多次独立寻道”，强行变成了最高效的<strong>“顺序物理扫描（Sequential scan）”</strong>！</p>
+<hr />
+<h2 id="hash-join">八、哈希连接（Hash-Join）<a class="headerlink" href="#hash-join" title="Permanent link">&para;</a></h2>
+<p><strong>哈希连接</strong>是另一种针对<strong>等值连接（equi-joins）</strong>和<strong>自然连接</strong>的高效算法，既不需要通过循环多次扫描磁盘，也不需要对全局进行昂贵的排序，它的核心思想是：“<strong>通过哈希函数，把大问题先拆分成互不干扰的小问题，再逐个击破。</strong>”</p>
+<p>在哈希连接中：
+- 较小的那张关系表通常被选为 $s$，称为<strong>构建输入（build input）</strong>。
+- 较大的那张关系表通常被选为 $r$，称为<strong>探测输入（probe input）</strong>。</p>
+<h3 id="1_9">1. 算法执行的两大核心阶段<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h3>
+<p><strong>第一阶段：划分阶段（Partitioning Phase）</strong>
+利用一个<strong>哈希函数 $h$</strong> 去处理两张表，让有着<strong>相同关联属性值</strong>的元组，一定落进对应的相同“桶/分区”里。
+1. <strong>划分 $s$ 表</strong>：遍历表 $s$，将连接属性值传入哈希函数 $h$，映射到 $n$ 个分区 $s_0, s_1, ..., s_{n-1}$ 中。在内存里，我们需要为每个分区保留 $1$ 个输出缓冲区块（Output buffer）。
+2. <strong>划分 $r$ 表</strong>：用<strong>一模一样</strong>的哈希函数 $h$ 遍历表 $r$，同样将之划分到对应的 $r_0, r_1, ..., r_{n-1}$ 个分区中。</p>
+<p><strong>第二阶段：探测与匹配阶段（Probing Phase）</strong>
+到了这一步，因为用的是同一个哈希函数，所以能匹配上的 $s$ 和 $r$ 元组，<strong>一定都在编号相同（比如 $s_i$ 和 $r_i$）的对应分区里</strong>，分区之间绝不交叉。
+1. <strong>对于每一个分区 $i$ ($0 \le i &lt; n$)</strong>：
+   - <strong>(a) 加载并构建（Load &amp; Build）</strong>：把 $s_i$ （较小的那一块）全部读进内存中！并在内存中，用<strong>另一个不同的</strong>哈希函数对它建立“内存哈希索引”。
+   - <strong>(b) 探测（Probe）</strong>：把对应的 $r_i$ 从磁盘里逐条读出来。针对每一条 $t_r$，用刚才建好的内存哈希索引去 $s_i$ 里快速寻找匹配的 $t_s$。一旦找到，拼接并输出。</p>
+<h3 id="2_8">2. 参数设定与内存要求<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h3>
+<p>能够成功完成一次标准的 Hash-Join，最根本的前提就是：<strong>构建输入的一个分区 $s_i$ 必须能够完整装进内存中</strong>。
+- 分区数量 $n$ 的大小这样定：一般会确保让 $s$ 切分出的每个块恰好适应内存。公式通常为 $n = \lceil b_s / M \rceil \times f$（$f$ 叫做 fudge factor 放宽因子，用来容错哈希不均，一般取 1.2 左右）。
+- <strong>必须知道的重点</strong>：探测表的分区 $r_i$ <strong>不需要全部放进内存</strong>！因为它是逐条读取进而匹配就直接扔掉或输出了，只有 $s_i$ 被完整加载用作对照字典。</p>
+<h3 id="3-recursive-partitioning">3. 特殊情况：递归划分（Recursive partitioning）<a class="headerlink" href="#3-recursive-partitioning" title="Permanent link">&para;</a></h3>
+<p>万一遇到极其头疼的情况 —— <strong>内存实在太小了，甚至都分不出足够的输出缓冲区块（当划分区数量 $n$ 大于可用内存页数 $M$ 时）</strong>？
+这时候如果强行一次位划分，内存会“爆栈”。解决方法就是：<strong>多层划小</strong>。</p>
+<p><strong>递归原理示例解析（见PPT图详解）：</strong>
+假设我们需要把S划分为30个区，那就需要 31页 内存（30个输出页 + 1个输入页）。但假设我的内存非常可怜，只有 $M=4$（也就是只有3个输出缓冲 + 1个输入）：
+- <strong>第一层划分（用 hash1）</strong>：既然我现在只有3个输出缓冲能力，那就把100页的 S 表划分成 3 个非常大的分区（如 S1, S2, S3，每个约占33页）。
+- <strong>第二层划分（用 hash2）</strong>：把第一层产生的、还是塞不进内存的 S1（33页），单独拿出来，再利用3个输出缓冲区向下划分，得到 S1a, S1b, S1c（各约11页的超小分区）。依次类推。
+- 用同样的哈希函数层次去对 $r$ 执行一模一样的递归操作即可。</p>
+<p><em>(注：实际工程中</em><em>很少</em><em>发生递归划分。因为就算表高达几十GB，其实也只需要几十MB内存就能一次切好)</em></p>
+<h3 id="4-handling-of-overflows">4. 哈希溢出（Handling of Overflows）<a class="headerlink" href="#4-handling-of-overflows" title="Permanent link">&para;</a></h3>
+<p>如果在构建阶段（Build Phase），某一个分区 $Hs_i$ 实在太大，<strong>还是装不进内存</strong>怎么办？这种现象叫“哈希表溢出（Hash-table overflow）”。</p>
+<ul>
+<li><strong>溢出的原因</strong>：</li>
+<li>表 $s$ 中有大量具有<strong>相同连接属性值</strong>的元组（导致数据倾斜 Skewed，全分到了同一个桶里）。</li>
+<li>使用的哈希函数不够好，导致散列非常不均匀。</li>
+<li><strong>解决溢出的方案</strong>：</li>
+<li><strong>溢出分解（Overflow resolution）</strong>：在构建阶段如果发现溢出，直接针对溢出的这个 $Hs_i$ 分区，随便找一个<strong>全新的哈希函数</strong>对它再做一次内部分区。当然，对应的探测表分区 $Hr_i$ 也必须用相同的全新函数做切分。</li>
+<li><strong>溢出避免（Overflow avoidance）</strong>：未雨绸缪，在初始划分时故意切分出极多（多于 $M$）的小分区，最后再把那些很小的分区安全地组合拼凑起来。</li>
+<li><strong>终极退路（Fallback option）</strong>：如果在某个值上真的有极其海量的重复数据（上面两招都失效），只能捏着鼻子对溢出的部分改用 <strong>块嵌套循环连接（Block Nested-Loop Join）</strong> 来硬算。</li>
+</ul>
+<h3 id="5-cost-of-hash-join">5. 哈希连接的成本计算（Cost of Hash-Join）<a class="headerlink" href="#5-cost-of-hash-join" title="Permanent link">&para;</a></h3>
+<p>哈希连接的开销主要分为“无递归”和“有递归”两种来讨论，这里主要以<strong>块传输（Block transfers）</strong>和<strong>寻道（Seeks）</strong>作为度量。假设划分出的分区数量为 $n_h$。</p>
+<h4 id="a">情境 A：不需要递归划分（最常见）<a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>
+<p>绝大多数情况下可以一次切分好，开销由<strong>分区阶段</strong>加<strong>连接（探测）阶段</strong>组成：
+- <strong>总块传输次数</strong>：$3(b_r + b_s) + 4 \times n_h$</p>
+<blockquote>
+<p><strong>公式详细拆解</strong>：
+1. <strong>分区代价 $2(b_r+b_s)$</strong>：读出 $s$ 和 $r$ 全表（$b_r+b_s$），算完哈希再全部写回磁盘的分区文件里（$b_r+b_s$）。这里的动作是“读+写”。
+2. <strong>连接代价 $b_r+b_s$</strong>：在连接探测阶段，仅仅只把分区文件<strong>读</strong>进内存即可（建哈希表+排查），连接结果直接输出，不计入写代价。
+3. <strong>为何还有 $4 \times n_h$？</strong>：因为划分出来的每一个小分区在写回磁盘时，<strong>最后一块文件往往是填不满的（存在碎片空间）</strong>。由于我们各自切出了 $n_h$ 个分区，$r$ 和 $s$ 表加起来最多会产生 $2 n_h$ 个未满块。这一来一回的读写，就会造成最多多出 $4n_h$ 次额外的块传输。
+- <strong>总寻道次数</strong>：$2(\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil) + 2n_h$
+<strong>公式详细拆解</strong>：
+1. 分区阶段时，由于是按块缓冲（$b_b$）成批读写，$r$ 和 $s$ 的全表读写各需要两遍寻道。即 $2 \times \lceil b_r / b_b \rceil$ 和 $2 \times \lceil b_s / b_b \rceil$。
+2. 连接阶段，各自读取那 $n_h$ 个分区区块去执行，产生 $2n_h$ 次寻道。</p>
+</blockquote>
+<h4 id="bb_s-m-12">情境 B：需要递归划分（内存极端不足，$b_s &gt; (M - 1)^2$ 时）<a class="headerlink" href="#bb_s-m-12" title="Permanent link">&para;</a></h4>
+<p>要进行多次重复切分操作，划分趟数计算为 $\lceil \log_{M-1}(b_s) - 1 \rceil$（这也就是为什么必须选<strong>小表</strong>作为构建输入的原因——小表的趟数更少！）。
+- <strong>总块传输次数</strong>：$2(b_r + b_s)\lceil \log_{M-1}(b_s) - 1 \rceil + b_r + b_s$ 
+- <strong>总寻道次数</strong>：$2(\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil)\lceil \log_{M-1}(b_s) - 1 \rceil + 2n_h$</p>
+<h4 id="best-case">最完美情境（Best Case）：完全装入内存！<a class="headerlink" href="#best-case" title="Permanent link">&para;</a></h4>
+<p>如果小表（构建表 $s$）足够小，能被<strong>一整块全部塞进内存主存</strong>里，那我们彻底不需要写文件做磁盘划分了！根本没有分区阶段！
+- 成本直接暴降至：$b_r + b_s$ 块传输。直接读进来就能连接输出，这是整个 Hash-Join 最美妙的情况。</p>
+<hr />
+<h2 id="complex-joins">九、复杂连接（Complex Joins）<a class="headerlink" href="#complex-joins" title="Permanent link">&para;</a></h2>
+<p>在实际查询中，我们经常遇到带有很多过滤条件的复杂 Join 语句，比如带 <code>AND</code> 或 <code>OR</code> 逻辑。</p>
+<h3 id="1-conjunctive-condition-and">1. 带有合取条件的连接（Conjunctive condition - AND）<a class="headerlink" href="#1-conjunctive-condition-and" title="Permanent link">&para;</a></h3>
+<p>例如：$r \bowtie_{\theta_1 \land \theta_2 \dots \wedge \theta_n} s$
+- <strong>做法A</strong>：可以使用基本的嵌套循环连接（Nested loops）或者块嵌套循环连接（Block nested loops），在循环内部依次判断所有的 $\theta$ 条件。
+- <strong>做法B（推荐优化）</strong>：先挑选出所有条件里能让连接计算<strong>开销最小的某一个条件（比如 $\theta_i$）</strong>，利用高效的 Join 算法（比如 Hash-Join 或 Indexed Nested-Loop Join）先计算出中间结果，然后再对待在这个中间结果里的元组一一进行剩下条件的判定和过滤。</p>
+<h3 id="2-disjunctive-condition-or">2. 带有析取条件的连接（Disjunctive condition - OR）<a class="headerlink" href="#2-disjunctive-condition-or" title="Permanent link">&para;</a></h3>
+<p>例如：$r \bowtie_{\theta_1 \lor \theta_2 \dots \lor \theta_n} s$
+- <strong>做法A</strong>：一样退回到使用嵌套循环连接或块嵌套循环连接，循环时满足任意条件即匹配输出。
+- <strong>做法B</strong>：将其转化为多次独立连接的<strong>并集（Union）</strong>。即 $(r \bowtie_{\theta_1} s) \cup (r \bowtie_{\theta_2} s) \dots \cup (r \bowtie_{\theta_n} s)$。每一次都可以使用对应的最高效算法单独运算，但在最后需要额外增加一步<strong>去重（Duplicate elimination）</strong>以防重复输出。</p>
+<hr />
+<h2 id="other-operations">十、其他关系操作的处理（Other Operations）<a class="headerlink" href="#other-operations" title="Permanent link">&para;</a></h2>
+<p>除了 Join，数据库还需要处理去重、投影、聚合、集合运算和外连接等操作。其核心优化手段往往离不开之前学过的<strong>排序（Sorting）</strong>和<strong>哈希（Hashing）</strong>这“两大法宝”。</p>
+<h3 id="1-duplicate-elimination">1. 去重（Duplicate elimination）<a class="headerlink" href="#1-duplicate-elimination" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基于排序（Sorting）</strong>：因为只要对数据一排序，相同/重复的元组必定会<strong>紧挨在一起相邻出现</strong>，此时只需要扫描一次去除非首个的集合即可。</li>
+<li><strong>终极优化</strong>：外部归并排序的时候，可以在<strong>创建初始 run</strong> 以及<strong>中间合并步骤（Merge steps）</strong>的时候顺手就把去重做了（提早削减了要写的临时文件大小）！</li>
+<li><strong>基于哈希（Hashing）</strong>：一模一样的值必然会哈希掉入同一个桶（Bucket）里。只需在每个桶内部检查和去重即可。</li>
+</ul>
+<h3 id="2-projection">2. 投影（Projection）<a class="headerlink" href="#2-projection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>对每条元组依次抛弃不需要的列（这就是纯内存 CPU 运算）。</li>
+<li>因为可能会在切除列后产生重复（原来有唯一区分列，现在被切了），所以执行完列保留后，<strong>必须要紧跟一步“去重操作”</strong>。</li>
+</ul>
+<h3 id="3-aggregation">3. 聚合操作（Aggregation）<a class="headerlink" href="#3-aggregation" title="Permanent link">&para;</a></h3>
+<p>比如 <code>GROUP BY</code> 操作后的求和、求平均值。处理逻辑与去重非常相似。
+- 无论使用哪种方法（Sorting 还是 Hashing），其根本目的都是<strong>“把属于同一组的那些元组物理聚拢在一起”</strong>，然后各自在组内施加聚合函数。
+- <strong>神级优化（Partial aggregate / 局部聚合）</strong>：和去重一样，在运行外部排序（或哈希建立）的过程中就<strong>提前、部分地进行聚合计算</strong>。
+  - 对于 COUNT、MIN、MAX、SUM：只需边合并边把累加或极值记录下来即可，不必保留完整的元组。
+  - 对于 AVG：可以始终维护着两个变量 —— “当前总和 Sum” 和 “当前计数 Count”，直到最后一步除一下即可。这极其节省磁盘空间和 I/O 成本！</p>
+<h3 id="4-set-operations-cup-cap-">4. 集合操作（Set Operations: $\cup, \cap, -$）<a class="headerlink" href="#4-set-operations-cup-cap-" title="Permanent link">&para;</a></h3>
+<p>并集、交集和差集，本质上还是求两张表的比对，所以可以使用 Merge-Join 和 Hash-Join 的<strong>变体（Variant）</strong>来做。</p>
+<p><strong>以基于哈希做集合操作为例：</strong>
+1. 用相同的哈希函数，把表 $r$ 和表 $s$ 都分区。
+2. 对于每一对编号相同的分区段 $i$：
+   - 将 $r_i$ 加载进内存建哈希索引（In-memory hash index）。
+   - <strong>对于并集 ($r \cup s$)</strong>：遇到 $s_i$ 在索引中没有的马上加入索引；最后把索引里的一切一起输出。
+   - <strong>对于交集 ($r \cap s$)</strong>：只要 $s_i$ 中的元组在索引里也存在，那就是共有的，直接输出！
+   - <strong>对于差集 ($r - s$)</strong>：对于每一个 $s_i$ 里的元组，如果它在哈希索引里有，就从索引里把它删掉（扣除）。最后剩下的就是结果。</p>
+<h3 id="5-outer-join">5. 外连接（Outer Join）<a class="headerlink" href="#5-outer-join" title="Permanent link">&para;</a></h3>
+<ul>
+<li>可以先傻瓜式地做普通的 Inner Join，然后再把那些没匹配上的落单元组找出来，打上 Null 后强行塞进结果集里。</li>
+<li><strong>更好的做法：修改核心算法</strong></li>
+<li><strong>魔改 Merge-Join</strong>：在双指针合并的过程中，如果是左外连接，对于左表 $r$ 中被游标一扫而过却始终未能与内表 $s$ 发生匹配的单身元组 $t_r$，在扫过时立刻就给它填充 Null 输出（不再抛弃丢失了）。计算右连接和全外连接也是相似逻辑。</li>
+<li><strong>魔改 Hash-Join</strong>：以左外连接计算 $r {=!!!!}\bowtie s$ 为例：<ul>
+<li>如果 $r$ 是大表（探测表 Probe relation），那么在它逐条从外存里取出、去哈希字典里寻找匹配时，遇到没找到匹配的马上填 Null 输出。</li>
+<li>如果 $r$ 是小表（构建表 Build relation），需要在探测阶段里利用某些标志位来“记录” $r$ 里哪些元组被成功捞过了。探测结束之后，巡视一遍 $r$ 的哈希表，把没被标记接触过的倒霉蛋打平为 Null 输出。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="evaluation-of-expressions">十一、完整表达式的执行评估（Evaluation of Expressions）<a class="headerlink" href="#evaluation-of-expressions" title="Permanent link">&para;</a></h2>
+<p>在前面的内容中，我们讨论的都是<strong>单个操作</strong>（单次选择、单次排序、两表连接等）的算法。现在如果遇到一个由多个操作组合成的完整多步查询（比如：$\Pi_{customer-name}((\sigma_{balance&lt;2500}(account)) \bowtie depositor)$），数据库该怎么组织执行这整棵“表达式逻辑树”呢？
+优化器给出了<strong>两种核心的运转模式</strong>：</p>
+<h3 id="1-materialization">1. 实体化 / 物化计算（Materialization）<a class="headerlink" href="#1-materialization" title="Permanent link">&para;</a></h3>
+<p>最简单、傻瓜式但也最稳妥的处理方式：<strong>一步一脚印，做完就存盘</strong>。
+- <strong>执行逻辑</strong>：从树的最底层叶子节点开始，<strong>一次仅仅只评估运行一个操作</strong>。将这个底层操作算出的所有中间结果全部<strong>“实体化”（Materialized，也就是直接写进磁盘里变成实际存放的临时文件）</strong>，交由上层的父节点去读取，从而评估下一层的操作。
+- <strong>按照示例流程图的具体过程</strong>：
+  1. 首先执行 $\sigma_{balance&lt;2500}(account)$，从硬盘扫表筛选出所有符合条件的账户集合。
+  2. 这个结果不驻留内存，而是向磁盘输出一张临时表：<code>temp</code>。
+  3. 接着，重新把 <code>temp</code> 临时表从磁盘读取上来，去和旁边的叶子表 <code>depositor</code> 进行 Join 连接运算。
+  4. 产生的新结果集可能会产生二次存盘，最终交由顶层的投影操作 $\Pi_{customer-name}$ 筛选出结果输出。
+- <strong>致命缺点</strong>：可想而知，这会产生无可估量的额外<strong>磁盘读写（I/O）成本</strong>。把所有的中间状态反复做磁盘IO，性能极差。</p>
+<h3 id="2-pipelining">2. 流水线计算（Pipelining）<a class="headerlink" href="#2-pipelining" title="Permanent link">&para;</a></h3>
+<p>基于物化机制的终极进化：<strong>绝不落地，数据对流</strong>。
+- <strong>执行逻辑</strong>：<strong>同时去执行</strong>图中的多级操作，不再存盘！某一级操作只要一旦算出了哪怕一条/一批中间结果（tuples），<strong>都不去向磁盘写结果，而是直接顺着“流水线”强行丢过去传给上面的父级操作</strong>。
+- <strong>按照示例流程图的具体过程</strong>：
+  1. 最底层的 $\sigma$ 在读取 <code>account</code> 扫表时，一旦发现一条 <code>&lt;balance=1000&gt;</code> 的金主账户...
+  2. 它根本不去生成什么 <code>temp</code> 临时表，而是直接把这条刚查出的元组“塞”给上面的 Join 器。
+  3. Join 引擎接住这条数据后，立刻去找 <code>depositor</code> 比对。如果匹配成功了...
+  4. 同样不去存储 Join 的中间结果，立刻将拼接后的元组投喂给顶上的投影 $\Pi$ 抛除非关键字段，直至飞速抵达用户眼前。
+- <strong>优势</strong>：全程在内存态完成奔跑，<strong>消除了创建临时关系并从磁盘来回读取临时数据的开销</strong>，极大提升了数据库的吞吐和响应速度。</p>
+<hr />
+<h2 id="complex-joins-involving-three-relations">十二、多表关联查询的连接策略（Complex Joins involving three relations）<a class="headerlink" href="#complex-joins-involving-three-relations" title="Permanent link">&para;</a></h2>
+<p>在上述章节提到的“复杂连接”是指附带很多逻辑连词运算条件；还有另一种复杂叫做“连环Join表极多”，比如要处理三表联查：$loan \bowtie depositor \bowtie customer$。</p>
+<p>针对多个表的联查合并，常见的处理策略（Alternatives）有以下3种抉择方式，优化引擎会择优执行：</p>
+<ul>
+<li>
+<p><strong>策略 1（Strategy 1 - 右侧先连）</strong>：
+  先计算后面两张表的联合：$depositor \bowtie customer$。获取到临时/中间连表结果后，再用左边的表去和它融合：$loan \bowtie (depositor \bowtie customer)$。</p>
+</li>
+<li>
+<p><strong>策略 2（Strategy 2 - 左侧先连）</strong>：
+  先计算前面两张表的联合：$loan \bowtie depositor$。算出阶段性结果后，再拿它和远端的 $customer$ 执行最后一层连接操作。</p>
+<blockquote>
+<p><em>注：这其实就是大名鼎鼎查询优化范畴的“连接顺序调优”。优化器会严格比对不同局部表的行数、表本身大小和乘数因子，来确定“哪种配对方式能使得中途生成的连表体积最小”。</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>策略 3（Strategy 3 - 多表同时穿透合并）</strong>：
+  这是一种极其狂暴的高效手段 —— <strong>一次性同时消灭这两路所有的Join！</strong></p>
+</li>
+<li><strong>前提做法</strong>：预先在表 $loan$ 的 <code>loan-number</code> 列上建立强索引，并在表 $customer$ 的 <code>customer-name</code> 列上也建好强索引。</li>
+<li><strong>运行逻辑</strong>：开始全表扫描位于中心的牵线表 $depositor$。对于拿出的每一条元组 $t$：<ul>
+<li>直接向右使用刚刚的索引精准去 $customer$ 里 look up （查找）相应的元组。</li>
+<li>并且直接向左去 $loan$ 的索引里找相应的元组！</li>
+</ul>
+</li>
+<li><strong>究极收益</strong>：这样一来，核心的大基表 $depositor$ 内的每一条数据，$do$ 且 $only$ $do$ <strong>被扫描/考查了绝对的一次（examined exactly once）</strong>，这极大避开了策略1、2中带来的那些繁复的中间表传递比较操作负担。</li>
+</ul>
 
 
 
