@@ -1,13 +1,42 @@
 {% if not page.is_homepage %}
   <h2 id="__comments">{{ lang.t("meta.comments") | default("评论") }}</h2>
-  <!-- 默认使用 Utterances 基于 Issue 的评论系统。请前往 https://utteranc.es/ 安装 GitHub App 以激活。 -->
-  <script
-    src="https://utteranc.es/client.js"
-    repo="Guoguo828/mkdocs_start"
-    issue-term="title"
-    label="💬 comment"
-    theme="github-light"
-    crossorigin="anonymous"
-    async
-  ></script>
+  <div id="utterances-container"></div>
+  <script>
+    function getUtterancesTheme() {
+      var palette = document.querySelector("[data-md-color-scheme]");
+      if (!palette) return "github-light";
+      return palette.getAttribute("data-md-color-scheme") === "slate"
+        ? "github-dark"
+        : "github-light";
+    }
+
+    function loadUtterances() {
+      var container = document.getElementById("utterances-container");
+      if (!container) return;
+      container.innerHTML = "";
+      var script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "Guoguo828/mkdocs_start");
+      script.setAttribute("issue-term", "title");
+      script.setAttribute("label", "💬 comment");
+      script.setAttribute("theme", getUtterancesTheme());
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      container.appendChild(script);
+    }
+
+    loadUtterances();
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "data-md-color-scheme") {
+          loadUtterances();
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-md-color-scheme"],
+    });
+  </script>
 {% endif %}
