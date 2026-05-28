@@ -8,3 +8,67 @@
   height: 1.7rem;
   width: auto;
 }
+
+/* Card hover effects */
+.grid.cards > ul > li,
+.grid.cards > div > ul > li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.4rem;
+}
+
+.grid.cards > ul > li:hover,
+.grid.cards > div > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Typography */
+.md-content {
+  line-height: 1.75;
+}
+
+.md-content h2 {
+  border-bottom: 2px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.md-content h3 {
+  margin-top: 1.5rem;
+}
+
+/* Admonition rounded corners + shadow */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-default-fg-color--light);
+}
+
+/* Header shadow */
+.md-header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar active link bold */
+.md-nav__link--active {
+  font-weight: 700;
+}
