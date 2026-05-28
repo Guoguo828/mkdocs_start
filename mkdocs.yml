@@ -78,10 +78,6 @@ markdown_extensions:
 extra_css:
   - "assets/stylesheets/extra.css"
 
-extra:
-  analytics:
-    provider: custom
-
 validation:
   nav:
     omitted_files: ignore
