@@ -152,13 +152,12 @@ body[data-md-color-scheme="slate"]::after {
   pointer-events: none;
 }
 
-/* ── 噪点纹理叠加 ── */
+/* ── 噪点纹理叠加（不设 z-index，避免破坏 Material 的堆叠） ── */
 
 .md-main::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 2;
   pointer-events: none;
   opacity: 0.028;
   mix-blend-mode: overlay;
@@ -174,7 +173,6 @@ body[data-md-color-scheme="slate"]::after {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
   backdrop-filter: blur(18px);
   position: relative;
-  z-index: 10;
 }
 
 /* Header 底部渐变分割线 */
@@ -204,8 +202,6 @@ body[data-md-color-scheme="slate"]::after {
 .md-main,
 .md-main__inner {
   background: transparent;
-  position: relative;
-  z-index: 5;
 }
 
 .md-content__inner {
