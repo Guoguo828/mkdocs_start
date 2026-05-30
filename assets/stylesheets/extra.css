@@ -1,3 +1,9 @@
+/* ============================================
+   gxy 学习空间 — 主题样式
+   ============================================ */
+
+/* ── 颜色方案 ── */
+
 [data-md-color-scheme="default"] {
   --md-primary-fg-color: #0f766e;
   --md-primary-fg-color--light: #2fa69c;
@@ -5,10 +11,6 @@
   --md-accent-fg-color: #b7791f;
   --md-accent-fg-color--transparent: rgba(183, 121, 31, 0.12);
   --md-default-bg-color: #f5f7f5;
-  --site-bg:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.18), transparent 34%),
-    radial-gradient(circle at top right, rgba(191, 132, 56, 0.12), transparent 28%),
-    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%);
   --site-surface: rgba(255, 255, 255, 0.8);
   --site-surface-strong: rgba(255, 255, 255, 0.93);
   --site-border: rgba(15, 118, 110, 0.12);
@@ -26,10 +28,6 @@
   --md-accent-fg-color: #f3ca70;
   --md-accent-fg-color--transparent: rgba(243, 202, 112, 0.12);
   --md-default-bg-color: #0b1220;
-  --site-bg:
-    radial-gradient(circle at top left, rgba(44, 184, 169, 0.2), transparent 28%),
-    radial-gradient(circle at top right, rgba(243, 202, 112, 0.12), transparent 24%),
-    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%);
   --site-surface: rgba(15, 23, 42, 0.72);
   --site-surface-strong: rgba(15, 23, 42, 0.9);
   --site-border: rgba(148, 163, 184, 0.16);
@@ -40,15 +38,152 @@
   --site-muted: #cbd5e1;
 }
 
-body {
-  background: var(--site-bg);
-  background-attachment: fixed;
+/* ── 粒子背景容器 ── */
+
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
+
+/* ── Mesh Gradient 动画背景 ── */
+
+[data-md-color-scheme="default"] body {
+  background:
+    radial-gradient(at 20% 20%, rgba(15, 118, 110, 0.22) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, rgba(191, 132, 56, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(15, 118, 110, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 60%, rgba(191, 132, 56, 0.10) 0px, transparent 50%),
+    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+  background-attachment: fixed;
+  animation: meshDrift 20s ease-in-out infinite alternate;
+}
+
+[data-md-color-scheme="slate"] body {
+  background:
+    radial-gradient(at 20% 15%, rgba(44, 184, 169, 0.22) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, rgba(243, 202, 112, 0.14) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(44, 184, 169, 0.12) 0px, transparent 50%),
+    radial-gradient(at 10% 60%, rgba(243, 202, 112, 0.08) 0px, transparent 50%),
+    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+  background-attachment: fixed;
+  animation: meshDrift 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshDrift {
+  0%   { background-position: 0% 0%, 100% 0%, 50% 100%, 100% 50%, 0 0; }
+  33%  { background-position: 30% 20%, 70% 30%, 20% 80%, 80% 70%, 0 0; }
+  66%  { background-position: 60% 10%, 40% 40%, 80% 60%, 30% 90%, 0 0; }
+  100% { background-position: 20% 40%, 90% 20%, 40% 70%, 70% 30%, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none !important; }
+}
+
+/* ── 浮动光斑 (Floating Orbs) ── */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+[data-md-color-scheme="default"] body::before {
+  top: -10%;
+  left: -5%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.18), transparent 70%);
+  animation: orbFloat1 25s ease-in-out infinite alternate;
+}
+
+[data-md-color-scheme="default"] body::after {
+  bottom: -15%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(191, 132, 56, 0.12), transparent 70%);
+  animation: orbFloat2 30s ease-in-out infinite alternate;
+}
+
+[data-md-color-scheme="slate"] body::before {
+  top: -10%;
+  left: -5%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(44, 184, 169, 0.15), transparent 70%);
+  animation: orbFloat1 25s ease-in-out infinite alternate;
+}
+
+[data-md-color-scheme="slate"] body::after {
+  bottom: -15%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(243, 202, 112, 0.10), transparent 70%);
+  animation: orbFloat2 30s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(10vw, 15vh, 0) scale(1.15); }
+  100% { transform: translate3d(-5vw, 20vh, 0) scale(0.9); }
+}
+
+@keyframes orbFloat2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1.1); }
+  50%  { transform: translate3d(-15vw, -10vh, 0) scale(0.95); }
+  100% { transform: translate3d(8vw, -5vh, 0) scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after { animation: none !important; }
+}
+
+/* ── 噪点纹理叠加 ── */
+
+.md-main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ── Header ── */
 
 .md-header {
   background: linear-gradient(120deg, var(--site-header-bg-1), var(--site-header-bg-2));
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
   backdrop-filter: blur(18px);
+  position: relative;
+}
+
+/* Header 底部渐变分割线 */
+.md-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--md-primary-fg-color), transparent);
+  opacity: 0.4;
 }
 
 .md-tabs {
@@ -61,6 +196,8 @@ body {
   width: auto;
 }
 
+/* ── 主内容区 ── */
+
 .md-main,
 .md-main__inner {
   background: transparent;
@@ -72,6 +209,8 @@ body {
   border-radius: 1.35rem;
   box-shadow: var(--site-shadow);
   padding: 1.35rem 1.35rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .md-content {
@@ -88,6 +227,8 @@ body {
   margin-top: 1.6rem;
 }
 
+/* ── Hero 副标题 ── */
+
 .md-typeset .hero-subtitle {
   font-size: 1.08rem;
   line-height: 1.85;
@@ -95,6 +236,8 @@ body {
   max-width: 46rem;
   margin: -0.45rem 0 1.2rem;
 }
+
+/* ── 按钮 ── */
 
 .md-typeset .md-button {
   border-radius: 999px;
@@ -108,6 +251,8 @@ body {
   box-shadow: 0 14px 28px rgba(15, 118, 110, 0.22);
 }
 
+/* ── 卡片 ── */
+
 .grid.cards > ul > li,
 .grid.cards > div > ul > li {
   background: linear-gradient(180deg, var(--site-surface-strong), var(--site-surface));
@@ -120,9 +265,27 @@ body {
 .grid.cards > ul > li:hover,
 .grid.cards > div > ul > li:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.14);
   border-color: rgba(15, 118, 110, 0.24);
 }
+
+/* 浅色模式卡片悬浮光晕 */
+[data-md-color-scheme="default"] .grid.cards > ul > li:hover,
+[data-md-color-scheme="default"] .grid.cards > div > ul > li:hover {
+  box-shadow:
+    0 24px 48px rgba(15, 23, 42, 0.14),
+    0 0 40px rgba(15, 118, 110, 0.1);
+}
+
+/* 深色模式卡片悬浮光晕 */
+[data-md-color-scheme="slate"] .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .grid.cards > div > ul > li:hover {
+  border-color: rgba(44, 184, 169, 0.2);
+  box-shadow:
+    0 24px 48px rgba(2, 6, 23, 0.28),
+    0 0 40px rgba(44, 184, 169, 0.12);
+}
+
+/* ── 网格辅助 ── */
 
 .metrics-grid > ul > li,
 .feature-grid > ul > li {
@@ -138,11 +301,15 @@ body {
   font-size: 0.92rem;
 }
 
+/* ── Admonition / Details ── */
+
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 1rem;
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
 }
+
+/* ── 表格 ── */
 
 .md-typeset table:not([class]) {
   border-radius: 0.9rem;
@@ -150,9 +317,13 @@ body {
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
 }
 
+/* ── 侧栏导航 ── */
+
 .md-nav__link--active {
   font-weight: 700;
 }
+
+/* ── 桌面端侧栏卡片化 ── */
 
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary .md-sidebar__scrollwrap,
@@ -168,6 +339,8 @@ body {
   }
 }
 
+/* ── 移动端适配 ── */
+
 @media screen and (max-width: 76.234375em) {
   .md-content__inner {
     padding: 1rem 0.95rem 1.6rem;
@@ -178,6 +351,8 @@ body {
     margin-bottom: 0.45rem;
   }
 }
+
+/* ── 滚动条 ── */
 
 ::-webkit-scrollbar {
   width: 8px;
