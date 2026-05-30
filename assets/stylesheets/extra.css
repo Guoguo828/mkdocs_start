@@ -50,25 +50,27 @@
 /* ── Mesh Gradient 动画背景 ── */
 
 [data-md-color-scheme="default"] body {
-  background:
+  background-color: #fbfcfa !important;
+  background-image:
     radial-gradient(at 20% 20%, rgba(15, 118, 110, 0.22) 0px, transparent 50%),
     radial-gradient(at 80% 10%, rgba(191, 132, 56, 0.15) 0px, transparent 50%),
     radial-gradient(at 50% 80%, rgba(15, 118, 110, 0.12) 0px, transparent 50%),
     radial-gradient(at 90% 60%, rgba(191, 132, 56, 0.10) 0px, transparent 50%),
-    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%);
-  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%) !important;
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100% !important;
   background-attachment: fixed;
   animation: meshDrift 20s ease-in-out infinite alternate;
 }
 
 [data-md-color-scheme="slate"] body {
-  background:
+  background-color: #08101c !important;
+  background-image:
     radial-gradient(at 20% 15%, rgba(44, 184, 169, 0.22) 0px, transparent 50%),
     radial-gradient(at 80% 10%, rgba(243, 202, 112, 0.14) 0px, transparent 50%),
     radial-gradient(at 50% 85%, rgba(44, 184, 169, 0.12) 0px, transparent 50%),
     radial-gradient(at 10% 60%, rgba(243, 202, 112, 0.08) 0px, transparent 50%),
-    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%);
-  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%) !important;
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100% !important;
   background-attachment: fixed;
   animation: meshDrift 20s ease-in-out infinite alternate;
 }
