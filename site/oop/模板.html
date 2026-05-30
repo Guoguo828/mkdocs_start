@@ -1,2080 +1,271 @@
-
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="课程笔记、论文阅读与个人知识整理站">
-      
-      
-      
-        <link rel="canonical" href="https://guoguo828.github.io/mkdocs_start/oop/%E6%A8%A1%E6%9D%BF.html">
-      
-      
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
-    
-    
-      
-        <title>C++ 模板 (Templates) 深入理解 - gxy 的学习空间</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
-      
-      
-
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#c-templates" class="md-skip">
-          跳转至
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="gxy 的学习空间" class="md-header__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
-      
-  <img src="../assets/images/logo.svg" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            gxy 的学习空间
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              C++ 模板 (Templates) 深入理解
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="lime"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Guoguo828/mkdocs_start
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../index.html" class="md-tabs__link">
-          
-  
-    
-  
-  首页
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-tabs__link">
-          
-  
-    
-  
-  关于我
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../%E8%AE%A1%E7%BB%84/index.html" class="md-tabs__link">
-          
-  
-    
-  
-  计算机系统
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="index.html" class="md-tabs__link">
-          
-  
-    
-  
-  程序设计与算法
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-tabs__link">
-          
-  
-    
-  
-  理论与数据库
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-tabs__link">
-          
-  
-    
-  
-  研究与专题
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="gxy 的学习空间" class="md-nav__button md-logo" aria-label="gxy 的学习空间" data-md-component="logo">
-      
-  <img src="../assets/images/logo.svg" alt="logo">
-
-    </a>
-    gxy 的学习空间
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/Guoguo828/mkdocs_start" title="前往仓库" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Guoguo828/mkdocs_start
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../index.html" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    首页
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            首页
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    使用指南
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    更新记录
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tags.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    标签索引
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    关于我
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            关于我
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GXY 介绍
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/%E5%85%B3%E4%BA%8E%E6%88%91.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    简介
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../%E8%AE%A1%E7%BB%84/index.html" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    计算机系统
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            计算机系统
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    计算机体系结构
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sl/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数字逻辑
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../H265/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    H.265 编码
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    程序设计与算法
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            程序设计与算法
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fds/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据结构基础
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ads/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    高级数据结构与算法
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    理论与数据库
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            理论与数据库
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ls/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    离散数学
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    研究与专题
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            研究与专题
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../alphafold2/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AlphaFold2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%BD%A2%E7%AD%96/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    形势与政策
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      什么是模板？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="什么是模板？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-function-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 函数模板 (Function Template)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-class-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 类模板 (Class Template)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      为什么我们需要使用模板？（痛点分析）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-templates" class="md-nav__link">
-    <span class="md-ellipsis">
-      深入理解函数模板 (Function Templates)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="深入理解函数模板 (Function Templates)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#swap" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例演进：Swap（值交换）函数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      模板语法拆解
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template-instantiation" class="md-nav__link">
-    <span class="md-ellipsis">
-      模板的实例化 (Template Instantiation)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="模板的实例化 (Template Instantiation)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#swap_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      代码实战：Swap 模板的调用与实例化演示
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interactions-overloading" class="md-nav__link">
-    <span class="md-ellipsis">
-      模板与普通函数的“爱恨情仇” (Interactions &amp; Overloading)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="模板与普通函数的“爱恨情仇” (Interactions &amp; Overloading)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 模板的原则：绝不妥协 (严格匹配)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-overloading-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 编译器选秀规则 (Overloading rules)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      代码实战：重载规则演示
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      函数模板实例化的两种方式：隐式推导 vs 显式指定
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="函数模板实例化的两种方式：隐式推导 vs 显式指定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-implicit-deduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 隐式推导 (Implicit Deduction)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-explicit-instantiation" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 显式指定 (Explicit Instantiation)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-templates" class="md-nav__link">
-    <span class="md-ellipsis">
-      深入理解类模板 (Class Templates)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="深入理解类模板 (Class Templates)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 类模板的本质与优势
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-vector" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 类模板代码实战：手写一个通用动态数组 (Vector)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      模板的高阶进阶用法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="模板的高阶进阶用法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-multiple-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 使用多个类型参数 (Multiple types)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-templates-nest" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 模板的嵌套与复杂类型 (Templates nest)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-non-type-expression-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 非类型参数 / 表达式参数 (Non-Type / Expression parameters)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pptcrtp" class="md-nav__link">
-    <span class="md-ellipsis">
-      一、第一张PPT：CRTP（奇异递归模板模式）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、第一张PPT：CRTP（奇异递归模板模式）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 先看懂它的“奇怪”结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 核心原理：怎么模拟虚函数？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 和虚函数的对比
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 常见用途
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ppt" class="md-nav__link">
-    <span class="md-ellipsis">
-      二、第二张PPT：模板开发的通用注意事项
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="二、第二张PPT：模板开发的通用注意事项">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-friends-static-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. friends 和 static members
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 核心重点：模板的声明和定义必须放在头文件里
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 核心重点：模板的声明和定义必须放在头文件里">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      为什么必须这么做？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      为什么不会出现“重复定义”？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      错误做法（千万别学）
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      一句话总结
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  <nav class="md-tags" >
-    
-      
-      
-      
-        <a href="../tags.html#tag:程序设计与算法" class="md-tag">程序设计与算法</a>
-      
-    
-      
-      
-      
-        <a href="../tags.html#tag:面向对象编程" class="md-tag">面向对象编程</a>
-      
-    
-  </nav>
-
-
-  
-    <a href="https://github.com/Guoguo828/mkdocs_start/edit/main/docs/oop/模板.md" title="编辑此页" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/Guoguo828/mkdocs_start/raw/main/docs/oop/模板.md" title="查看本页的源代码" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
-    </a>
-  
-
-
-<h1 id="c-templates">C++ 模板 (Templates) 深入理解<a class="headerlink" href="#c-templates" title="Permanent link">&para;</a></h1>
-<h2 id="_1">什么是模板？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>模板可以理解为代码的<strong>“模具”或“图纸”</strong>。在普通的编程中，我们将数据作为参数传递给函数；而在<strong>泛型编程 (Generic Programming)</strong> 中，我们将<strong>“数据类型”</strong>本身作为参数传递。</p>
-<p>核心思想是<strong>重用源代码</strong>：只要一段逻辑与具体的数据类型无关，我们就可以把它写成模板，避免为每种数据类型都写一遍完全一样的代码。</p>
-<p>主要分为两种：</p>
-<h3 id="1-function-template">1. 函数模板 (Function Template)<a class="headerlink" href="#1-function-template" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>思想：</strong> 算法核心逻辑相同，仅仅是需要处理的数据类型不同。比如排序函数 <code>sort</code>。</li>
-<li><strong>具体代码示例 (求最大值)：</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 以前不用模板时：必须为每种类型写一个重载函数 (重复造轮子)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">myMax</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">double</span><span class="w"> </span><span class="nf">myMax</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">// 使用函数模板：写一个通用的“模具”</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">T</span><span class="w"> </span><span class="n">myMax</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">// 调用时：</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myMax</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">         </span><span class="c1">// 编译器自动根据参数把 T 替换为 int</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myMax</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="mf">2.71</span><span class="p">);</span><span class="w"> </span><span class="c1">// 编译器自动把 T 替换为 double</span>
-</code></pre></div>
-<h3 id="2-class-template">2. 类模板 (Class Template)<a class="headerlink" href="#2-class-template" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>思想：</strong> 数据结构（如：栈 Stack、列表 List、队列 Queue）的操作逻辑和它里面装数字、字符还是复杂的自定义对象没有任何关系。</li>
-<li><strong>具体代码示例 (一个简单的通用“栈”/包装盒)：</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 定义一个通用的盒子类，可以装任意类型 T 的内容</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Box</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span><span class="c1">// 盒子里装的内容，类型待定 (T)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">Box</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">content</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">getContent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">};</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">// 调用时：类模板通常需要显式指定类型 (&lt;类型&gt;)</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">Box</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intBox</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">             </span><span class="c1">// 实例化一个装 int 的盒子</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">Box</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strBox</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 实例化一个装 string 的盒子</span>
-</code></pre></div>
-<ul>
-<li><strong>模板成员函数：</strong> 类模板内部的成员函数也可以灵活处理各种类型，其实现逻辑也可以与特定的参数类型分离开。</li>
-</ul>
-<hr />
-<h2 id="_2">为什么我们需要使用模板？（痛点分析）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>假设现在的业务需求是：我们需要一个专门存放 <code>X</code> 类型的列表，同时又需要一个存放 <code>Y</code> 类型的列表。
-<strong>现实情况是：</strong> 这两个列表底层的基本操作（增、删、改、查）代码几乎一模一样，唯一的区别只是它们存放的<strong>元素类型不同</strong>。</p>
-<p>如果不使用模板，我们通常有以下三种“笨方法”（Choices），它们各自存在致命的缺陷：</p>
-<p><strong>1. 复制代码 (Clone code / 复制粘贴)</strong></p>
-<ul>
-<li><strong>做法：</strong> 把 <code>X</code> 列表的代码复制一份，把里面所有的 <code>X</code> 替换成 <code>Y</code>。</li>
-<li><strong>优点：</strong> 保证了类型安全（编译器知道里面装的是什么，不会出错）。</li>
-<li><strong>缺点：</strong> 代码极难维护！如果列表代码里发现了一个 Bug，你必须在 <code>X</code> 列表、<code>Y</code> 列表等所有复制过的地方都去修改一遍。</li>
-</ul>
-<p><strong>2. 借助共同的基类 (Require common base class)</strong></p>
-<ul>
-<li><strong>做法：</strong> 让 <code>X</code> 和 <code>Y</code> 都继承自一个超类（比如 <code>Object</code>），然后我们只写一个存放 <code>Object</code> 的列表。</li>
-<li><strong>缺点：</strong> 非常不灵活，过度设计。很多时候 <code>X</code> 和 <code>Y</code> 在业务上根本没有任何联系，强行让它们认同一个“爹”是不合理的。而且每次取出来的数据都需要进行强制类型转换。</li>
-</ul>
-<p><strong>3. 使用无类型列表 (Untyped lists)</strong></p>
-<ul>
-<li><strong>做法：</strong> 使用通用的指针（例如 C 语言里的 <code>void*</code>），让列表什么东西都能装下。</li>
-<li><strong>缺点：</strong> <strong>类型极其不安全 (Type unsafe)</strong>！你可以往 <code>X</code> 列表里偷偷塞入一个不受控制的数据，编译器根本发现不了，这会导致程序在运行时直接崩溃。</li>
-</ul>
-<p><strong>总结：</strong>
-由于以上三种方法都有明显的短板，<strong>模板 (Templates)</strong> 应运而生。它既完美实现了<strong>代码的高效复用</strong>（告别复制粘贴），又由编译器保证了绝对的<strong>类型安全</strong>（比 <code>void*</code> 和公共基类更可靠）。</p>
-<hr />
-<h2 id="function-templates">深入理解函数模板 (Function Templates)<a class="headerlink" href="#function-templates" title="Permanent link">&para;</a></h2>
-<p>函数模板的核心作用是：<strong>对不同类型的数据执行相同的操作。</strong></p>
-<h3 id="swap">案例演进：Swap（值交换）函数<a class="headerlink" href="#swap" title="Permanent link">&para;</a></h3>
-<p><strong>1. 原始的痛点：</strong>
-假设我们要写一个交换两个整数变量的值的函数，代码非常简单：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-</code></pre></div>
-<p><strong>思考：</strong> 但是问题来了！如果有一天我们不仅需要交换整数，还需要交换浮点数 (<code>float</code>)、字符串 (<code>string</code>)，甚至是自定义的货币 (<code>Currency</code>) 或是人员 (<code>Person</code>) 对象呢？难道要为每种类型都写一个重新拷贝一遍这个函数仅仅替换类型名吗？</p>
-<p><strong>2. 模板来救场（解决方案）：</strong>
-使用函数模板，我们可以把“具体的类型”抽象成一个“参数”。通用版本的 <code>swap</code> 模板函数如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="_3">模板语法拆解<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>关于 <code>template &lt;class T&gt;</code> 的细节解释：</p>
-<ul>
-<li><strong><code>template</code> 关键字：</strong> 放在最前面，用来引出一个模板。等于是在告诉编译器：“注意了，下面这是一个通用模板，不是普通的函数”。</li>
-<li><strong><code>&lt;class T&gt;</code> 参数化类型名：</strong> 声明了一个名称为 <code>T</code> 的虚拟类型。</li>
-<li>这里的 <code>class</code> 并不是说只允许传入类对象，它的意思是<strong>任何内置的类型（比如 <code>int</code>, <code>double</code>）或者是用户自定义的类型都可以</strong>。（现代 C++ 中这里用 <code>typename T</code> 也是可以的，两者含义在这里相同）。</li>
-<li><strong>使用 <code>T</code> 的多重身份 (Parameter types represent)：</strong> 这个虚拟类型 <code>T</code> 在函数模板内部可以扮演多种角色：</li>
-<li><strong>作为函数的参数类型</strong>：例如 <code>void swap(T&amp; x, T&amp; y)</code>。</li>
-<li><strong>作为函数的返回值类型</strong>：例如前面的求最大值模板 <code>T myMax(T a, T b)</code>。</li>
-<li><strong>用来在函数内部声明局部变量</strong>：例如 <code>T temp = x;</code>。</li>
-</ul>
-<hr />
-<h2 id="template-instantiation">模板的实例化 (Template Instantiation)<a class="headerlink" href="#template-instantiation" title="Permanent link">&para;</a></h2>
-<p>要记住一个核心概念：<strong>模板本身并不是一个真正的函数或类，它只是一张“图纸”。</strong> 只有当你在代码中实际<strong>使用</strong>它时，编译器才会真正生成对应的代码，这个过程就叫做<strong>实例化 (Instantiation)</strong>。</p>
-<ul>
-<li><strong>实例化的底层过程：</strong></li>
-<li><strong>类型绑定与替换 (Substitute)：</strong> 编译器根据你传入的实际参数，推断出 <code>T</code> 究竟是什么类型，然后把模板里所有的 <code>T</code> 替换成这个具体的类型（比如 <code>int</code> 或 <code>float</code>）。</li>
-<li><strong>生成实体代码 (Create new body)：</strong> 编译器根据替换后的类型，在后台默默为你生成一个对应类型的、独立的函数或类定义。</li>
-<li><strong>编译期检查 (Type checking)：</strong> <strong>非常重要！</strong> 只有在实例化生成具体代码时，编译器才会进行严格的语法错误和类型匹配检查。</li>
-<li><strong>术语辨析：</strong></li>
-<li><strong>Function Template (函数模板)：</strong> 你写的那张含有 <code>T</code> 的“图纸”。</li>
-<li><strong>Template Function (模板函数)：</strong> 编译器根据图纸实例化出来的、具备具体类型（如 <code>int</code> 版本）的真正函数。</li>
-<li><strong>特化 (Specialization)：</strong>
-  有时候通用的模板逻辑并不适用于所有类型。比如你可以为某个特定类型（比如特定的指针类型）提供一个特殊版本的实现，这就叫“模板特化”。</li>
-</ul>
-<h3 id="swap_1">代码实战：Swap 模板的调用与实例化演示<a class="headerlink" href="#swap_1" title="Permanent link">&para;</a></h3>
-<p>让我们看看在实际代码中如何无缝调用刚才写的 <code>swap</code> 函数模板：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// ... 假设之前写好的 template &lt;class T&gt; void swap(T&amp; x, T&amp; y) 已经存在 ...</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1">// 1. 整数交换</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// 编译器看到参数是 int，于是自动实例化一个 T=int 的 swap 版本 (隐式调用)</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="c1">// 2. 浮点数交换</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.5</span><span class="p">;</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.7</span><span class="p">;</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="c1">// 编译器自动实例化一个 T=float 的 float swap 版本</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="c1">// 3. 复杂对象（字符串）交换</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1">// 编译器自动实例化一个 T=std::string 的 std::string swap 版本</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">}</span>
-</code></pre></div>
-<p><strong>看，真正的魔法就在这里：</strong> 我们只写了<strong>一次</strong>薄薄几行的 <code>swap</code> 模板代码，但它现在却能毫不费力地服务于<strong>成百上千种</strong>截然不同的数据结构！</p>
-<hr />
-<h2 id="interactions-overloading">模板与普通函数的“爱恨情仇” (Interactions &amp; Overloading)<a class="headerlink" href="#interactions-overloading" title="Permanent link">&para;</a></h2>
-<p>在 C++ 中，<strong>模板函数和普通的函数是可以和平共存的 (coexist)</strong>，甚至可以“同名”。这就引出了一个非常经典的问题：当它们混在一起时，编译器到底听谁的？</p>
-<h3 id="1">1. 模板的原则：绝不妥协 (严格匹配)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>普通函数在参数不完全匹配时，可能会委曲求全进行自动类型转换（比如把 <code>int</code> 悄悄转成 <code>double</code>）。但<strong>模板极其有原则，它只接受完全精确的类型匹配 (exact match)</strong>！</p>
-<p>它<strong>绝对不包含任何隐式类型转换 (No conversion operations are applied)</strong>。</p>
-<p>例如对于我们写好的 <code>template &lt;class T&gt; void swap(T x, T y)</code> (假设传值方便理解)：</p>
-<ul>
-<li><code>swap(int, int);</code>       // OK！ T = int</li>
-<li><code>swap(double, double);</code> // OK！ T = double</li>
-<li><code>swap(int, double);</code>    // <strong>Error (报错)！</strong></li>
-<li><em>原因：</em> 编译器推导第一个参数觉得 T 应该是 <code>int</code>，看第二个参数觉得 T 应该是 <code>double</code>。大脑死机，直接报错！它绝对不会擅自把 <code>int</code> 转成 <code>double</code> 来迎合模板。</li>
-</ul>
-<h3 id="2-overloading-rules">2. 编译器选秀规则 (Overloading rules)<a class="headerlink" href="#2-overloading-rules" title="Permanent link">&para;</a></h3>
-<p>当一个普通函数和一个模板函数同名时（重载），编译器有一套雷打不动的“按选优先级”流程：</p>
-<ul>
-<li><strong>第一步：黄金 VIP 通道 (普通函数的完美匹配)</strong></li>
-<li>优先查看有没有哪个普通函数，它的参数类型跟调用时的类型<strong>完全一模一样</strong>。如果有，直接用它！效率最高。</li>
-<li><strong>第二步：模板定制通道 (模板实例化完美匹配)</strong></li>
-<li>如果没有绝配的普通函数，就去看模板。如果模板能根据参数<strong>实例化出一个完美匹配</strong>的函数，那就用模板。</li>
-<li><strong>第三步：委曲求全通道 (普通函数的隐式转换)</strong></li>
-<li>如果模板也搞不定（比如遇到了上面的 <code>int, double</code> 类型不一样的情况模板罢工），那就退回到普通函数重载。看看普通函数能不能通过<strong>隐式类型转换</strong>勉强凑合着跑一跑。</li>
-</ul>
-<h3 id="_4">代码实战：重载规则演示<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>这是一段非常有迷惑性的代码，非常适合当考题：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 1. 一个普通的函数，专门接收两个 float</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// 2. 一个同名的模板函数，要求接收两个 &quot;完全相同&quot; 的类型 T</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// 接下来我们开始调用，请猜猜分别调用了谁？</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">// 传进去的 1.0 和 2.0 在 C++ 里默认是 double 类型。</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1">// 第一步查普通函数完美匹配？没有 (普通函数是 float)。</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1">// 第二步查模板？模板可以实例化出 T=double 的 f(double, double)，完美匹配！</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1">// 结论：👉 调用了模板函数！</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="c1">// 参数是两个 int。</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1">// 第一步找普通函数 f(int, int)？没有。</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1">// 第二步找模板？模板实例化 T=int 的 f(int, int)，完美匹配！</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="c1">// 结论：👉 调用了模板函数！</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1">// 参数是一个 int 和一个 double。</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="c1">// 第一步完美匹配？没有。</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="c1">// 第二步查模板？模板要求两个参数类型一致(T, T)，现在一不一样，直接罢工报错。</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1">// 第三步找普通函数凑合？普通 f(float, float) 说：“虽然参数类型不对，但你可以把 int 和 double 都隐式转换为 float 啊，我接了！”</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="c1">// 结论：👉 调用了普通函数！</span>
-</code></pre></div>
-<hr />
-<h2 id="vs">函数模板实例化的两种方式：隐式推导 vs 显式指定<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h2>
-<p>编译器怎么知道模板里的 <code>T</code> 到底是个啥？有两种方式告诉它：</p>
-<h3 id="1-implicit-deduction">1. 隐式推导 (Implicit Deduction)<a class="headerlink" href="#1-implicit-deduction" title="Permanent link">&para;</a></h3>
-<p>这是最常见的方式，就像前面用过的 <code>swap(i, j)</code> 或者 <code>f(1, 2)</code>。</p>
-<ul>
-<li><strong>规则：</strong> 编译器非常聪明，它会直接观察你<strong>传进去的实际参数</strong>是什么类型，然后自动倒推出 <code>T</code> 应该是什么。不需要你多写任何废话。</li>
-</ul>
-<h3 id="2-explicit-instantiation">2. 显式指定 (Explicit Instantiation)<a class="headerlink" href="#2-explicit-instantiation" title="Permanent link">&para;</a></h3>
-<p>有时候，编译器会遇到“无米之炊”的尴尬局面：<strong>如果模板类型 <code>T</code> 压根就没有出现在函数的参数列表里怎么办？</strong>
-由于你在调用时没有传任何带有 <code>T</code> 类型的参数，编译器无从猜起，它就会直接报错。</p>
-<p>此时，我们就必须手动（显式）告诉编译器这个 <code>T</code> 是什么：</p>
-<ul>
-<li><strong>语法：</strong> 在函数名后面加上 <code>&lt;具体的类型&gt;</code>。</li>
-<li><strong>代码示例：</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 模板定义：参数列表里是个 void (没有参数)，但函数内部或返回值可能用到了 T</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="cm">/* 函数体内部使用了类型 T ... */</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="c1">// 错误调用：foo();</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 编译器哭诉：你什么都没传，我怎么猜 T 是 int 还是 double？</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="c1">// 正确调用：必须显式告诉编译器 T 是什么类型</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">foo</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w">   </span><span class="c1">// 显式指定此时 T 是 int</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="n">foo</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// 显式指定此时 T 是 float</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
-</code></pre></div>
-<p><em>(注：这种显式指定的用法在比较现代的 C++ 编译器中是支持且必要的语法)</em></p>
-<hr />
-<h2 id="class-templates">深入理解类模板 (Class Templates)<a class="headerlink" href="#class-templates" title="Permanent link">&para;</a></h2>
-<p>讲完了函数模板，我们再来看看它的老大哥——<strong>类模板</strong>。
-正如函数模板把参数类型给“抽象”出来一样，类模板则是用于<strong>参数化类中的数据类型 (Classes parameterized by types)</strong>。</p>
-<h3 id="1_1">1. 类模板的本质与优势<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>操作与数据类型解耦 (Abstract operations)：</strong> 比如一个“动态数组”或者“栈”，它的扩张、缩小、压栈、出栈等<strong>操作逻辑</strong>跟它里面装的是苹果还是橘子无关。类模板成功地把“操作逻辑”和“被操作的类型”剥离开来。</li>
-<li><strong>一生万物：</strong> 只要写好一个类模板，就等于定义了<strong>潜在地无限多个不同的类</strong>。需要什么类型的类，编译器就用模板帮你“印”出来。这是代码复用的又一大飞跃！</li>
-<li>
-<p><strong>典型应用场景：容器类 (Container classes)</strong>
-  我们在 C++ 标准模板库(STL)中经常见到的东西，基本全都是类模板：</p>
-</li>
-<li>
-<p><code>stack&lt;int&gt;</code>：一个专门装整数的栈</p>
-</li>
-<li><code>list&lt;Person&amp;&gt;</code>：一个专门装人员引用（Person&amp;）的链表</li>
-<li><code>queue&lt;Job&gt;</code>：一个专门处理任务（Job）的队列</li>
-</ul>
-<h3 id="2-vector">2. 类模板代码实战：手写一个通用动态数组 (Vector)<a class="headerlink" href="#2-vector" title="Permanent link">&para;</a></h3>
-<p>我们来看一个经典例子：如果我们要自己写一个类似 <code>std::vector</code> 的通用动态数组，类模板该怎么写？</p>
-<p><strong>第一步：定义类模板 (图纸)</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// 构造函数，传入初始容量</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Vector</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">// 析构函数，负责清理动态分配的内存</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="o">~</span><span class="n">Vector</span><span class="p">();</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// 拷贝构造函数</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">Vector</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="o">&amp;</span><span class="p">);</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// 赋值运算符重载</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="n">Vector</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="o">&amp;</span><span class="p">);</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="c1">// [] 下标运算符重载，返回 T 类型的引用，方便读写</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">m_elements</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向堆内存中数组的指针，用来存任何 T 类型的数据</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_size</span><span class="p">;</span><span class="w">    </span><span class="c1">// 数组当前的大小</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">};</span>
-</code></pre></div>
-<p><strong>第二步：使用类模板 (实例化与调用)</strong>
-定义好了之后，我们在业务代码里如何使用这个 <code>Vector</code> 呢？与函数模板的隐式推导不同，<strong>类模板在实例化时通常必须显式指定类型！</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">// 假设我们有一个专门处理复数的自定义类 Complex</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">};</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="c1">// 1. 实例化一个装整数的 Vector，容量为 100</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// 2. 实例化一个装复数对象的 Vector，容量为 256</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">Complex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="c1">// 3. 具体的数据操作</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">v1</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">            </span><span class="c1">// 把 v1 的第21个元素赋值为 10 (int 类型)</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="c1">// ⚠️ 进阶思考：下面这行代码能跑通吗？</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="n">v2</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="c1">// 解释：v1[20] 取出来是一个 int，v2[20] 期望塞进去的是一个 Complex。</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="c1">// 这行代码是否合法(Ok)，完全取决于你的 Complex 类内部有没有定义【把 int 转换成 Complex】的方法（比如单参数的构造函数或重载的赋值运算符）。</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="c1">// 如果定义了转换，这就完全没问题！</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="_5">模板的高阶进阶用法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>除了上面最基础的用法，模板还有很多强大的进阶特性，让它的灵活性直接拉满：</p>
-<h3 id="1-multiple-types">1. 使用多个类型参数 (Multiple types)<a class="headerlink" href="#1-multiple-types" title="Permanent link">&para;</a></h3>
-<p>模板不仅仅只能接受一个 <code>T</code>，它完全可以同时接受多个不同的类型参数。这在涉及“键值对”的场景（如字典、哈希表、Map）中属于标配。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// 定义一个哈希表类，Key 是键的类型，Value 是值的类型</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Value</span><span class="o">&gt;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">HashTable</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 查找函数，传入键，返回值的引用</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Value</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lookup</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="c1">// 插入函数，传入键和值</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">install</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Value</span><span class="o">&amp;</span><span class="p">);</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="c1">// ...</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">};</span>
-</code></pre></div>
-<h3 id="2-templates-nest">2. 模板的嵌套与复杂类型 (Templates nest)<a class="headerlink" href="#2-templates-nest" title="Permanent link">&para;</a></h3>
-<p>类模板在实例化之后，<strong>本质上就已经变成了一个普普通通的、全新的数据类型</strong>。所以，你完全可以把一个模板类当作另一个模板类的“参数”塞进去，这就是“嵌套”。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// 嵌套：一个装满 &quot;存储 double 指针的动态数组&quot; 的大动态数组 (套娃)</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">myNestedVector</span><span class="p">;</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// ⚠️ 避坑小贴士：在早期的老版本 C++ 编译器中，嵌套模板最后的两个右尖括号 `&gt; &gt;` 之间必须加一个空格（否则会被误认作 `&gt;&gt;` 右移位运算符报错）。不过现代 C++11 及以后已经自动修复了这个问题。</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">// 类型参数甚至可以极其复杂，比如下面这个：装满特定类型【函数指针】的数组</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">Vector</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">Vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">myCrazyVector</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="3-non-type-expression-parameters">3. 非类型参数 / 表达式参数 (Non-Type / Expression parameters)<a class="headerlink" href="#3-non-type-expression-parameters" title="Permanent link">&para;</a></h3>
-<p>这是个非常容易被忽略的强大杀器！<strong>模板的尖括号 <code>&lt; &gt;</code> 里面不仅可以传“数据类型（如 class T）”，还可以直接传“常量表达式（如具体的数字大小）”！</strong> 而且非类型参数还能有<strong>默认值</strong>。</p>
-<p><strong>典型应用示例：定义一个在栈上分配内存的、固定长度的高效数组。</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// T 是类型参数。</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">// bounds 是一个非类型参数(值参数)，并且给了个默认值 100。</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="o">&gt;</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">FixedVector</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">FixedVector</span><span class="p">();</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="p">);</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="c1">// 💡 亮点在这里：因为 bounds 是在编译期就确定的常量，</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="c1">// 所以这就相当于直接在内部声明了一个固定大小的普通数组！</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="c1">// 内存直接分配在栈上，不用 new/delete，速度拔群！</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="n">bounds</span><span class="p">];</span><span class="w"> </span><span class="c1">// fixed size array!</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="p">};</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1">// 实际使用：</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">FixedVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fv1</span><span class="p">;</span><span class="w">   </span><span class="c1">// 实例化出一个容量固定为 50 的 int 数组</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="n">FixedVector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w">  </span><span class="n">fv2</span><span class="p">;</span><span class="w">   </span><span class="c1">// 省略第二个参数，自动使用默认值，得到容量为 100 的 double 数组</span>
-</code></pre></div>
-<p><img alt="alt text" src="image-44.png" /></p>
-<p>这两张PPT讲的是C++模板的两个进阶话题：<strong>CRTP（奇异递归模板模式）</strong>和<strong>模板的通用开发规范</strong>，我结合你之前学的模板+继承知识，用大白话给你拆解得明明白白👇</p>
-<hr />
-<h2 id="pptcrtp">一、第一张PPT：CRTP（奇异递归模板模式）<a class="headerlink" href="#pptcrtp" title="Permanent link">&para;</a></h2>
-<p>这是一个非常经典的模板设计模式，核心目的是<strong>用「编译期静态绑定」模拟虚函数的多态行为，同时完全避免虚函数的运行时开销</strong>。</p>
-<h3 id="1_2">1. 先看懂它的“奇怪”结构<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">implementation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="c1">// 核心：把this指针转成T*，调用子类的实现</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">implementation</span><span class="p">();</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">static_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="c1">// 调用子类的静态方法</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="n">T</span><span class="o">::</span><span class="n">static_sub_func</span><span class="p">();</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">};</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// 关键：子类Derived继承Base&lt;Derived&gt;，用自己作为模板参数传给基类</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">implementation</span><span class="p">();</span><span class="w"> </span><span class="c1">// 子类实现自己的逻辑</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">static_sub_func</span><span class="p">();</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="p">};</span>
-</code></pre></div>
-<p>这个结构看起来像“自己继承了以自己为模板参数的基类”，所以叫<strong>奇异递归模板模式（Curiously Recurring Template Pattern，CRTP）</strong>。</p>
-<h3 id="2">2. 核心原理：怎么模拟虚函数？<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>你之前学的虚函数是「运行时动态绑定」，而CRTP是「编译期静态绑定」，原理是：</p>
-<ol>
-<li>当你写 <code>Derived d;</code> 时，编译器会实例化 <code>Base&lt;Derived&gt;</code> 模板类；</li>
-<li>在 <code>Base&lt;Derived&gt;</code> 的 <code>implementation()</code> 里，<code>this</code> 指针的类型是 <code>Base&lt;Derived&gt;*</code>；</li>
-<li><code>static_cast&lt;T*&gt;(this)</code> 把它转成 <code>Derived*</code>（因为 <code>T</code> 就是 <code>Derived</code>），直接指向子类对象；</li>
-<li>调用 <code>Derived::implementation()</code>，<strong>编译期就已经确定了调用的是子类的方法</strong>，不需要虚函数表，也没有运行时开销。</li>
-</ol>
-<h3 id="3">3. 和虚函数的对比<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">特性</th>
-<th style="text-align: left;">CRTP（静态多态）</th>
-<th style="text-align: left;">虚函数（动态多态）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">绑定时机</td>
-<td style="text-align: left;">编译期</td>
-<td style="text-align: left;">运行时</td>
-</tr>
-<tr>
-<td style="text-align: left;">开销</td>
-<td style="text-align: left;">无虚函数表、无运行时查找开销</td>
-<td style="text-align: left;">有虚函数表、运行时查找开销</td>
-</tr>
-<tr>
-<td style="text-align: left;">灵活性</td>
-<td style="text-align: left;">只能处理固定的继承关系</td>
-<td style="text-align: left;">支持任意派生类的多态</td>
-</tr>
-<tr>
-<td style="text-align: left;">适用场景</td>
-<td style="text-align: left;">追求极致性能、且继承关系固定的场景</td>
-<td style="text-align: left;">通用的、需要运行时多态的场景</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4">4. 常见用途<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>给子类提供统一的基类接口，同时避免虚函数开销（比如标准库的<code>std::enable_shared_from_this</code>就是CRTP的典型应用）；</li>
-<li>实现编译期的静态多态，比如给模板类扩展功能（如<code>operator++</code>的实现）。</li>
-</ul>
-<hr />
-<h2 id="ppt">二、第二张PPT：模板开发的通用注意事项<a class="headerlink" href="#ppt" title="Permanent link">&para;</a></h2>
-<p>这部分是写模板代码时的「避坑指南」，尤其是你以后写项目时，能避免很多链接错误和维护问题：</p>
-<h3 id="1-friends-static-members">1. <code>friends</code> 和 <code>static members</code><a class="headerlink" href="#1-friends-static-members" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>模板类的友元</strong>：模板类的友元声明需要注意作用域，比如如果友元是函数模板，需要提前声明，否则编译器可能找不到；</li>
-<li><strong>模板类的静态成员</strong>：每个模板实例化版本都有自己独立的静态成员，互不干扰。比如 <code>Vector&lt;int&gt;</code> 和 <code>Vector&lt;double&gt;</code> 的静态成员是完全分开的，不会共享数据。</li>
-</ul>
-<h3 id="2_1">2. 核心重点：模板的声明和定义必须放在头文件里<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>PPT里这句话是新手最容易踩的坑：</p>
-<blockquote>
-<p><code>In general put the definition and the declaration for the template in the header file</code></p>
-</blockquote>
-<h4 id="_6">为什么必须这么做？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p>模板是「编译期蓝图」，只有当你用具体类型实例化时，编译器才会生成对应的类/函数代码。如果把模板的实现（定义）放在<code>.cpp</code>文件里：</p>
-<ul>
-<li>其他文件实例化模板时，编译器看不到完整的实现，无法生成对应的代码；</li>
-<li>链接时会出现<code>undefined reference</code>错误，找不到模板实例化的函数。</li>
-</ul>
-<h4 id="_7">为什么不会出现“重复定义”？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>PPT里也提到了：</p>
-<ul>
-<li>模板不会在头文件里为每个实例化版本分配存储；</li>
-<li>编译器/链接器会自动处理多个定义，每个模板实例化版本只会保留一份，不会导致链接错误。</li>
-</ul>
-<h4 id="_8">错误做法（千万别学）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// 头文件 Vector.h</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="p">};</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1">// 实现文件 Vector.cpp</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">}</span>
-</code></pre></div>
-<p>当你在其他文件用 <code>Vector&lt;int&gt; v; v[0];</code> 时，编译器看不到<code>operator[]</code>的实现，会直接链接失败。</p>
-<hr />
-<h2 id="_9">一句话总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<ul>
-<li>CRTP是用「模板+继承」实现的编译期静态多态，模拟虚函数的同时，完全避免运行时开销；</li>
-<li>模板代码的声明和定义必须都放在头文件里，否则会出现链接错误，这是模板开发的核心规范。</li>
-</ul>
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  <h2 id="__comments">评论</h2>
-  <script
-    src="https://utteranc.es/client.js"
-    repo="Guoguo828/mkdocs_start"
-    issue-term="pathname"
-    label="documentation"
-    theme="preferred-color-scheme"
-    crossorigin="anonymous"
-    async
-  ></script>
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
-</button>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      Copyright © 2006-2026 郭响宇
-    </div>
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-    
-    
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
-      
-    
-  </body>
-</html>
+<!doctype html><html lang=zh class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=课程笔记、论文阅读与个人知识整理站><link rel=canonical href=https://guoguo828.github.io/mkdocs_start/oop/%E6%A8%A1%E6%9D%BF.html><link rel=icon href=../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.7"><title>C++ 模板 (Templates) 深入理解 - gxy 的学习空间</title><link rel=stylesheet href=../assets/stylesheets/main.8608ea7d.min.css><link rel=stylesheet href=../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style><link rel=stylesheet href=../assets/stylesheets/extra.css><script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=custom data-md-color-accent=custom> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#c-templates class=md-skip> 跳转至 </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow md-header--lifted" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=页眉> <a href=.. title="gxy 的学习空间" class="md-header__button md-logo" aria-label="gxy 的学习空间" data-md-component=logo> <img src=../assets/images/logo.svg alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> gxy 的学习空间 </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> C++ 模板 (Templates) 深入理解 </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=custom data-md-color-accent=custom aria-label=切换到深色模式 type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title=切换到深色模式 for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg> </label> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=custom data-md-color-accent=custom aria-label=切换到浅色模式 type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title=切换到浅色模式 for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=搜索 placeholder=搜索 autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg> </label> <nav class=md-search__options aria-label=查找> <a href=javascript:void(0) class="md-search__icon md-icon" title=分享 aria-label=分享 data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg> </a> <button type=reset class="md-search__icon md-icon" title=清空当前内容 aria-label=清空当前内容 tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> 正在初始化搜索引擎 </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/Guoguo828/mkdocs_start title=前往仓库 class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><!-- Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg> </div> <div class=md-source__repository> Guoguo828/mkdocs_start </div> </a> </div> </nav> <nav class=md-tabs aria-label=标签 data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../index.html class=md-tabs__link> 首页 </a> </li> <li class=md-tabs__item> <a href=../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html class=md-tabs__link> 关于我 </a> </li> <li class=md-tabs__item> <a href=../%E8%AE%A1%E7%BB%84/index.html class=md-tabs__link> 计算机系统 </a> </li> <li class=md-tabs__item> <a href=index.html class=md-tabs__link> 程序设计与算法 </a> </li> <li class=md-tabs__item> <a href=../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html class=md-tabs__link> 理论与数据库 </a> </li> <li class=md-tabs__item> <a href=../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html class=md-tabs__link> 研究与专题 </a> </li> </ul> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=导航栏 data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="gxy 的学习空间" class="md-nav__button md-logo" aria-label="gxy 的学习空间" data-md-component=logo> <img src=../assets/images/logo.svg alt=logo> </a> gxy 的学习空间 </label> <div class=md-nav__source> <a href=https://github.com/Guoguo828/mkdocs_start title=前往仓库 class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><!-- Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg> </div> <div class=md-source__repository> Guoguo828/mkdocs_start </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_1> <div class="md-nav__link md-nav__container"> <a href=../index.html class="md-nav__link "> <span class=md-ellipsis> 首页 </span> </a> <label class="md-nav__link " for=__nav_1 id=__nav_1_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_1_label aria-expanded=false> <label class=md-nav__title for=__nav_1> <span class="md-nav__icon md-icon"></span> 首页 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html class=md-nav__link> <span class=md-ellipsis> 使用指南 </span> </a> </li> <li class=md-nav__item> <a href=../%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95.html class=md-nav__link> <span class=md-ellipsis> 更新记录 </span> </a> </li> <li class=md-nav__item> <a href=../tags.html class=md-nav__link> <span class=md-ellipsis> 标签索引 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 关于我 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 关于我 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/gxy%E4%BB%8B%E7%BB%8D.html class=md-nav__link> <span class=md-ellipsis> GXY 介绍 </span> </a> </li> <li class=md-nav__item> <a href=../%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0/%E5%85%B3%E4%BA%8E%E6%88%91.html class=md-nav__link> <span class=md-ellipsis> 简介 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_3> <div class="md-nav__link md-nav__container"> <a href=../%E8%AE%A1%E7%BB%84/index.html class="md-nav__link "> <span class=md-ellipsis> 计算机系统 </span> </a> <label class="md-nav__link " for=__nav_3 id=__nav_3_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=false> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> 计算机系统 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.html class=md-nav__link> <span class=md-ellipsis> 计算机体系结构 </span> </a> </li> <li class=md-nav__item> <a href=../sl/index.html class=md-nav__link> <span class=md-ellipsis> 数字逻辑 </span> </a> </li> <li class=md-nav__item> <a href=../H265/index.html class=md-nav__link> <span class=md-ellipsis> H.265 编码 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_4> <div class="md-nav__link md-nav__container"> <a href=index.html class="md-nav__link "> <span class=md-ellipsis> 程序设计与算法 </span> </a> <label class="md-nav__link " for=__nav_4 id=__nav_4_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> 程序设计与算法 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../fds/index.html class=md-nav__link> <span class=md-ellipsis> 数据结构基础 </span> </a> </li> <li class=md-nav__item> <a href=../ads/index.html class=md-nav__link> <span class=md-ellipsis> 高级数据结构与算法 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_5> <div class="md-nav__link md-nav__container"> <a href=../%E6%95%B0%E6%8D%AE%E5%BA%93/index.html class="md-nav__link "> <span class=md-ellipsis> 理论与数据库 </span> </a> <label class="md-nav__link " for=__nav_5 id=__nav_5_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_5_label aria-expanded=false> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> 理论与数据库 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../ls/index.html class=md-nav__link> <span class=md-ellipsis> 离散数学 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_6> <div class="md-nav__link md-nav__container"> <a href=../%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.html class="md-nav__link "> <span class=md-ellipsis> 研究与专题 </span> </a> <label class="md-nav__link " for=__nav_6 id=__nav_6_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_6_label aria-expanded=false> <label class=md-nav__title for=__nav_6> <span class="md-nav__icon md-icon"></span> 研究与专题 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../alphafold2/index.html class=md-nav__link> <span class=md-ellipsis> AlphaFold2 </span> </a> </li> <li class=md-nav__item> <a href=../%E5%BD%A2%E7%AD%96/index.html class=md-nav__link> <span class=md-ellipsis> 形势与政策 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label=本页目录> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> 本页目录 </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> <span class=md-ellipsis> 什么是模板？ </span> </a> <nav class=md-nav aria-label=什么是模板？> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1-function-template class=md-nav__link> <span class=md-ellipsis> 1. 函数模板 (Function Template) </span> </a> </li> <li class=md-nav__item> <a href=#2-class-template class=md-nav__link> <span class=md-ellipsis> 2. 类模板 (Class Template) </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#_2 class=md-nav__link> <span class=md-ellipsis> 为什么我们需要使用模板？（痛点分析） </span> </a> </li> <li class=md-nav__item> <a href=#function-templates class=md-nav__link> <span class=md-ellipsis> 深入理解函数模板 (Function Templates) </span> </a> <nav class=md-nav aria-label="深入理解函数模板 (Function Templates)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#swap class=md-nav__link> <span class=md-ellipsis> 案例演进：Swap（值交换）函数 </span> </a> </li> <li class=md-nav__item> <a href=#_3 class=md-nav__link> <span class=md-ellipsis> 模板语法拆解 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#template-instantiation class=md-nav__link> <span class=md-ellipsis> 模板的实例化 (Template Instantiation) </span> </a> <nav class=md-nav aria-label="模板的实例化 (Template Instantiation)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#swap_1 class=md-nav__link> <span class=md-ellipsis> 代码实战：Swap 模板的调用与实例化演示 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#interactions-overloading class=md-nav__link> <span class=md-ellipsis> 模板与普通函数的“爱恨情仇” (Interactions &amp; Overloading) </span> </a> <nav class=md-nav aria-label="模板与普通函数的“爱恨情仇” (Interactions & Overloading)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1 class=md-nav__link> <span class=md-ellipsis> 1. 模板的原则：绝不妥协 (严格匹配) </span> </a> </li> <li class=md-nav__item> <a href=#2-overloading-rules class=md-nav__link> <span class=md-ellipsis> 2. 编译器选秀规则 (Overloading rules) </span> </a> </li> <li class=md-nav__item> <a href=#_4 class=md-nav__link> <span class=md-ellipsis> 代码实战：重载规则演示 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#vs class=md-nav__link> <span class=md-ellipsis> 函数模板实例化的两种方式：隐式推导 vs 显式指定 </span> </a> <nav class=md-nav aria-label="函数模板实例化的两种方式：隐式推导 vs 显式指定"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1-implicit-deduction class=md-nav__link> <span class=md-ellipsis> 1. 隐式推导 (Implicit Deduction) </span> </a> </li> <li class=md-nav__item> <a href=#2-explicit-instantiation class=md-nav__link> <span class=md-ellipsis> 2. 显式指定 (Explicit Instantiation) </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#class-templates class=md-nav__link> <span class=md-ellipsis> 深入理解类模板 (Class Templates) </span> </a> <nav class=md-nav aria-label="深入理解类模板 (Class Templates)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1_1 class=md-nav__link> <span class=md-ellipsis> 1. 类模板的本质与优势 </span> </a> </li> <li class=md-nav__item> <a href=#2-vector class=md-nav__link> <span class=md-ellipsis> 2. 类模板代码实战：手写一个通用动态数组 (Vector) </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#_5 class=md-nav__link> <span class=md-ellipsis> 模板的高阶进阶用法 </span> </a> <nav class=md-nav aria-label=模板的高阶进阶用法> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1-multiple-types class=md-nav__link> <span class=md-ellipsis> 1. 使用多个类型参数 (Multiple types) </span> </a> </li> <li class=md-nav__item> <a href=#2-templates-nest class=md-nav__link> <span class=md-ellipsis> 2. 模板的嵌套与复杂类型 (Templates nest) </span> </a> </li> <li class=md-nav__item> <a href=#3-non-type-expression-parameters class=md-nav__link> <span class=md-ellipsis> 3. 非类型参数 / 表达式参数 (Non-Type / Expression parameters) </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#pptcrtp class=md-nav__link> <span class=md-ellipsis> 一、第一张PPT：CRTP（奇异递归模板模式） </span> </a> <nav class=md-nav aria-label=一、第一张PPT：CRTP（奇异递归模板模式）> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1_2 class=md-nav__link> <span class=md-ellipsis> 1. 先看懂它的“奇怪”结构 </span> </a> </li> <li class=md-nav__item> <a href=#2 class=md-nav__link> <span class=md-ellipsis> 2. 核心原理：怎么模拟虚函数？ </span> </a> </li> <li class=md-nav__item> <a href=#3 class=md-nav__link> <span class=md-ellipsis> 3. 和虚函数的对比 </span> </a> </li> <li class=md-nav__item> <a href=#4 class=md-nav__link> <span class=md-ellipsis> 4. 常见用途 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#ppt class=md-nav__link> <span class=md-ellipsis> 二、第二张PPT：模板开发的通用注意事项 </span> </a> <nav class=md-nav aria-label=二、第二张PPT：模板开发的通用注意事项> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1-friends-static-members class=md-nav__link> <span class=md-ellipsis> 1. friends 和 static members </span> </a> </li> <li class=md-nav__item> <a href=#2_1 class=md-nav__link> <span class=md-ellipsis> 2. 核心重点：模板的声明和定义必须放在头文件里 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#_9 class=md-nav__link> <span class=md-ellipsis> 一句话总结 </span> </a> </li> </ul> </nav> </div> </div> </div> <div id=tsparticles></div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <nav class=md-tags> <a href=../tags.html#tag:程序设计与算法 class=md-tag>程序设计与算法</a> <a href=../tags.html#tag:面向对象编程 class=md-tag>面向对象编程</a> </nav> <a href=https://github.com/Guoguo828/mkdocs_start/edit/main/docs/oop/模板.md title=编辑此页 class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg> </a> <a href=https://github.com/Guoguo828/mkdocs_start/raw/main/docs/oop/模板.md title=查看本页的源代码 class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg> </a> <h1 id=c-templates>C++ 模板 (Templates) 深入理解<a class=headerlink href=#c-templates title="Permanent link">&para;</a></h1> <h2 id=_1>什么是模板？<a class=headerlink href=#_1 title="Permanent link">&para;</a></h2> <p>模板可以理解为代码的<strong>“模具”或“图纸”</strong>。在普通的编程中，我们将数据作为参数传递给函数；而在<strong>泛型编程 (Generic Programming)</strong> 中，我们将<strong>“数据类型”</strong>本身作为参数传递。</p> <p>核心思想是<strong>重用源代码</strong>：只要一段逻辑与具体的数据类型无关，我们就可以把它写成模板，避免为每种数据类型都写一遍完全一样的代码。</p> <p>主要分为两种：</p> <h3 id=1-function-template>1. 函数模板 (Function Template)<a class=headerlink href=#1-function-template title="Permanent link">&para;</a></h3> <ul> <li><strong>思想：</strong> 算法核心逻辑相同，仅仅是需要处理的数据类型不同。比如排序函数 <code>sort</code>。</li> <li><strong>具体代码示例 (求最大值)：</strong></li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-0-1 name=__codelineno-0-1 href=#__codelineno-0-1></a><span class=c1>// 以前不用模板时：必须为每种类型写一个重载函数 (重复造轮子)</span>
+<a id=__codelineno-0-2 name=__codelineno-0-2 href=#__codelineno-0-2></a><span class=kt>int</span><span class=w> </span><span class=nf>myMax</span><span class=p>(</span><span class=kt>int</span><span class=w> </span><span class=n>a</span><span class=p>,</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>b</span><span class=w> </span><span class=o>?</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w> </span><span class=p>}</span>
+<a id=__codelineno-0-3 name=__codelineno-0-3 href=#__codelineno-0-3></a><span class=kt>double</span><span class=w> </span><span class=nf>myMax</span><span class=p>(</span><span class=kt>double</span><span class=w> </span><span class=n>a</span><span class=p>,</span><span class=w> </span><span class=kt>double</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>b</span><span class=w> </span><span class=o>?</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w> </span><span class=p>}</span>
+<a id=__codelineno-0-4 name=__codelineno-0-4 href=#__codelineno-0-4></a>
+<a id=__codelineno-0-5 name=__codelineno-0-5 href=#__codelineno-0-5></a><span class=c1>// 使用函数模板：写一个通用的“模具”</span>
+<a id=__codelineno-0-6 name=__codelineno-0-6 href=#__codelineno-0-6></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>typename</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a><span class=n>T</span><span class=w> </span><span class=n>myMax</span><span class=p>(</span><span class=n>T</span><span class=w> </span><span class=n>a</span><span class=p>,</span><span class=w> </span><span class=n>T</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>b</span><span class=w> </span><span class=o>?</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>b</span><span class=p>;</span>
+<a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=p>}</span>
+<a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a>
+<a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a><span class=c1>// 调用时：</span>
+<a id=__codelineno-0-12 name=__codelineno-0-12 href=#__codelineno-0-12></a><span class=kt>int</span><span class=w> </span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>myMax</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span><span class=w> </span><span class=mi>10</span><span class=p>);</span><span class=w>         </span><span class=c1>// 编译器自动根据参数把 T 替换为 int</span>
+<a id=__codelineno-0-13 name=__codelineno-0-13 href=#__codelineno-0-13></a><span class=kt>double</span><span class=w> </span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>myMax</span><span class=p>(</span><span class=mf>3.14</span><span class=p>,</span><span class=w> </span><span class=mf>2.71</span><span class=p>);</span><span class=w> </span><span class=c1>// 编译器自动把 T 替换为 double</span>
+</code></pre></div> <h3 id=2-class-template>2. 类模板 (Class Template)<a class=headerlink href=#2-class-template title="Permanent link">&para;</a></h3> <ul> <li><strong>思想：</strong> 数据结构（如：栈 Stack、列表 List、队列 Queue）的操作逻辑和它里面装数字、字符还是复杂的自定义对象没有任何关系。</li> <li><strong>具体代码示例 (一个简单的通用“栈”/包装盒)：</strong></li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=c1>// 定义一个通用的盒子类，可以装任意类型 T 的内容</span>
+<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=k>class</span><span class=w> </span><span class=nc>Box</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a><span class=k>private</span><span class=o>:</span>
+<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=w>    </span><span class=n>T</span><span class=w> </span><span class=n>content</span><span class=p>;</span><span class=w> </span><span class=c1>// 盒子里装的内容，类型待定 (T)</span>
+<a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a><span class=k>public</span><span class=o>:</span>
+<a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a><span class=w>    </span><span class=n>Box</span><span class=p>(</span><span class=n>T</span><span class=w> </span><span class=n>item</span><span class=p>)</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=n>content</span><span class=p>(</span><span class=n>item</span><span class=p>)</span><span class=w> </span><span class=p>{}</span>
+<a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a><span class=w>    </span><span class=n>T</span><span class=w> </span><span class=n>getContent</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=n>content</span><span class=p>;</span><span class=w> </span><span class=p>}</span>
+<a id=__codelineno-1-9 name=__codelineno-1-9 href=#__codelineno-1-9></a><span class=p>};</span>
+<a id=__codelineno-1-10 name=__codelineno-1-10 href=#__codelineno-1-10></a>
+<a id=__codelineno-1-11 name=__codelineno-1-11 href=#__codelineno-1-11></a><span class=c1>// 调用时：类模板通常需要显式指定类型 (&lt;类型&gt;)</span>
+<a id=__codelineno-1-12 name=__codelineno-1-12 href=#__codelineno-1-12></a><span class=n>Box</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=w> </span><span class=n>intBox</span><span class=p>(</span><span class=mi>100</span><span class=p>);</span><span class=w>             </span><span class=c1>// 实例化一个装 int 的盒子</span>
+<a id=__codelineno-1-13 name=__codelineno-1-13 href=#__codelineno-1-13></a><span class=n>Box</span><span class=o>&lt;</span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=o>&gt;</span><span class=w> </span><span class=n>strBox</span><span class=p>(</span><span class=s>&quot;Hello&quot;</span><span class=p>);</span><span class=w> </span><span class=c1>// 实例化一个装 string 的盒子</span>
+</code></pre></div> <ul> <li><strong>模板成员函数：</strong> 类模板内部的成员函数也可以灵活处理各种类型，其实现逻辑也可以与特定的参数类型分离开。</li> </ul> <hr> <h2 id=_2>为什么我们需要使用模板？（痛点分析）<a class=headerlink href=#_2 title="Permanent link">&para;</a></h2> <p>假设现在的业务需求是：我们需要一个专门存放 <code>X</code> 类型的列表，同时又需要一个存放 <code>Y</code> 类型的列表。 <strong>现实情况是：</strong> 这两个列表底层的基本操作（增、删、改、查）代码几乎一模一样，唯一的区别只是它们存放的<strong>元素类型不同</strong>。</p> <p>如果不使用模板，我们通常有以下三种“笨方法”（Choices），它们各自存在致命的缺陷：</p> <p><strong>1. 复制代码 (Clone code / 复制粘贴)</strong></p> <ul> <li><strong>做法：</strong> 把 <code>X</code> 列表的代码复制一份，把里面所有的 <code>X</code> 替换成 <code>Y</code>。</li> <li><strong>优点：</strong> 保证了类型安全（编译器知道里面装的是什么，不会出错）。</li> <li><strong>缺点：</strong> 代码极难维护！如果列表代码里发现了一个 Bug，你必须在 <code>X</code> 列表、<code>Y</code> 列表等所有复制过的地方都去修改一遍。</li> </ul> <p><strong>2. 借助共同的基类 (Require common base class)</strong></p> <ul> <li><strong>做法：</strong> 让 <code>X</code> 和 <code>Y</code> 都继承自一个超类（比如 <code>Object</code>），然后我们只写一个存放 <code>Object</code> 的列表。</li> <li><strong>缺点：</strong> 非常不灵活，过度设计。很多时候 <code>X</code> 和 <code>Y</code> 在业务上根本没有任何联系，强行让它们认同一个“爹”是不合理的。而且每次取出来的数据都需要进行强制类型转换。</li> </ul> <p><strong>3. 使用无类型列表 (Untyped lists)</strong></p> <ul> <li><strong>做法：</strong> 使用通用的指针（例如 C 语言里的 <code>void*</code>），让列表什么东西都能装下。</li> <li><strong>缺点：</strong> <strong>类型极其不安全 (Type unsafe)</strong>！你可以往 <code>X</code> 列表里偷偷塞入一个不受控制的数据，编译器根本发现不了，这会导致程序在运行时直接崩溃。</li> </ul> <p><strong>总结：</strong> 由于以上三种方法都有明显的短板，<strong>模板 (Templates)</strong> 应运而生。它既完美实现了<strong>代码的高效复用</strong>（告别复制粘贴），又由编译器保证了绝对的<strong>类型安全</strong>（比 <code>void*</code> 和公共基类更可靠）。</p> <hr> <h2 id=function-templates>深入理解函数模板 (Function Templates)<a class=headerlink href=#function-templates title="Permanent link">&para;</a></h2> <p>函数模板的核心作用是：<strong>对不同类型的数据执行相同的操作。</strong></p> <h3 id=swap>案例演进：Swap（值交换）函数<a class=headerlink href=#swap title="Permanent link">&para;</a></h3> <p><strong>1. 原始的痛点：</strong> 假设我们要写一个交换两个整数变量的值的函数，代码非常简单：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kt>void</span><span class=w> </span><span class=nf>swap</span><span class=p>(</span><span class=kt>int</span><span class=o>&amp;</span><span class=w> </span><span class=n>x</span><span class=p>,</span><span class=w> </span><span class=kt>int</span><span class=o>&amp;</span><span class=w> </span><span class=n>y</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=w>    </span><span class=kt>int</span><span class=w> </span><span class=n>temp</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>x</span><span class=p>;</span>
+<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=w>    </span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>y</span><span class=p>;</span>
+<a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=w>    </span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>temp</span><span class=p>;</span>
+<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=p>}</span>
+</code></pre></div> <p><strong>思考：</strong> 但是问题来了！如果有一天我们不仅需要交换整数，还需要交换浮点数 (<code>float</code>)、字符串 (<code>string</code>)，甚至是自定义的货币 (<code>Currency</code>) 或是人员 (<code>Person</code>) 对象呢？难道要为每种类型都写一个重新拷贝一遍这个函数仅仅替换类型名吗？</p> <p><strong>2. 模板来救场（解决方案）：</strong> 使用函数模板，我们可以把“具体的类型”抽象成一个“参数”。通用版本的 <code>swap</code> 模板函数如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=kt>void</span><span class=w> </span><span class=n>swap</span><span class=p>(</span><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=n>x</span><span class=p>,</span><span class=w> </span><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=n>y</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a><span class=w>    </span><span class=n>T</span><span class=w> </span><span class=n>temp</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>x</span><span class=p>;</span>
+<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=w>    </span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>y</span><span class=p>;</span>
+<a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a><span class=w>    </span><span class=n>y</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>temp</span><span class=p>;</span>
+<a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a><span class=p>}</span>
+</code></pre></div> <h3 id=_3>模板语法拆解<a class=headerlink href=#_3 title="Permanent link">&para;</a></h3> <p>关于 <code>template &lt;class T&gt;</code> 的细节解释：</p> <ul> <li><strong><code>template</code> 关键字：</strong> 放在最前面，用来引出一个模板。等于是在告诉编译器：“注意了，下面这是一个通用模板，不是普通的函数”。</li> <li><strong><code>&lt;class T&gt;</code> 参数化类型名：</strong> 声明了一个名称为 <code>T</code> 的虚拟类型。</li> <li>这里的 <code>class</code> 并不是说只允许传入类对象，它的意思是<strong>任何内置的类型（比如 <code>int</code>, <code>double</code>）或者是用户自定义的类型都可以</strong>。（现代 C++ 中这里用 <code>typename T</code> 也是可以的，两者含义在这里相同）。</li> <li><strong>使用 <code>T</code> 的多重身份 (Parameter types represent)：</strong> 这个虚拟类型 <code>T</code> 在函数模板内部可以扮演多种角色：</li> <li><strong>作为函数的参数类型</strong>：例如 <code>void swap(T&amp; x, T&amp; y)</code>。</li> <li><strong>作为函数的返回值类型</strong>：例如前面的求最大值模板 <code>T myMax(T a, T b)</code>。</li> <li><strong>用来在函数内部声明局部变量</strong>：例如 <code>T temp = x;</code>。</li> </ul> <hr> <h2 id=template-instantiation>模板的实例化 (Template Instantiation)<a class=headerlink href=#template-instantiation title="Permanent link">&para;</a></h2> <p>要记住一个核心概念：<strong>模板本身并不是一个真正的函数或类，它只是一张“图纸”。</strong> 只有当你在代码中实际<strong>使用</strong>它时，编译器才会真正生成对应的代码，这个过程就叫做<strong>实例化 (Instantiation)</strong>。</p> <ul> <li><strong>实例化的底层过程：</strong></li> <li><strong>类型绑定与替换 (Substitute)：</strong> 编译器根据你传入的实际参数，推断出 <code>T</code> 究竟是什么类型，然后把模板里所有的 <code>T</code> 替换成这个具体的类型（比如 <code>int</code> 或 <code>float</code>）。</li> <li><strong>生成实体代码 (Create new body)：</strong> 编译器根据替换后的类型，在后台默默为你生成一个对应类型的、独立的函数或类定义。</li> <li><strong>编译期检查 (Type checking)：</strong> <strong>非常重要！</strong> 只有在实例化生成具体代码时，编译器才会进行严格的语法错误和类型匹配检查。</li> <li><strong>术语辨析：</strong></li> <li><strong>Function Template (函数模板)：</strong> 你写的那张含有 <code>T</code> 的“图纸”。</li> <li><strong>Template Function (模板函数)：</strong> 编译器根据图纸实例化出来的、具备具体类型（如 <code>int</code> 版本）的真正函数。</li> <li><strong>特化 (Specialization)：</strong> 有时候通用的模板逻辑并不适用于所有类型。比如你可以为某个特定类型（比如特定的指针类型）提供一个特殊版本的实现，这就叫“模板特化”。</li> </ul> <h3 id=swap_1>代码实战：Swap 模板的调用与实例化演示<a class=headerlink href=#swap_1 title="Permanent link">&para;</a></h3> <p>让我们看看在实际代码中如何无缝调用刚才写的 <code>swap</code> 函数模板：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;iostream&gt;</span>
+<a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;string&gt;</span>
+<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a>
+<a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a><span class=c1>// ... 假设之前写好的 template &lt;class T&gt; void swap(T&amp; x, T&amp; y) 已经存在 ...</span>
+<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a>
+<a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a><span class=kt>int</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a><span class=w>    </span><span class=c1>// 1. 整数交换</span>
+<a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a><span class=w>    </span><span class=kt>int</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>3</span><span class=p>;</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=n>j</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>4</span><span class=p>;</span>
+<a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a><span class=w>    </span><span class=n>swap</span><span class=p>(</span><span class=n>i</span><span class=p>,</span><span class=w> </span><span class=n>j</span><span class=p>);</span>
+<a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a><span class=w>    </span><span class=c1>// 编译器看到参数是 int，于是自动实例化一个 T=int 的 swap 版本 (隐式调用)</span>
+<a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a>
+<a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a><span class=w>    </span><span class=c1>// 2. 浮点数交换</span>
+<a id=__codelineno-4-13 name=__codelineno-4-13 href=#__codelineno-4-13></a><span class=w>    </span><span class=kt>float</span><span class=w> </span><span class=n>k</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>4.5</span><span class=p>;</span><span class=w> </span><span class=kt>float</span><span class=w> </span><span class=n>m</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>3.7</span><span class=p>;</span>
+<a id=__codelineno-4-14 name=__codelineno-4-14 href=#__codelineno-4-14></a><span class=w>    </span><span class=n>swap</span><span class=p>(</span><span class=n>k</span><span class=p>,</span><span class=w> </span><span class=n>m</span><span class=p>);</span>
+<a id=__codelineno-4-15 name=__codelineno-4-15 href=#__codelineno-4-15></a><span class=w>    </span><span class=c1>// 编译器自动实例化一个 T=float 的 float swap 版本</span>
+<a id=__codelineno-4-16 name=__codelineno-4-16 href=#__codelineno-4-16></a>
+<a id=__codelineno-4-17 name=__codelineno-4-17 href=#__codelineno-4-17></a><span class=w>    </span><span class=c1>// 3. 复杂对象（字符串）交换</span>
+<a id=__codelineno-4-18 name=__codelineno-4-18 href=#__codelineno-4-18></a><span class=w>    </span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=w> </span><span class=n>s</span><span class=p>(</span><span class=s>&quot;Hello&quot;</span><span class=p>);</span>
+<a id=__codelineno-4-19 name=__codelineno-4-19 href=#__codelineno-4-19></a><span class=w>    </span><span class=n>std</span><span class=o>::</span><span class=n>string</span><span class=w> </span><span class=n>t</span><span class=p>(</span><span class=s>&quot;World&quot;</span><span class=p>);</span>
+<a id=__codelineno-4-20 name=__codelineno-4-20 href=#__codelineno-4-20></a><span class=w>    </span><span class=n>swap</span><span class=p>(</span><span class=n>s</span><span class=p>,</span><span class=w> </span><span class=n>t</span><span class=p>);</span>
+<a id=__codelineno-4-21 name=__codelineno-4-21 href=#__codelineno-4-21></a><span class=w>    </span><span class=c1>// 编译器自动实例化一个 T=std::string 的 std::string swap 版本</span>
+<a id=__codelineno-4-22 name=__codelineno-4-22 href=#__codelineno-4-22></a>
+<a id=__codelineno-4-23 name=__codelineno-4-23 href=#__codelineno-4-23></a><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=p>;</span>
+<a id=__codelineno-4-24 name=__codelineno-4-24 href=#__codelineno-4-24></a><span class=p>}</span>
+</code></pre></div> <p><strong>看，真正的魔法就在这里：</strong> 我们只写了<strong>一次</strong>薄薄几行的 <code>swap</code> 模板代码，但它现在却能毫不费力地服务于<strong>成百上千种</strong>截然不同的数据结构！</p> <hr> <h2 id=interactions-overloading>模板与普通函数的“爱恨情仇” (Interactions &amp; Overloading)<a class=headerlink href=#interactions-overloading title="Permanent link">&para;</a></h2> <p>在 C++ 中，<strong>模板函数和普通的函数是可以和平共存的 (coexist)</strong>，甚至可以“同名”。这就引出了一个非常经典的问题：当它们混在一起时，编译器到底听谁的？</p> <h3 id=1>1. 模板的原则：绝不妥协 (严格匹配)<a class=headerlink href=#1 title="Permanent link">&para;</a></h3> <p>普通函数在参数不完全匹配时，可能会委曲求全进行自动类型转换（比如把 <code>int</code> 悄悄转成 <code>double</code>）。但<strong>模板极其有原则，它只接受完全精确的类型匹配 (exact match)</strong>！</p> <p>它<strong>绝对不包含任何隐式类型转换 (No conversion operations are applied)</strong>。</p> <p>例如对于我们写好的 <code>template &lt;class T&gt; void swap(T x, T y)</code> (假设传值方便理解)：</p> <ul> <li><code>swap(int, int);</code> // OK！ T = int</li> <li><code>swap(double, double);</code> // OK！ T = double</li> <li><code>swap(int, double);</code> // <strong>Error (报错)！</strong></li> <li><em>原因：</em> 编译器推导第一个参数觉得 T 应该是 <code>int</code>，看第二个参数觉得 T 应该是 <code>double</code>。大脑死机，直接报错！它绝对不会擅自把 <code>int</code> 转成 <code>double</code> 来迎合模板。</li> </ul> <h3 id=2-overloading-rules>2. 编译器选秀规则 (Overloading rules)<a class=headerlink href=#2-overloading-rules title="Permanent link">&para;</a></h3> <p>当一个普通函数和一个模板函数同名时（重载），编译器有一套雷打不动的“按选优先级”流程：</p> <ul> <li><strong>第一步：黄金 VIP 通道 (普通函数的完美匹配)</strong></li> <li>优先查看有没有哪个普通函数，它的参数类型跟调用时的类型<strong>完全一模一样</strong>。如果有，直接用它！效率最高。</li> <li><strong>第二步：模板定制通道 (模板实例化完美匹配)</strong></li> <li>如果没有绝配的普通函数，就去看模板。如果模板能根据参数<strong>实例化出一个完美匹配</strong>的函数，那就用模板。</li> <li><strong>第三步：委曲求全通道 (普通函数的隐式转换)</strong></li> <li>如果模板也搞不定（比如遇到了上面的 <code>int, double</code> 类型不一样的情况模板罢工），那就退回到普通函数重载。看看普通函数能不能通过<strong>隐式类型转换</strong>勉强凑合着跑一跑。</li> </ul> <h3 id=_4>代码实战：重载规则演示<a class=headerlink href=#_4 title="Permanent link">&para;</a></h3> <p>这是一段非常有迷惑性的代码，非常适合当考题：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=c1>// 1. 一个普通的函数，专门接收两个 float</span>
+<a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a><span class=kt>void</span><span class=w> </span><span class=nf>f</span><span class=p>(</span><span class=kt>float</span><span class=w> </span><span class=n>i</span><span class=p>,</span><span class=w> </span><span class=kt>float</span><span class=w> </span><span class=n>k</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=cm>/* ... */</span><span class=w> </span><span class=p>}</span>
+<a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a>
+<a id=__codelineno-5-4 name=__codelineno-5-4 href=#__codelineno-5-4></a><span class=c1>// 2. 一个同名的模板函数，要求接收两个 &quot;完全相同&quot; 的类型 T</span>
+<a id=__codelineno-5-5 name=__codelineno-5-5 href=#__codelineno-5-5></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-5-6 name=__codelineno-5-6 href=#__codelineno-5-6></a><span class=kt>void</span><span class=w> </span><span class=n>f</span><span class=p>(</span><span class=n>T</span><span class=w> </span><span class=n>t</span><span class=p>,</span><span class=w> </span><span class=n>T</span><span class=w> </span><span class=n>u</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=cm>/* ... */</span><span class=w> </span><span class=p>}</span>
+<a id=__codelineno-5-7 name=__codelineno-5-7 href=#__codelineno-5-7></a>
+<a id=__codelineno-5-8 name=__codelineno-5-8 href=#__codelineno-5-8></a><span class=c1>// 接下来我们开始调用，请猜猜分别调用了谁？</span>
+<a id=__codelineno-5-9 name=__codelineno-5-9 href=#__codelineno-5-9></a>
+<a id=__codelineno-5-10 name=__codelineno-5-10 href=#__codelineno-5-10></a><span class=n>f</span><span class=p>(</span><span class=mf>1.0</span><span class=p>,</span><span class=w> </span><span class=mf>2.0</span><span class=p>);</span>
+<a id=__codelineno-5-11 name=__codelineno-5-11 href=#__codelineno-5-11></a><span class=c1>// 传进去的 1.0 和 2.0 在 C++ 里默认是 double 类型。</span>
+<a id=__codelineno-5-12 name=__codelineno-5-12 href=#__codelineno-5-12></a><span class=c1>// 第一步查普通函数完美匹配？没有 (普通函数是 float)。</span>
+<a id=__codelineno-5-13 name=__codelineno-5-13 href=#__codelineno-5-13></a><span class=c1>// 第二步查模板？模板可以实例化出 T=double 的 f(double, double)，完美匹配！</span>
+<a id=__codelineno-5-14 name=__codelineno-5-14 href=#__codelineno-5-14></a><span class=c1>// 结论：👉 调用了模板函数！</span>
+<a id=__codelineno-5-15 name=__codelineno-5-15 href=#__codelineno-5-15></a>
+<a id=__codelineno-5-16 name=__codelineno-5-16 href=#__codelineno-5-16></a><span class=n>f</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>);</span>
+<a id=__codelineno-5-17 name=__codelineno-5-17 href=#__codelineno-5-17></a><span class=c1>// 参数是两个 int。</span>
+<a id=__codelineno-5-18 name=__codelineno-5-18 href=#__codelineno-5-18></a><span class=c1>// 第一步找普通函数 f(int, int)？没有。</span>
+<a id=__codelineno-5-19 name=__codelineno-5-19 href=#__codelineno-5-19></a><span class=c1>// 第二步找模板？模板实例化 T=int 的 f(int, int)，完美匹配！</span>
+<a id=__codelineno-5-20 name=__codelineno-5-20 href=#__codelineno-5-20></a><span class=c1>// 结论：👉 调用了模板函数！</span>
+<a id=__codelineno-5-21 name=__codelineno-5-21 href=#__codelineno-5-21></a>
+<a id=__codelineno-5-22 name=__codelineno-5-22 href=#__codelineno-5-22></a><span class=n>f</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mf>2.0</span><span class=p>);</span>
+<a id=__codelineno-5-23 name=__codelineno-5-23 href=#__codelineno-5-23></a><span class=c1>// 参数是一个 int 和一个 double。</span>
+<a id=__codelineno-5-24 name=__codelineno-5-24 href=#__codelineno-5-24></a><span class=c1>// 第一步完美匹配？没有。</span>
+<a id=__codelineno-5-25 name=__codelineno-5-25 href=#__codelineno-5-25></a><span class=c1>// 第二步查模板？模板要求两个参数类型一致(T, T)，现在一不一样，直接罢工报错。</span>
+<a id=__codelineno-5-26 name=__codelineno-5-26 href=#__codelineno-5-26></a><span class=c1>// 第三步找普通函数凑合？普通 f(float, float) 说：“虽然参数类型不对，但你可以把 int 和 double 都隐式转换为 float 啊，我接了！”</span>
+<a id=__codelineno-5-27 name=__codelineno-5-27 href=#__codelineno-5-27></a><span class=c1>// 结论：👉 调用了普通函数！</span>
+</code></pre></div> <hr> <h2 id=vs>函数模板实例化的两种方式：隐式推导 vs 显式指定<a class=headerlink href=#vs title="Permanent link">&para;</a></h2> <p>编译器怎么知道模板里的 <code>T</code> 到底是个啥？有两种方式告诉它：</p> <h3 id=1-implicit-deduction>1. 隐式推导 (Implicit Deduction)<a class=headerlink href=#1-implicit-deduction title="Permanent link">&para;</a></h3> <p>这是最常见的方式，就像前面用过的 <code>swap(i, j)</code> 或者 <code>f(1, 2)</code>。</p> <ul> <li><strong>规则：</strong> 编译器非常聪明，它会直接观察你<strong>传进去的实际参数</strong>是什么类型，然后自动倒推出 <code>T</code> 应该是什么。不需要你多写任何废话。</li> </ul> <h3 id=2-explicit-instantiation>2. 显式指定 (Explicit Instantiation)<a class=headerlink href=#2-explicit-instantiation title="Permanent link">&para;</a></h3> <p>有时候，编译器会遇到“无米之炊”的尴尬局面：<strong>如果模板类型 <code>T</code> 压根就没有出现在函数的参数列表里怎么办？</strong> 由于你在调用时没有传任何带有 <code>T</code> 类型的参数，编译器无从猜起，它就会直接报错。</p> <p>此时，我们就必须手动（显式）告诉编译器这个 <code>T</code> 是什么：</p> <ul> <li><strong>语法：</strong> 在函数名后面加上 <code>&lt;具体的类型&gt;</code>。</li> <li><strong>代码示例：</strong></li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=c1>// 模板定义：参数列表里是个 void (没有参数)，但函数内部或返回值可能用到了 T</span>
+<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-6-3 name=__codelineno-6-3 href=#__codelineno-6-3></a><span class=kt>void</span><span class=w> </span><span class=n>foo</span><span class=p>(</span><span class=kt>void</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-6-4 name=__codelineno-6-4 href=#__codelineno-6-4></a><span class=w>    </span><span class=cm>/* 函数体内部使用了类型 T ... */</span>
+<a id=__codelineno-6-5 name=__codelineno-6-5 href=#__codelineno-6-5></a><span class=p>}</span>
+<a id=__codelineno-6-6 name=__codelineno-6-6 href=#__codelineno-6-6></a>
+<a id=__codelineno-6-7 name=__codelineno-6-7 href=#__codelineno-6-7></a><span class=kt>int</span><span class=w> </span><span class=n>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a><span class=w>    </span><span class=c1>// 错误调用：foo();</span>
+<a id=__codelineno-6-9 name=__codelineno-6-9 href=#__codelineno-6-9></a><span class=w>    </span><span class=c1>// 编译器哭诉：你什么都没传，我怎么猜 T 是 int 还是 double？</span>
+<a id=__codelineno-6-10 name=__codelineno-6-10 href=#__codelineno-6-10></a>
+<a id=__codelineno-6-11 name=__codelineno-6-11 href=#__codelineno-6-11></a><span class=w>    </span><span class=c1>// 正确调用：必须显式告诉编译器 T 是什么类型</span>
+<a id=__codelineno-6-12 name=__codelineno-6-12 href=#__codelineno-6-12></a><span class=w>    </span><span class=n>foo</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>();</span><span class=w>   </span><span class=c1>// 显式指定此时 T 是 int</span>
+<a id=__codelineno-6-13 name=__codelineno-6-13 href=#__codelineno-6-13></a><span class=w>    </span><span class=n>foo</span><span class=o>&lt;</span><span class=kt>float</span><span class=o>&gt;</span><span class=p>();</span><span class=w> </span><span class=c1>// 显式指定此时 T 是 float</span>
+<a id=__codelineno-6-14 name=__codelineno-6-14 href=#__codelineno-6-14></a>
+<a id=__codelineno-6-15 name=__codelineno-6-15 href=#__codelineno-6-15></a><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=p>;</span>
+<a id=__codelineno-6-16 name=__codelineno-6-16 href=#__codelineno-6-16></a><span class=p>}</span>
+</code></pre></div> <p><em>(注：这种显式指定的用法在比较现代的 C++ 编译器中是支持且必要的语法)</em></p> <hr> <h2 id=class-templates>深入理解类模板 (Class Templates)<a class=headerlink href=#class-templates title="Permanent link">&para;</a></h2> <p>讲完了函数模板，我们再来看看它的老大哥——<strong>类模板</strong>。 正如函数模板把参数类型给“抽象”出来一样，类模板则是用于<strong>参数化类中的数据类型 (Classes parameterized by types)</strong>。</p> <h3 id=1_1>1. 类模板的本质与优势<a class=headerlink href=#1_1 title="Permanent link">&para;</a></h3> <ul> <li><strong>操作与数据类型解耦 (Abstract operations)：</strong> 比如一个“动态数组”或者“栈”，它的扩张、缩小、压栈、出栈等<strong>操作逻辑</strong>跟它里面装的是苹果还是橘子无关。类模板成功地把“操作逻辑”和“被操作的类型”剥离开来。</li> <li><strong>一生万物：</strong> 只要写好一个类模板，就等于定义了<strong>潜在地无限多个不同的类</strong>。需要什么类型的类，编译器就用模板帮你“印”出来。这是代码复用的又一大飞跃！</li> <li> <p><strong>典型应用场景：容器类 (Container classes)</strong> 我们在 C++ 标准模板库(STL)中经常见到的东西，基本全都是类模板：</p> </li> <li> <p><code>stack&lt;int&gt;</code>：一个专门装整数的栈</p> </li> <li><code>list&lt;Person&amp;&gt;</code>：一个专门装人员引用（Person&amp;）的链表</li> <li><code>queue&lt;Job&gt;</code>：一个专门处理任务（Job）的队列</li> </ul> <h3 id=2-vector>2. 类模板代码实战：手写一个通用动态数组 (Vector)<a class=headerlink href=#2-vector title="Permanent link">&para;</a></h3> <p>我们来看一个经典例子：如果我们要自己写一个类似 <code>std::vector</code> 的通用动态数组，类模板该怎么写？</p> <p><strong>第一步：定义类模板 (图纸)</strong></p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=k>class</span><span class=w> </span><span class=nc>Vector</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-7-3 name=__codelineno-7-3 href=#__codelineno-7-3></a><span class=k>public</span><span class=o>:</span>
+<a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=w>    </span><span class=c1>// 构造函数，传入初始容量</span>
+<a id=__codelineno-7-5 name=__codelineno-7-5 href=#__codelineno-7-5></a><span class=w>    </span><span class=n>Vector</span><span class=p>(</span><span class=kt>int</span><span class=w> </span><span class=n>size</span><span class=p>);</span>
+<a id=__codelineno-7-6 name=__codelineno-7-6 href=#__codelineno-7-6></a><span class=w>    </span><span class=c1>// 析构函数，负责清理动态分配的内存</span>
+<a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a><span class=w>    </span><span class=o>~</span><span class=n>Vector</span><span class=p>();</span>
+<a id=__codelineno-7-8 name=__codelineno-7-8 href=#__codelineno-7-8></a><span class=w>    </span><span class=c1>// 拷贝构造函数</span>
+<a id=__codelineno-7-9 name=__codelineno-7-9 href=#__codelineno-7-9></a><span class=w>    </span><span class=n>Vector</span><span class=p>(</span><span class=k>const</span><span class=w> </span><span class=n>Vector</span><span class=o>&amp;</span><span class=p>);</span>
+<a id=__codelineno-7-10 name=__codelineno-7-10 href=#__codelineno-7-10></a><span class=w>    </span><span class=c1>// 赋值运算符重载</span>
+<a id=__codelineno-7-11 name=__codelineno-7-11 href=#__codelineno-7-11></a><span class=w>    </span><span class=n>Vector</span><span class=o>&amp;</span><span class=w> </span><span class=k>operator</span><span class=o>=</span><span class=p>(</span><span class=k>const</span><span class=w> </span><span class=n>Vector</span><span class=o>&amp;</span><span class=p>);</span>
+<a id=__codelineno-7-12 name=__codelineno-7-12 href=#__codelineno-7-12></a><span class=w>    </span><span class=c1>// [] 下标运算符重载，返回 T 类型的引用，方便读写</span>
+<a id=__codelineno-7-13 name=__codelineno-7-13 href=#__codelineno-7-13></a><span class=w>    </span><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=k>operator</span><span class=p>[](</span><span class=kt>int</span><span class=w> </span><span class=n>index</span><span class=p>);</span>
+<a id=__codelineno-7-14 name=__codelineno-7-14 href=#__codelineno-7-14></a>
+<a id=__codelineno-7-15 name=__codelineno-7-15 href=#__codelineno-7-15></a><span class=k>private</span><span class=o>:</span>
+<a id=__codelineno-7-16 name=__codelineno-7-16 href=#__codelineno-7-16></a><span class=w>    </span><span class=n>T</span><span class=o>*</span><span class=w> </span><span class=n>m_elements</span><span class=p>;</span><span class=w> </span><span class=c1>// 指向堆内存中数组的指针，用来存任何 T 类型的数据</span>
+<a id=__codelineno-7-17 name=__codelineno-7-17 href=#__codelineno-7-17></a><span class=w>    </span><span class=kt>int</span><span class=w> </span><span class=n>m_size</span><span class=p>;</span><span class=w>    </span><span class=c1>// 数组当前的大小</span>
+<a id=__codelineno-7-18 name=__codelineno-7-18 href=#__codelineno-7-18></a><span class=p>};</span>
+</code></pre></div> <p><strong>第二步：使用类模板 (实例化与调用)</strong> 定义好了之后，我们在业务代码里如何使用这个 <code>Vector</code> 呢？与函数模板的隐式推导不同，<strong>类模板在实例化时通常必须显式指定类型！</strong></p> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;iostream&gt;</span>
+<a id=__codelineno-8-2 name=__codelineno-8-2 href=#__codelineno-8-2></a>
+<a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a><span class=c1>// 假设我们有一个专门处理复数的自定义类 Complex</span>
+<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=k>class</span><span class=w> </span><span class=nc>Complex</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=cm>/* ... */</span><span class=w> </span><span class=p>};</span>
+<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a>
+<a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a><span class=kt>int</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a><span class=w>    </span><span class=c1>// 1. 实例化一个装整数的 Vector，容量为 100</span>
+<a id=__codelineno-8-8 name=__codelineno-8-8 href=#__codelineno-8-8></a><span class=w>    </span><span class=n>Vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=w> </span><span class=n>v1</span><span class=p>(</span><span class=mi>100</span><span class=p>);</span>
+<a id=__codelineno-8-9 name=__codelineno-8-9 href=#__codelineno-8-9></a>
+<a id=__codelineno-8-10 name=__codelineno-8-10 href=#__codelineno-8-10></a><span class=w>    </span><span class=c1>// 2. 实例化一个装复数对象的 Vector，容量为 256</span>
+<a id=__codelineno-8-11 name=__codelineno-8-11 href=#__codelineno-8-11></a><span class=w>    </span><span class=n>Vector</span><span class=o>&lt;</span><span class=n>Complex</span><span class=o>&gt;</span><span class=w> </span><span class=n>v2</span><span class=p>(</span><span class=mi>256</span><span class=p>);</span>
+<a id=__codelineno-8-12 name=__codelineno-8-12 href=#__codelineno-8-12></a>
+<a id=__codelineno-8-13 name=__codelineno-8-13 href=#__codelineno-8-13></a><span class=w>    </span><span class=c1>// 3. 具体的数据操作</span>
+<a id=__codelineno-8-14 name=__codelineno-8-14 href=#__codelineno-8-14></a><span class=w>    </span><span class=n>v1</span><span class=p>[</span><span class=mi>20</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>            </span><span class=c1>// 把 v1 的第21个元素赋值为 10 (int 类型)</span>
+<a id=__codelineno-8-15 name=__codelineno-8-15 href=#__codelineno-8-15></a>
+<a id=__codelineno-8-16 name=__codelineno-8-16 href=#__codelineno-8-16></a><span class=w>    </span><span class=c1>// ⚠️ 进阶思考：下面这行代码能跑通吗？</span>
+<a id=__codelineno-8-17 name=__codelineno-8-17 href=#__codelineno-8-17></a><span class=w>    </span><span class=n>v2</span><span class=p>[</span><span class=mi>20</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>v1</span><span class=p>[</span><span class=mi>20</span><span class=p>];</span>
+<a id=__codelineno-8-18 name=__codelineno-8-18 href=#__codelineno-8-18></a><span class=w>    </span><span class=c1>// 解释：v1[20] 取出来是一个 int，v2[20] 期望塞进去的是一个 Complex。</span>
+<a id=__codelineno-8-19 name=__codelineno-8-19 href=#__codelineno-8-19></a><span class=w>    </span><span class=c1>// 这行代码是否合法(Ok)，完全取决于你的 Complex 类内部有没有定义【把 int 转换成 Complex】的方法（比如单参数的构造函数或重载的赋值运算符）。</span>
+<a id=__codelineno-8-20 name=__codelineno-8-20 href=#__codelineno-8-20></a><span class=w>    </span><span class=c1>// 如果定义了转换，这就完全没问题！</span>
+<a id=__codelineno-8-21 name=__codelineno-8-21 href=#__codelineno-8-21></a>
+<a id=__codelineno-8-22 name=__codelineno-8-22 href=#__codelineno-8-22></a><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=p>;</span>
+<a id=__codelineno-8-23 name=__codelineno-8-23 href=#__codelineno-8-23></a><span class=p>}</span>
+</code></pre></div> <hr> <h2 id=_5>模板的高阶进阶用法<a class=headerlink href=#_5 title="Permanent link">&para;</a></h2> <p>除了上面最基础的用法，模板还有很多强大的进阶特性，让它的灵活性直接拉满：</p> <h3 id=1-multiple-types>1. 使用多个类型参数 (Multiple types)<a class=headerlink href=#1-multiple-types title="Permanent link">&para;</a></h3> <p>模板不仅仅只能接受一个 <code>T</code>，它完全可以同时接受多个不同的类型参数。这在涉及“键值对”的场景（如字典、哈希表、Map）中属于标配。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=c1>// 定义一个哈希表类，Key 是键的类型，Value 是值的类型</span>
+<a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>Key</span><span class=p>,</span><span class=w> </span><span class=k>class</span><span class=w> </span><span class=nc>Value</span><span class=o>&gt;</span>
+<a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a><span class=k>class</span><span class=w> </span><span class=nc>HashTable</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a><span class=k>public</span><span class=o>:</span>
+<a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a><span class=w>    </span><span class=c1>// 查找函数，传入键，返回值的引用</span>
+<a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a><span class=w>    </span><span class=k>const</span><span class=w> </span><span class=n>Value</span><span class=o>&amp;</span><span class=w> </span><span class=n>lookup</span><span class=p>(</span><span class=k>const</span><span class=w> </span><span class=n>Key</span><span class=o>&amp;</span><span class=p>)</span><span class=w> </span><span class=k>const</span><span class=p>;</span>
+<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=w>    </span><span class=c1>// 插入函数，传入键和值</span>
+<a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a><span class=w>    </span><span class=kt>void</span><span class=w> </span><span class=nf>install</span><span class=p>(</span><span class=k>const</span><span class=w> </span><span class=n>Key</span><span class=o>&amp;</span><span class=p>,</span><span class=w> </span><span class=k>const</span><span class=w> </span><span class=n>Value</span><span class=o>&amp;</span><span class=p>);</span>
+<a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=w>    </span><span class=c1>// ...</span>
+<a id=__codelineno-9-10 name=__codelineno-9-10 href=#__codelineno-9-10></a><span class=p>};</span>
+</code></pre></div> <h3 id=2-templates-nest>2. 模板的嵌套与复杂类型 (Templates nest)<a class=headerlink href=#2-templates-nest title="Permanent link">&para;</a></h3> <p>类模板在实例化之后，<strong>本质上就已经变成了一个普普通通的、全新的数据类型</strong>。所以，你完全可以把一个模板类当作另一个模板类的“参数”塞进去，这就是“嵌套”。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=c1>// 嵌套：一个装满 &quot;存储 double 指针的动态数组&quot; 的大动态数组 (套娃)</span>
+<a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=n>Vector</span><span class=o>&lt;</span><span class=w> </span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>double</span><span class=o>*&gt;</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>myNestedVector</span><span class=p>;</span>
+<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=c1>// ⚠️ 避坑小贴士：在早期的老版本 C++ 编译器中，嵌套模板最后的两个右尖括号 `&gt; &gt;` 之间必须加一个空格（否则会被误认作 `&gt;&gt;` 右移位运算符报错）。不过现代 C++11 及以后已经自动修复了这个问题。</span>
+<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a>
+<a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=c1>// 类型参数甚至可以极其复杂，比如下面这个：装满特定类型【函数指针】的数组</span>
+<a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=n>Vector</span><span class=o>&lt;</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>(</span><span class=o>*</span><span class=p>)</span><span class=w> </span><span class=p>(</span><span class=n>Vector</span><span class=o>&lt;</span><span class=kt>double</span><span class=o>&gt;&amp;</span><span class=p>,</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>myCrazyVector</span><span class=p>;</span>
+</code></pre></div> <h3 id=3-non-type-expression-parameters>3. 非类型参数 / 表达式参数 (Non-Type / Expression parameters)<a class=headerlink href=#3-non-type-expression-parameters title="Permanent link">&para;</a></h3> <p>这是个非常容易被忽略的强大杀器！<strong>模板的尖括号 <code>&lt; &gt;</code> 里面不仅可以传“数据类型（如 class T）”，还可以直接传“常量表达式（如具体的数字大小）”！</strong> 而且非类型参数还能有<strong>默认值</strong>。</p> <p><strong>典型应用示例：定义一个在栈上分配内存的、固定长度的高效数组。</strong></p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=c1>// T 是类型参数。</span>
+<a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a><span class=c1>// bounds 是一个非类型参数(值参数)，并且给了个默认值 100。</span>
+<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=p>,</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=n>bounds</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>100</span><span class=o>&gt;</span>
+<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=k>class</span><span class=w> </span><span class=nc>FixedVector</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a><span class=k>public</span><span class=o>:</span>
+<a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=w>    </span><span class=n>FixedVector</span><span class=p>();</span>
+<a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a><span class=w>    </span><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=k>operator</span><span class=p>[](</span><span class=kt>int</span><span class=p>);</span>
+<a id=__codelineno-11-8 name=__codelineno-11-8 href=#__codelineno-11-8></a><span class=k>private</span><span class=o>:</span>
+<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a><span class=w>    </span><span class=c1>// 💡 亮点在这里：因为 bounds 是在编译期就确定的常量，</span>
+<a id=__codelineno-11-10 name=__codelineno-11-10 href=#__codelineno-11-10></a><span class=w>    </span><span class=c1>// 所以这就相当于直接在内部声明了一个固定大小的普通数组！</span>
+<a id=__codelineno-11-11 name=__codelineno-11-11 href=#__codelineno-11-11></a><span class=w>    </span><span class=c1>// 内存直接分配在栈上，不用 new/delete，速度拔群！</span>
+<a id=__codelineno-11-12 name=__codelineno-11-12 href=#__codelineno-11-12></a><span class=w>    </span><span class=n>T</span><span class=w> </span><span class=n>elements</span><span class=p>[</span><span class=n>bounds</span><span class=p>];</span><span class=w> </span><span class=c1>// fixed size array!</span>
+<a id=__codelineno-11-13 name=__codelineno-11-13 href=#__codelineno-11-13></a><span class=p>};</span>
+<a id=__codelineno-11-14 name=__codelineno-11-14 href=#__codelineno-11-14></a>
+<a id=__codelineno-11-15 name=__codelineno-11-15 href=#__codelineno-11-15></a><span class=c1>// 实际使用：</span>
+<a id=__codelineno-11-16 name=__codelineno-11-16 href=#__codelineno-11-16></a><span class=n>FixedVector</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=mi>50</span><span class=o>&gt;</span><span class=w> </span><span class=n>fv1</span><span class=p>;</span><span class=w>   </span><span class=c1>// 实例化出一个容量固定为 50 的 int 数组</span>
+<a id=__codelineno-11-17 name=__codelineno-11-17 href=#__codelineno-11-17></a><span class=n>FixedVector</span><span class=o>&lt;</span><span class=kt>double</span><span class=o>&gt;</span><span class=w>  </span><span class=n>fv2</span><span class=p>;</span><span class=w>   </span><span class=c1>// 省略第二个参数，自动使用默认值，得到容量为 100 的 double 数组</span>
+</code></pre></div> <p><img alt="alt text" src=image-44.png></p> <p>这两张PPT讲的是C++模板的两个进阶话题：<strong>CRTP（奇异递归模板模式）</strong>和<strong>模板的通用开发规范</strong>，我结合你之前学的模板+继承知识，用大白话给你拆解得明明白白👇</p> <hr> <h2 id=pptcrtp>一、第一张PPT：CRTP（奇异递归模板模式）<a class=headerlink href=#pptcrtp title="Permanent link">&para;</a></h2> <p>这是一个非常经典的模板设计模式，核心目的是<strong>用「编译期静态绑定」模拟虚函数的多态行为，同时完全避免虚函数的运行时开销</strong>。</p> <h3 id=1_2>1. 先看懂它的“奇怪”结构<a class=headerlink href=#1_2 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-12-2 name=__codelineno-12-2 href=#__codelineno-12-2></a><span class=k>struct</span><span class=w> </span><span class=nc>Base</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=w>    </span><span class=kt>void</span><span class=w> </span><span class=nf>implementation</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=w>        </span><span class=c1>// 核心：把this指针转成T*，调用子类的实现</span>
+<a id=__codelineno-12-5 name=__codelineno-12-5 href=#__codelineno-12-5></a><span class=w>        </span><span class=k>static_cast</span><span class=o>&lt;</span><span class=n>T</span><span class=o>*&gt;</span><span class=p>(</span><span class=k>this</span><span class=p>)</span><span class=o>-&gt;</span><span class=n>implementation</span><span class=p>();</span>
+<a id=__codelineno-12-6 name=__codelineno-12-6 href=#__codelineno-12-6></a><span class=w>    </span><span class=p>}</span>
+<a id=__codelineno-12-7 name=__codelineno-12-7 href=#__codelineno-12-7></a><span class=w>    </span><span class=k>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>static_func</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-12-8 name=__codelineno-12-8 href=#__codelineno-12-8></a><span class=w>        </span><span class=c1>// 调用子类的静态方法</span>
+<a id=__codelineno-12-9 name=__codelineno-12-9 href=#__codelineno-12-9></a><span class=w>        </span><span class=n>T</span><span class=o>::</span><span class=n>static_sub_func</span><span class=p>();</span>
+<a id=__codelineno-12-10 name=__codelineno-12-10 href=#__codelineno-12-10></a><span class=w>    </span><span class=p>}</span>
+<a id=__codelineno-12-11 name=__codelineno-12-11 href=#__codelineno-12-11></a><span class=p>};</span>
+<a id=__codelineno-12-12 name=__codelineno-12-12 href=#__codelineno-12-12></a>
+<a id=__codelineno-12-13 name=__codelineno-12-13 href=#__codelineno-12-13></a><span class=c1>// 关键：子类Derived继承Base&lt;Derived&gt;，用自己作为模板参数传给基类</span>
+<a id=__codelineno-12-14 name=__codelineno-12-14 href=#__codelineno-12-14></a><span class=k>struct</span><span class=w> </span><span class=nc>Derived</span><span class=w> </span><span class=o>:</span><span class=w> </span><span class=k>public</span><span class=w> </span><span class=n>Base</span><span class=o>&lt;</span><span class=n>Derived</span><span class=o>&gt;</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-12-15 name=__codelineno-12-15 href=#__codelineno-12-15></a><span class=w>    </span><span class=kt>void</span><span class=w> </span><span class=nf>implementation</span><span class=p>();</span><span class=w> </span><span class=c1>// 子类实现自己的逻辑</span>
+<a id=__codelineno-12-16 name=__codelineno-12-16 href=#__codelineno-12-16></a><span class=w>    </span><span class=k>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>static_sub_func</span><span class=p>();</span>
+<a id=__codelineno-12-17 name=__codelineno-12-17 href=#__codelineno-12-17></a><span class=p>};</span>
+</code></pre></div> <p>这个结构看起来像“自己继承了以自己为模板参数的基类”，所以叫<strong>奇异递归模板模式（Curiously Recurring Template Pattern，CRTP）</strong>。</p> <h3 id=2>2. 核心原理：怎么模拟虚函数？<a class=headerlink href=#2 title="Permanent link">&para;</a></h3> <p>你之前学的虚函数是「运行时动态绑定」，而CRTP是「编译期静态绑定」，原理是：</p> <ol> <li>当你写 <code>Derived d;</code> 时，编译器会实例化 <code>Base&lt;Derived&gt;</code> 模板类；</li> <li>在 <code>Base&lt;Derived&gt;</code> 的 <code>implementation()</code> 里，<code>this</code> 指针的类型是 <code>Base&lt;Derived&gt;*</code>；</li> <li><code>static_cast&lt;T*&gt;(this)</code> 把它转成 <code>Derived*</code>（因为 <code>T</code> 就是 <code>Derived</code>），直接指向子类对象；</li> <li>调用 <code>Derived::implementation()</code>，<strong>编译期就已经确定了调用的是子类的方法</strong>，不需要虚函数表，也没有运行时开销。</li> </ol> <h3 id=3>3. 和虚函数的对比<a class=headerlink href=#3 title="Permanent link">&para;</a></h3> <table> <thead> <tr> <th style="text-align: left;">特性</th> <th style="text-align: left;">CRTP（静态多态）</th> <th style="text-align: left;">虚函数（动态多态）</th> </tr> </thead> <tbody> <tr> <td style="text-align: left;">绑定时机</td> <td style="text-align: left;">编译期</td> <td style="text-align: left;">运行时</td> </tr> <tr> <td style="text-align: left;">开销</td> <td style="text-align: left;">无虚函数表、无运行时查找开销</td> <td style="text-align: left;">有虚函数表、运行时查找开销</td> </tr> <tr> <td style="text-align: left;">灵活性</td> <td style="text-align: left;">只能处理固定的继承关系</td> <td style="text-align: left;">支持任意派生类的多态</td> </tr> <tr> <td style="text-align: left;">适用场景</td> <td style="text-align: left;">追求极致性能、且继承关系固定的场景</td> <td style="text-align: left;">通用的、需要运行时多态的场景</td> </tr> </tbody> </table> <h3 id=4>4. 常见用途<a class=headerlink href=#4 title="Permanent link">&para;</a></h3> <ul> <li>给子类提供统一的基类接口，同时避免虚函数开销（比如标准库的<code>std::enable_shared_from_this</code>就是CRTP的典型应用）；</li> <li>实现编译期的静态多态，比如给模板类扩展功能（如<code>operator++</code>的实现）。</li> </ul> <hr> <h2 id=ppt>二、第二张PPT：模板开发的通用注意事项<a class=headerlink href=#ppt title="Permanent link">&para;</a></h2> <p>这部分是写模板代码时的「避坑指南」，尤其是你以后写项目时，能避免很多链接错误和维护问题：</p> <h3 id=1-friends-static-members>1. <code>friends</code> 和 <code>static members</code><a class=headerlink href=#1-friends-static-members title="Permanent link">&para;</a></h3> <ul> <li><strong>模板类的友元</strong>：模板类的友元声明需要注意作用域，比如如果友元是函数模板，需要提前声明，否则编译器可能找不到；</li> <li><strong>模板类的静态成员</strong>：每个模板实例化版本都有自己独立的静态成员，互不干扰。比如 <code>Vector&lt;int&gt;</code> 和 <code>Vector&lt;double&gt;</code> 的静态成员是完全分开的，不会共享数据。</li> </ul> <h3 id=2_1>2. 核心重点：模板的声明和定义必须放在头文件里<a class=headerlink href=#2_1 title="Permanent link">&para;</a></h3> <p>PPT里这句话是新手最容易踩的坑：</p> <blockquote> <p><code>In general put the definition and the declaration for the template in the header file</code></p> </blockquote> <h4 id=_6>为什么必须这么做？<a class=headerlink href=#_6 title="Permanent link">&para;</a></h4> <p>模板是「编译期蓝图」，只有当你用具体类型实例化时，编译器才会生成对应的类/函数代码。如果把模板的实现（定义）放在<code>.cpp</code>文件里：</p> <ul> <li>其他文件实例化模板时，编译器看不到完整的实现，无法生成对应的代码；</li> <li>链接时会出现<code>undefined reference</code>错误，找不到模板实例化的函数。</li> </ul> <h4 id=_7>为什么不会出现“重复定义”？<a class=headerlink href=#_7 title="Permanent link">&para;</a></h4> <p>PPT里也提到了：</p> <ul> <li>模板不会在头文件里为每个实例化版本分配存储；</li> <li>编译器/链接器会自动处理多个定义，每个模板实例化版本只会保留一份，不会导致链接错误。</li> </ul> <h4 id=_8>错误做法（千万别学）<a class=headerlink href=#_8 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-13-1 name=__codelineno-13-1 href=#__codelineno-13-1></a><span class=c1>// 头文件 Vector.h</span>
+<a id=__codelineno-13-2 name=__codelineno-13-2 href=#__codelineno-13-2></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=k>class</span><span class=w> </span><span class=nc>Vector</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=k>public</span><span class=o>:</span>
+<a id=__codelineno-13-5 name=__codelineno-13-5 href=#__codelineno-13-5></a><span class=w>    </span><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=k>operator</span><span class=p>[](</span><span class=kt>int</span><span class=w> </span><span class=n>i</span><span class=p>);</span>
+<a id=__codelineno-13-6 name=__codelineno-13-6 href=#__codelineno-13-6></a><span class=p>};</span>
+<a id=__codelineno-13-7 name=__codelineno-13-7 href=#__codelineno-13-7></a>
+<a id=__codelineno-13-8 name=__codelineno-13-8 href=#__codelineno-13-8></a><span class=c1>// 实现文件 Vector.cpp</span>
+<a id=__codelineno-13-9 name=__codelineno-13-9 href=#__codelineno-13-9></a><span class=k>template</span><span class=w> </span><span class=o>&lt;</span><span class=k>class</span><span class=w> </span><span class=nc>T</span><span class=o>&gt;</span>
+<a id=__codelineno-13-10 name=__codelineno-13-10 href=#__codelineno-13-10></a><span class=n>T</span><span class=o>&amp;</span><span class=w> </span><span class=n>Vector</span><span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;::</span><span class=k>operator</span><span class=p>[](</span><span class=kt>int</span><span class=w> </span><span class=n>i</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<a id=__codelineno-13-11 name=__codelineno-13-11 href=#__codelineno-13-11></a><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=n>elements</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+<a id=__codelineno-13-12 name=__codelineno-13-12 href=#__codelineno-13-12></a><span class=p>}</span>
+</code></pre></div> <p>当你在其他文件用 <code>Vector&lt;int&gt; v; v[0];</code> 时，编译器看不到<code>operator[]</code>的实现，会直接链接失败。</p> <hr> <h2 id=_9>一句话总结<a class=headerlink href=#_9 title="Permanent link">&para;</a></h2> <ul> <li>CRTP是用「模板+继承」实现的编译期静态多态，模拟虚函数的同时，完全避免运行时开销；</li> <li>模板代码的声明和定义必须都放在头文件里，否则会出现链接错误，这是模板开发的核心规范。</li> </ul> <aside class=md-source-file> <span class=md-source-file__fact> <span class=md-icon title=最后更新> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年5月17日 16:10:45 UTC">2026年5月17日 16:10:45</span> </span> </aside> <h2 id=__comments>评论</h2> <div id=utterances-container></div> <script>
+    function getUtterancesTheme() {
+      var palette = document.querySelector("[data-md-color-scheme]");
+      if (!palette) return "github-light";
+      return palette.getAttribute("data-md-color-scheme") === "slate"
+        ? "github-dark"
+        : "github-light";
+    }
+
+    function loadUtterances() {
+      var container = document.getElementById("utterances-container");
+      if (!container) return;
+      container.innerHTML = "";
+      var script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "Guoguo828/mkdocs_start");
+      script.setAttribute("issue-term", "title");
+      script.setAttribute("label", "💬 comment");
+      script.setAttribute("theme", getUtterancesTheme());
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      container.appendChild(script);
+    }
+
+    loadUtterances();
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "data-md-color-scheme") {
+          loadUtterances();
+        }
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-md-color-scheme"],
+    });
+  </script> </article> </div> <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg> 回到页面顶部 </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright © 2006-2026 郭响宇 </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-progress data-md-component=progress role=progressbar></div> <script id=__config type=application/json>{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view", "navigation.path", "navigation.footer", "navigation.tabs.sticky", "navigation.instant.prefetch", "content.tabs.link", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script> <script src=../assets/javascripts/bundle.c8b220af.min.js></script> <script src=../assets/javascripts/particles.js></script> <script src=https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js></script> <script src=https://cdn.jsdelivr.net/npm/tsparticles-slim@2/tsparticles.slim.min.js></script> <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var article = document.querySelector(".md-content__inner");
+      if (!article) return;
+      
+      var text = article.innerText || article.textContent;
+      
+      var cnWords = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+      var enWords = (text.replace(/[\u4e00-\u9fa5]/g, '').match(/\b\w+\b/g) || []).length;
+      var totalWords = cnWords + enWords;
+      
+      var readingTime = Math.ceil(totalWords / 300);
+      
+      if (totalWords > 20) {
+        var h1 = article.querySelector("h1");
+        if (h1) {
+          var timeLabel = document.createElement("p");
+          timeLabel.style.color = "var(--md-default-fg-color--light)";
+          timeLabel.style.fontSize = "0.85rem";
+          timeLabel.style.marginTop = "-0.5rem";
+          timeLabel.style.marginBottom = "1.5rem";
+          timeLabel.innerHTML = "&#x23F1;&#xFE0F; 预计阅读时长: <b>" + readingTime + " 分钟</b> （约 " + totalWords + " 字）";
+          h1.parentNode.insertBefore(timeLabel, h1.nextSibling);
+        }
+      }
+    });
+  </script> </body> </html>

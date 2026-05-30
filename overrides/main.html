@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
+{# ── 粒子背景容器 ── #}
+{% block container %}
+  <div id="tsparticles"></div>
+  {{ super() }}
+{% endblock %}
+
 {% block scripts %}
   {{ super() }}
+
+  {# tsParticles slim bundle (CDN) #}
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2/tsparticles.slim.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var article = document.querySelector(".md-content__inner");
