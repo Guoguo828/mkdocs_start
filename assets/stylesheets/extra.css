@@ -38,39 +38,30 @@
   --site-muted: #cbd5e1;
 }
 
-/* ── 粒子背景容器 ── */
+/* ── Mesh Gradient 动画背景（设在 html 上，绕开 Material 的 body 覆盖） ── */
 
-#tsparticles {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* ── Mesh Gradient 动画背景 ── */
-
-[data-md-color-scheme="default"] body {
-  background-color: #fbfcfa !important;
+[data-md-color-scheme="default"] html {
+  background-color: #fbfcfa;
   background-image:
     radial-gradient(at 20% 20%, rgba(15, 118, 110, 0.22) 0px, transparent 50%),
     radial-gradient(at 80% 10%, rgba(191, 132, 56, 0.15) 0px, transparent 50%),
     radial-gradient(at 50% 80%, rgba(15, 118, 110, 0.12) 0px, transparent 50%),
     radial-gradient(at 90% 60%, rgba(191, 132, 56, 0.10) 0px, transparent 50%),
-    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%) !important;
-  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100% !important;
+    linear-gradient(180deg, #fbfcfa 0%, #eef4f3 48%, #f7f4ee 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
   background-attachment: fixed;
   animation: meshDrift 20s ease-in-out infinite alternate;
 }
 
-[data-md-color-scheme="slate"] body {
-  background-color: #08101c !important;
+[data-md-color-scheme="slate"] html {
+  background-color: #08101c;
   background-image:
     radial-gradient(at 20% 15%, rgba(44, 184, 169, 0.22) 0px, transparent 50%),
     radial-gradient(at 80% 10%, rgba(243, 202, 112, 0.14) 0px, transparent 50%),
     radial-gradient(at 50% 85%, rgba(44, 184, 169, 0.12) 0px, transparent 50%),
     radial-gradient(at 10% 60%, rgba(243, 202, 112, 0.08) 0px, transparent 50%),
-    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%) !important;
-  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100% !important;
+    linear-gradient(180deg, #08101c 0%, #0f172a 50%, #131c31 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
   background-attachment: fixed;
   animation: meshDrift 20s ease-in-out infinite alternate;
 }
@@ -83,7 +74,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body { animation: none !important; }
+  html { animation: none !important; }
+}
+
+/* ── body 透明，让 html 背景透出来 ── */
+
+body {
+  background: transparent !important;
 }
 
 /* ── 浮动光斑 (Floating Orbs) ── */
@@ -94,7 +91,7 @@ body::after {
   position: fixed;
   border-radius: 50%;
   filter: blur(100px);
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   will-change: transform;
 }
@@ -152,13 +149,22 @@ body::after {
   body::after { animation: none !important; }
 }
 
+/* ── 粒子背景容器 ── */
+
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ── 噪点纹理叠加 ── */
 
 .md-main::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
   opacity: 0.028;
   mix-blend-mode: overlay;
@@ -174,6 +180,7 @@ body::after {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
   backdrop-filter: blur(18px);
   position: relative;
+  z-index: 10;
 }
 
 /* Header 底部渐变分割线 */
@@ -203,6 +210,8 @@ body::after {
 .md-main,
 .md-main__inner {
   background: transparent;
+  position: relative;
+  z-index: 5;
 }
 
 .md-content__inner {
@@ -211,8 +220,6 @@ body::after {
   border-radius: 1.35rem;
   box-shadow: var(--site-shadow);
   padding: 1.35rem 1.35rem 2rem;
-  position: relative;
-  z-index: 1;
 }
 
 .md-content {

@@ -39,7 +39,7 @@
         move:            { enable: true, speed: 0.6, direction: "none", random: true, straight: false, out_mode: "out" }
       },
       interactivity: {
-        detect_on: "canvas",
+        detect_on: "window",
         events:    { onhover: { enable: true, mode: "grab" }, resize: true },
         modes:     { grab: { distance: 140, line_linked: { opacity: 0.35 } } }
       },
