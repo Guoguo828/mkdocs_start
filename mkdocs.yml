@@ -31,22 +31,32 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
+    - navigation.path
+    - navigation.footer
+    - navigation.tabs.sticky
+    - navigation.instant.prefetch
+    - content.tabs.link
+    - content.code.annotate
+    - content.tooltips
   palette:
     - scheme: "default"
-      primary: "teal"
-      accent: "amber"
+      primary: "custom"
+      accent: "custom"
       toggle:
         icon: "material/weather-night"
         name: "切换到深色模式"
     - scheme: "slate"
-      primary: "cyan"
-      accent: "lime"
+      primary: "custom"
+      accent: "custom"
       toggle:
-        icon: "material/white-balance-sunny"
+        icon: "material/weather-sunny"
         name: "切换到浅色模式"
   font:
     text: "Noto Sans SC"
     code: "JetBrains Mono"
+
+extra:
+  announcement: "欢迎来到 gxy 的学习空间，推荐使用顶部搜索或学习分区快速进入内容。"
 
 plugins:
   - meta
@@ -55,6 +65,13 @@ plugins:
         - "zh"
         - "en"
   - tags
+  - git-revision-date-localized:
+      type: "datetime"
+      locale: "zh"
+      enable_creation_date: false
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
 
 markdown_extensions:
   - admonition
@@ -63,6 +80,8 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      toc_depth: 3
+      title: "本页目录"
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -74,6 +93,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - abbr
+  - pymdownx.mark
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
 
 extra_css:
   - "assets/stylesheets/extra.css"

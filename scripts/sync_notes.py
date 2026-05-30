@@ -41,6 +41,12 @@ CATEGORIES: list[Category] = [
 ]
 
 GROUP_ORDER = ["计算机系统", "程序设计与算法", "理论与数据库", "研究与专题"]
+GROUP_ICONS = {
+    "计算机系统": ":material-chip:",
+    "程序设计与算法": ":material-code-braces:",
+    "理论与数据库": ":material-database-search:",
+    "研究与专题": ":material-flask-outline:",
+}
 EXCLUDED_MARKDOWN = {"README.md", "README.zh-CN.md"}
 LANDING_PAGE = "index.md"
 TITLE_OVERRIDES = {
@@ -271,32 +277,68 @@ def build_homepage(category_data: list[dict[str, object]]) -> str:
     lines = [
         "# gxy 的学习空间",
         "",
-        "## 站点说明",
-        "",
-        "这里收录了计算机系统、算法、数据库、离散数学、OOP、论文阅读等方向的课程与专题笔记，适合按课程阅读，也适合按关键词检索。",
-        "",
-        f"- 专题目录：`{len(category_data)}`",
-        f"- Markdown 笔记：`{total_notes}`",
-        f"- 配套资源：`{total_assets}`",
-        f"- 最近同步：`{sync_time}`",
+        "课程笔记、论文阅读与个人知识整理站，适合按课程顺序复习，也适合直接搜索关键词。",
+        "{: .hero-subtitle }",
         "",
         '[快速上手](使用指南.md){ .md-button .md-button--primary }',
         f'[去看论文笔记](论文笔记/{LANDING_PAGE})' + '{ .md-button }',
+        '[查看 GitHub 仓库](https://github.com/Guoguo828/mkdocs_start){ .md-button }',
         "",
-        "## 学习分区",
+        "## :material-view-dashboard-outline: 站点概览",
+        "",
+        "这里收录了计算机系统、算法、数据库、离散数学、OOP、论文阅读等方向的课程与专题笔记，阅读路径偏向课程体系，同时保留搜索与标签索引来提升查阅效率。",
         "",
     ]
 
+    lines.extend(build_cards(
+        [
+            {
+                "title": ":material-shape-outline: 专题目录",
+                "href": "tags.md",
+                "summary": f"`{len(category_data)} 个学习分区`",
+                "meta": "按课程和专题组织，适合系统复习。",
+            },
+            {
+                "title": ":material-notebook-multiple-outline: Markdown 笔记",
+                "href": "使用指南.md",
+                "summary": f"`{total_notes} 篇可在线阅读笔记`",
+                "meta": "覆盖课程主线、重点概念与实验整理。",
+            },
+            {
+                "title": ":material-image-multiple-outline: 配套资源",
+                "href": "更新记录.md",
+                "summary": f"`{total_assets} 份图像 / PDF / 附件`",
+                "meta": "截图、讲义和 PDF 可直接配合阅读。",
+            },
+            {
+                "title": ":material-clock-outline: 最近同步",
+                "href": "更新记录.md",
+                "summary": f"`{sync_time}`",
+                "meta": "首页、导航与索引会随同步一并更新。",
+            },
+        ],
+        classes="metrics-grid",
+    ))
+
+    lines.extend(
+        [
+            "",
+            "## :material-library-shelves: 学习分区",
+            "",
+        ]
+    )
+
     for group in GROUP_ORDER:
+        group_icon = GROUP_ICONS.get(group, ":material-folder-outline:")
         lines.extend(
             [
-                f"### {group}",
+                f"### {group_icon} {group}",
                 "",
             ]
         )
         lines.extend(build_cards([
             {
-                "title": item["category"].title,  # type: ignore[index]
+                "title": f'{item["category"].icon} {item["category"].title}',  # type: ignore[index]
                 "href": f'{item["category"].slug}/{LANDING_PAGE}',  # type: ignore[index]
                 "summary": str(item["summary"]),
                 "meta": f'`{item["stats"]["markdown_count"]} 篇笔记 · {item["stats"]["pdf_count"]} 份 PDF`',  # type: ignore[index]
@@ -307,13 +349,45 @@ def build_homepage(category_data: list[dict[str, object]]) -> str:
 
     lines.extend(
         [
-            "## 站点亮点",
+            "## :material-star-four-points-outline: 站点亮点",
             "",
-            "- 支持全文搜索、关键词高亮和搜索建议。",
-            "- 课程分区页面使用 Material 原生 cards 结构。",
-            "- 标签索引页支持按课程和专题交叉浏览。",
-            "- 顶部仓库入口可直接跳到 GitHub 查看源码。",
-            "- 左侧目录适合顺序学习，顶部标签适合在不同课程之间快速切换。",
+        ]
+    )
+    lines.extend(build_cards(
+        [
+            {
+                "title": ":material-text-search: 搜索导向",
+                "href": "使用指南.md",
+                "summary": "支持搜索建议、关键词高亮和搜索结果分享。",
+                "meta": "适合直接检索算法名、章节名或关键术语。",
+            },
+            {
+                "title": ":material-tag-multiple-outline: 标签索引",
+                "href": "tags.md",
+                "summary": "可以按课程和专题做交叉浏览，不必只靠目录找内容。",
+                "meta": "临考前做交叉回看会更顺手。",
+            },
+            {
+                "title": ":material-theme-light-dark: 双主题阅读",
+                "href": "使用指南.md",
+                "summary": "保留浅色 / 深色阅读体验，并强化内容面板与卡片层次。",
+                "meta": "长文阅读更稳，夜间浏览也更舒服。",
+            },
+            {
+                "title": ":material-open-in-new: 源码直达",
+                "href": "https://github.com/Guoguo828/mkdocs_start",
+                "summary": "顶部仓库入口可以直接查看源码与原始 Markdown。",
+                "meta": "方便从网页切回 GitHub 继续维护。",
+            },
+        ],
+        classes="feature-grid",
+    ))
+
+    lines.extend(
+        [
+            "",
+            '!!! tip "推荐阅读方式"',
+            "    课程复习时从分区首页顺着目录阅读；需要查一个具体知识点时，优先用顶部搜索框或标签索引。",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -371,8 +445,11 @@ def build_tags_page() -> str:
 """
 
 
-def build_cards(items: list[dict[str, str]]) -> list[str]:
-    lines: list[str] = ['<div class="grid cards" markdown>']
+def build_cards(items: list[dict[str, str]], classes: str = "") -> list[str]:
+    class_names = "grid cards"
+    if classes:
+        class_names += f" {classes}"
+    lines: list[str] = [f'<div class="{class_names}" markdown>']
     for item in items:
         lines.append(f'-   __[{item["title"]}]({item["href"]})__')
         lines.append("    ---")
@@ -431,23 +508,23 @@ def build_mkdocs_config(category_data: list[dict[str, object]]) -> str:
         '    - content.tooltips',
         "  palette:",
         '    - scheme: "default"',
-        '      primary: "teal"',
-        '      accent: "amber"',
+        '      primary: "custom"',
+        '      accent: "custom"',
         "      toggle:",
         '        icon: "material/weather-night"',
         '        name: "切换到深色模式"',
         '    - scheme: "slate"',
-        '      primary: "cyan"',
-        '      accent: "lime"',
+        '      primary: "custom"',
+        '      accent: "custom"',
         "      toggle:",
-        '        icon: "material/white-balance-sunny"',
+        '        icon: "material/weather-sunny"',
         '        name: "切换到浅色模式"',
         "  font:",
         '    text: "Noto Sans SC"',
         '    code: "JetBrains Mono"',
         "",
         "extra:",
-        "  announcement: \"<em>欢迎来到 gxy 的学习空间 -- 课程笔记与论文阅读整理站</em>\"",
+        '  announcement: "欢迎来到 gxy 的学习空间，推荐使用顶部搜索或学习分区快速进入内容。"',
         "",
         "plugins:",
         "  - meta",
