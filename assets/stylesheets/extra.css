@@ -446,19 +446,6 @@ body[data-md-color-scheme="slate"]::after {
 }
 
 /* ============================================
-   回到顶部按钮 - 轻微增强
-   ============================================ */
-
-.md-top {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.md-top:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
-}
-
-/* ============================================
    页面过渡动画
    ============================================ */
 
@@ -549,8 +536,6 @@ body[data-md-color-scheme="slate"]::after {
   .md-tabs,
   .md-nav__link,
   .md-tabs__link::after,
-  .md-top,
-  .md-top svg,
   .md-content,
   .md-sidebar,
   .md-typeset pre,
