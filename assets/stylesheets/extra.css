@@ -369,3 +369,208 @@ body[data-md-color-scheme="slate"]::after {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--md-default-fg-color--light);
 }
+
+/* ============================================
+   导航栏增强
+   ============================================ */
+
+/* Header 滚动时的动画效果 */
+.md-header {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header 隐藏时的动画（配合 header.autohide） */
+.md-header--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+/* Tabs 栏增强 */
+.md-tabs {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md-tabs--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* 导航链接悬浮效果 */
+.md-nav__link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 0.3rem;
+}
+
+.md-nav__link:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* Tabs 链接增强 */
+.md-tabs__link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.md-tabs__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--md-accent-fg-color);
+  transition: width 0.3s ease, left 0.3s ease;
+  border-radius: 1px;
+}
+
+.md-tabs__link:hover::after,
+.md-tabs__link--active::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* ============================================
+   搜索框美化
+   ============================================ */
+
+.md-search__input {
+  border-radius: 2rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.md-search__input:focus {
+  box-shadow: 0 0 0 3px var(--md-accent-fg-color--transparent);
+}
+
+/* ============================================
+   回到顶部按钮美化
+   ============================================ */
+
+.md-top {
+  border-radius: 50%;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.md-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+}
+
+.md-top svg {
+  transition: transform 0.2s ease;
+}
+
+.md-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   页面过渡动画
+   ============================================ */
+
+/* 内容区淡入动画 */
+.md-content {
+  animation: contentFadeIn 0.4s ease-out;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 侧栏动画 */
+.md-sidebar {
+  animation: sidebarSlideIn 0.4s ease-out;
+}
+
+@keyframes sidebarSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   公告栏美化
+   ============================================ */
+
+.md-banner {
+  background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
+  color: white;
+  font-weight: 500;
+}
+
+.md-banner a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* ============================================
+   代码块增强
+   ============================================ */
+
+.md-typeset pre > code {
+  border-radius: 0.6rem;
+}
+
+/* 代码块悬浮效果 */
+.md-typeset pre {
+  transition: box-shadow 0.2s ease;
+}
+
+.md-typeset pre:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+/* ============================================
+   目录增强
+   ============================================ */
+
+.md-toc__link {
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.md-toc__link:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* ============================================
+   动画性能优化
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .md-header,
+  .md-tabs,
+  .md-nav__link,
+  .md-tabs__link::after,
+  .md-top,
+  .md-top svg,
+  .md-content,
+  .md-sidebar,
+  .md-typeset pre,
+  .md-toc__link {
+    transition: none !important;
+    animation: none !important;
+  }
+}
