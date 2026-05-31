@@ -446,31 +446,16 @@ body[data-md-color-scheme="slate"]::after {
 }
 
 /* ============================================
-   回到顶部按钮美化
+   回到顶部按钮 - 轻微增强
    ============================================ */
 
 .md-top {
-  border-radius: 50%;
-  width: 2.8rem;
-  height: 2.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .md-top:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
-}
-
-.md-top svg {
-  transition: transform 0.2s ease;
-}
-
-.md-top:hover svg {
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
 }
 
 /* ============================================
