@@ -1,4 +1,12 @@
 {% if not page.is_homepage %}
+  <section class="site-like" aria-label="页面反馈">
+    <button class="site-like__button" type="button" data-site-like aria-pressed="false">
+      <span class="site-like__icon" aria-hidden="true">♥</span>
+      <span class="site-like__text">赞一下</span>
+      <span class="site-like__count" data-site-like-count>0</span>
+    </button>
+  </section>
+
   <h2 id="__comments">{{ lang.t("meta.comments") | default("评论") }}</h2>
   <div id="utterances-container"></div>
   <script>
@@ -10,7 +18,12 @@
         : "github-light";
     }
 
+    function isLocalPreview() {
+      return ["127.0.0.1", "localhost"].indexOf(location.hostname) !== -1;
+    }
+
     function loadUtterances() {
+      if (isLocalPreview()) return;
       var container = document.getElementById("utterances-container");
       if (!container) return;
       container.innerHTML = "";
@@ -34,7 +47,7 @@
         }
       });
     });
-    observer.observe(document.documentElement, {
+    observer.observe(document.body || document.documentElement, {
       attributes: true,
       attributeFilter: ["data-md-color-scheme"],
     });

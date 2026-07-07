@@ -2,8 +2,8 @@
 
 > 这个目录存放数据库课程笔记，既有按章节整理的主线内容，也有若干专题笔记。
 
-- 笔记数量：`12`
-- 配套资源：`43`
+- 笔记数量：`13`
+- 配套资源：`44`
 - PDF 数量：`0`
 
 ## 快速进入
@@ -59,6 +59,11 @@
     `query-processing.md`
     [在线阅读](query-processing.md){ .md-button .md-button--primary }
 
+-   __[故障恢复系统（Recovery System）](recovery-system.md)__
+    ---
+    `recovery-system.md`
+    [在线阅读](recovery-system.md){ .md-button .md-button--primary }
+
 -   __[存储与文件结构](Storage and File Structure.md)__
     ---
     `Storage and File Structure.md`
@@ -86,6 +91,7 @@
 | 高级 SQL | [打开](l4_advancedsql.md) | — |
 | 第十一章：查询优化 (Query Optimization) | [打开](query-optimization.md) | — |
 | 查询处理 | [打开](query-processing.md) | — |
+| 故障恢复系统（Recovery System） | [打开](recovery-system.md) | — |
 | 存储与文件结构 | [打开](Storage and File Structure.md) | — |
 | 事务的概念 (Transaction) | [打开](transaction.md) | — |
 

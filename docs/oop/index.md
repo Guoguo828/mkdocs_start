@@ -2,13 +2,18 @@
 
 > 这个目录存放 C++ / 面向对象编程课程笔记，内容既覆盖基础语法，也覆盖类、继承、多态、模板、STL 等主题。
 
-- 笔记数量：`16`
+- 笔记数量：`17`
 - 配套资源：`49`
 - PDF 数量：`0`
 
 ## 快速进入
 
 <div class="grid cards" markdown>
+-   __[幻灯片内容完整翻译+讲解：Glyphs（字形/图元类，排版渲染核心概念）](Glyphs概念讲解.md)__
+    ---
+    `Glyphs概念讲解.md`
+    [在线阅读](Glyphs概念讲解.md){ .md-button .md-button--primary }
+
 -   __[inline 与 inheritance](inline_and_inheritanve.md)__
     ---
     `inline_and_inheritanve.md`
@@ -96,6 +101,7 @@
 
 | 笔记 | 在线阅读 | PDF |
 | --- | --- | --- |
+| 幻灯片内容完整翻译+讲解：Glyphs（字形/图元类，排版渲染核心概念） | [打开](Glyphs概念讲解.md) | — |
 | inline 与 inheritance | [打开](inline_and_inheritanve.md) | — |
 | 变量 | [打开](lesson1.md) | — |
 | 第二节课（第一节课续） | [打开](lesson2.md) | — |

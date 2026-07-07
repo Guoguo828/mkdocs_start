@@ -19,17 +19,17 @@
 
 -   __[:material-notebook-multiple-outline: Markdown 笔记](使用指南.md)__
     ---
-    `103 篇可在线阅读笔记`
+    `112 篇可在线阅读笔记`
     覆盖课程主线、重点概念与实验整理。
 
 -   __[:material-image-multiple-outline: 配套资源](更新记录.md)__
     ---
-    `483 份图像 / PDF / 附件`
+    `484 份图像 / PDF / 附件`
     截图、讲义和 PDF 可直接配合阅读。
 
 -   __[:material-clock-outline: 最近同步](更新记录.md)__
     ---
-    `2026-05-30 23:44`
+    `2026-07-07 21:29`
     首页、导航与索引会随同步一并更新。
 
 </div>
@@ -47,7 +47,7 @@
 -   __[:material-chip: 计算机体系结构](体系结构/index.md)__
     ---
     偏体系结构和高级处理器设计的课程整理。
-    `7 篇笔记 · 0 份 PDF`
+    `14 篇笔记 · 0 份 PDF`
 
 -   __[:material-vector-intersection: 数字逻辑](sl/index.md)__
     ---
@@ -67,7 +67,7 @@
 -   __[:material-language-cpp: 面向对象编程](oop/index.md)__
     ---
     这个目录存放 C++ / 面向对象编程课程笔记，内容既覆盖基础语法，也覆盖类、继承、多态、模板、STL 等主题。
-    `16 篇笔记 · 0 份 PDF`
+    `17 篇笔记 · 0 份 PDF`
 
 -   __[:material-graph: 数据结构基础](fds/index.md)__
     ---
@@ -87,7 +87,7 @@
 -   __[:material-database: 数据库](数据库/index.md)__
     ---
     这个目录存放数据库课程笔记，既有按章节整理的主线内容，也有若干专题笔记。
-    `12 篇笔记 · 0 份 PDF`
+    `13 篇笔记 · 0 份 PDF`
 
 -   __[:material-set-all: 离散数学](ls/index.md)__
     ---

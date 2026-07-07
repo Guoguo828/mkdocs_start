@@ -2,7 +2,7 @@
 
 > 偏体系结构和高级处理器设计的课程整理。
 
-- 笔记数量：`7`
+- 笔记数量：`14`
 - 配套资源：`24`
 - PDF 数量：`0`
 
@@ -44,6 +44,41 @@
     `l7.md`
     [在线阅读](l7.md){ .md-button .md-button--primary }
 
+-   __[指令级并行（ILP）的挖掘/利用](l8.md)__
+    ---
+    `l8.md`
+    [在线阅读](l8.md){ .md-button .md-button--primary }
+
+-   __[Megatron 与 FSDP 分布式训练入门](Megatron与FSDP分布式训练入门.md)__
+    ---
+    `Megatron与FSDP分布式训练入门.md`
+    [在线阅读](Megatron与FSDP分布式训练入门.md){ .md-button .md-button--primary }
+
+-   __[Tomasolo算法](tomasolo算法.md)__
+    ---
+    `tomasolo算法.md`
+    [在线阅读](tomasolo算法.md){ .md-button .md-button--primary }
+
+-   __[向量处理器与数据级并行](向量处理器与数据级并行.md)__
+    ---
+    `向量处理器与数据级并行.md`
+    [在线阅读](向量处理器与数据级并行.md){ .md-button .md-button--primary }
+
+-   __[多核同步与内存一致性](多核同步与内存一致性.md)__
+    ---
+    `多核同步与内存一致性.md`
+    [在线阅读](多核同步与内存一致性.md){ .md-button .md-button--primary }
+
+-   __[多核系统与Cache一致性](多核系统与Cache一致性.md)__
+    ---
+    `多核系统与Cache一致性.md`
+    [在线阅读](多核系统与Cache一致性.md){ .md-button .md-button--primary }
+
+-   __[缓存一致性协议详解](缓存一致性协议详解.md)__
+    ---
+    `缓存一致性协议详解.md`
+    [在线阅读](缓存一致性协议详解.md){ .md-button .md-button--primary }
+
 </div>
 
 
@@ -58,6 +93,13 @@
 | 浮点运算 | [打开](l5.md) | — |
 | 指令并行 | [打开](l6.md) | — |
 | l7 | [打开](l7.md) | — |
+| 指令级并行（ILP）的挖掘/利用 | [打开](l8.md) | — |
+| Megatron 与 FSDP 分布式训练入门 | [打开](Megatron与FSDP分布式训练入门.md) | — |
+| Tomasolo算法 | [打开](tomasolo算法.md) | — |
+| 向量处理器与数据级并行 | [打开](向量处理器与数据级并行.md) | — |
+| 多核同步与内存一致性 | [打开](多核同步与内存一致性.md) | — |
+| 多核系统与Cache一致性 | [打开](多核系统与Cache一致性.md) | — |
+| 缓存一致性协议详解 | [打开](缓存一致性协议详解.md) | — |
 
 !!! tip "使用建议"
     左侧导航适合按课程顺序阅读，搜索框适合按概念、算法名、章节名直接跳转。

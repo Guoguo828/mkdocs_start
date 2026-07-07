@@ -1,5 +1,5 @@
 /**
- * tsParticles 粒子背景配置
+ * 粒子背景配置（particles.js 兼容模式）
  * - 浮动小圆点 + 连线
  * - 跟随深浅主题自动切换颜色
  * - 尊重 prefers-reduced-motion
@@ -10,14 +10,12 @@
   /* ── 主题配色 ── */
   var THEMES = {
     "default": {
-      dot:    "rgba(15, 118, 110, 0.35)",
-      line:   "rgba(15, 118, 110, 0.12)",
-      bg:     "transparent"
+      particles:  { color: "#0f766e", opacity: 0.35 },
+      lineLinked: { color: "#0f766e", opacity: 0.15 }
     },
     "slate": {
-      dot:    "rgba(44, 184, 169, 0.30)",
-      line:   "rgba(44, 184, 169, 0.10)",
-      bg:     "transparent"
+      particles:  { color: "#2cb8a9", opacity: 0.30 },
+      lineLinked: { color: "#2cb8a9", opacity: 0.12 }
     }
   };
 
@@ -28,110 +26,59 @@
   }
 
   /* ── 构建配置 ── */
-  function buildOptions(scheme) {
+  function buildConfig(scheme) {
     var t = THEMES[scheme] || THEMES["default"];
     return {
-      fullScreen: false,
-      background: { color: t.bg },
-      fpsLimit: 60,
-      detectRetina: true,
       particles: {
-        number: {
-          value: 45,
-          density: { enable: true, area: 1200 }
-        },
-        color: { value: t.dot },
-        shape: { type: "circle" },
-        opacity: {
-          value: { min: 0.15, max: 0.45 },
-          animation: {
-            enable: true,
-            speed: 0.4,
-            minimumValue: 0.1,
-            sync: false
-          }
-        },
-        size: {
-          value: { min: 1.5, max: 3.5 },
-          animation: {
-            enable: true,
-            speed: 1.2,
-            minimumValue: 1,
-            sync: false
-          }
-        },
-        links: {
-          enable: true,
-          distance: 150,
-          color: t.line,
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 0.6,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: { default: "out" }
-        }
+        number:          { value: 45, density: { enable: true, value_area: 1200 } },
+        color:           { value: t.particles.color },
+        shape:           { type: "circle" },
+        opacity:         { value: t.particles.opacity, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.1, sync: false } },
+        size:            { value: 3, random: true, anim: { enable: true, speed: 1.2, size_min: 1, sync: false } },
+        line_linked:     { enable: true, distance: 150, color: t.lineLinked.color, opacity: t.lineLinked.opacity, width: 1 },
+        move:            { enable: true, speed: 0.6, direction: "none", random: true, straight: false, out_mode: "out" }
       },
       interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "grab"
-          },
-          resize: true
-        },
-        modes: {
-          grab: {
-            distance: 140,
-            links: {
-              opacity: 0.35,
-              color: t.line
-            }
-          }
-        }
-      }
+        detect_on: "window",
+        events:    { onhover: { enable: true, mode: "grab" }, resize: true },
+        modes:     { grab: { distance: 140, line_linked: { opacity: 0.35 } } }
+      },
+      retina_detect: true
     };
   }
 
   /* ── 初始化 ── */
-  async function init() {
-    /* 减弱动效模式：跳过粒子 */
+  function init() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (typeof particlesJS === "undefined") return;
 
-    var container = document.getElementById("tsparticles");
-    if (!container) return;
+    var host = document.getElementById("tsparticles");
+    if (!host) return;
 
-    /* 加载 slim bundle */
-    await loadSlim(tsParticles);
+    host.innerHTML = "";
+    particlesJS("tsparticles", buildConfig(getScheme()));
 
-    /* 当前主题 */
-    var scheme = getScheme();
-    await tsParticles.load({ id: "tsparticles", options: buildOptions(scheme) });
-
-    /* 监听主题切换（Material for MkDocs 通过 data-md-color-scheme 变化触发） */
+    /* 监听主题切换 */
     var observer = new MutationObserver(function () {
-      var newScheme = getScheme();
-      tsParticles.load({ id: "tsparticles", options: buildOptions(newScheme) });
+      var el = document.getElementById("tsparticles");
+      if (el) el.innerHTML = "";
+      particlesJS("tsparticles", buildConfig(getScheme()));
     });
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["data-md-color-scheme"]
     });
 
-    /* MkDocs Material instant loading：页面切换时重新加载 */
     if (typeof document$ !== "undefined") {
       document$.subscribe(function () {
-        var s = getScheme();
-        tsParticles.load({ id: "tsparticles", options: buildOptions(s) });
+        var el = document.getElementById("tsparticles");
+        if (!el) return;
+        el.innerHTML = "";
+        particlesJS("tsparticles", buildConfig(getScheme()));
       });
     }
   }
 
-  /* ── 入口 ── */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {

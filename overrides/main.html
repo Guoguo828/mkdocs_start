@@ -1,43 +1,14 @@
 {% extends "base.html" %}
 
-{# ── 粒子背景容器 ── #}
+{% block announce %}
+  <div class="site-announce">
+    <span class="site-announce__label">Update</span>
+    <span class="site-announce__text">欢迎来到 gxy 的学习空间，推荐使用顶部搜索或学习分区快速进入内容。</span>
+    <a class="site-announce__link" href="{{ '使用指南.md' | url }}">查看使用指南</a>
+  </div>
+{% endblock %}
+
 {% block container %}
   <div id="tsparticles"></div>
   {{ super() }}
-{% endblock %}
-
-{% block scripts %}
-  {{ super() }}
-
-  {# tsParticles slim bundle (CDN) #}
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2/tsparticles.slim.min.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var article = document.querySelector(".md-content__inner");
-      if (!article) return;
-      
-      var text = article.innerText || article.textContent;
-      
-      var cnWords = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
-      var enWords = (text.replace(/[\u4e00-\u9fa5]/g, '').match(/\b\w+\b/g) || []).length;
-      var totalWords = cnWords + enWords;
-      
-      var readingTime = Math.ceil(totalWords / 300);
-      
-      if (totalWords > 20) {
-        var h1 = article.querySelector("h1");
-        if (h1) {
-          var timeLabel = document.createElement("p");
-          timeLabel.style.color = "var(--md-default-fg-color--light)";
-          timeLabel.style.fontSize = "0.85rem";
-          timeLabel.style.marginTop = "-0.5rem";
-          timeLabel.style.marginBottom = "1.5rem";
-          timeLabel.innerHTML = "&#x23F1;&#xFE0F; 预计阅读时长: <b>" + readingTime + " 分钟</b> （约 " + totalWords + " 字）";
-          h1.parentNode.insertBefore(timeLabel, h1.nextSibling);
-        }
-      }
-    });
-  </script>
 {% endblock %}
