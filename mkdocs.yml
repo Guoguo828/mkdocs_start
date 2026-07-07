@@ -8,6 +8,12 @@ repo_url: "https://github.com/Guoguo828/mkdocs_start"
 repo_name: "Guoguo828/mkdocs_start"
 edit_uri: "edit/main/docs/"
 
+extra:
+  social:
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/Guoguo828/mkdocs_start"
+      name: "GitHub 仓库"
+
 theme:
   name: "material"
   language: "zh"
@@ -111,24 +117,7 @@ extra_javascript:
 validation:
   nav:
     omitted_files: ignore
-  links:
-    not_found: warn
-
 copyright: "Copyright © 2006-2026 郭响宇"
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Guoguo828
-      name: GitHub
-    - icon: fontawesome/brands/bilibili
-      link: https://space.bilibili.com
-      name: Bilibili
-  generator: false
-  alternate:
-    - name: 中文
-      link: /
-      lang: zh
 
 nav:
   - "首页":
@@ -140,18 +129,22 @@ nav:
       - "GXY 介绍": "首页文章/gxy介绍.md"
       - "简介": "首页文章/关于我.md"
   - "计算机系统":
+      - "计算机系统": "计算机系统.md"
       - "计算机组成": "计组/index.md"
       - "计算机体系结构": "体系结构/index.md"
       - "数字逻辑": "sl/index.md"
       - "H.265 编码": "H265/index.md"
   - "程序设计与算法":
+      - "程序设计与算法": "程序设计与算法.md"
       - "面向对象编程": "oop/index.md"
       - "数据结构基础": "fds/index.md"
       - "高级数据结构与算法": "ads/index.md"
   - "理论与数据库":
+      - "理论与数据库": "理论与数据库.md"
       - "数据库": "数据库/index.md"
       - "离散数学": "ls/index.md"
   - "研究与专题":
+      - "研究与专题": "研究与专题.md"
       - "论文笔记": "论文笔记/index.md"
       - "AlphaFold2": "alphafold2/index.md"
       - "形势与政策": "形策/index.md"

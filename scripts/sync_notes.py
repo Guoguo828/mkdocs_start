@@ -138,7 +138,7 @@ def ensure_clean_directory(path: Path) -> None:
 def clean_docs_root() -> None:
     docs = docs_root()
     allowed_dirs = {"assets", "首页文章", *[category.slug for category in CATEGORIES]}
-    allowed_files = {"index.md", "使用指南.md", "更新记录.md"}
+    allowed_files = {"index.md", "404.md", "使用指南.md", "更新记录.md", *[f"{group}.md" for group in GROUP_ORDER]}
 
     for item in docs.iterdir():
         if item.is_dir() and item.name not in allowed_dirs:
@@ -393,6 +393,35 @@ def build_homepage(category_data: list[dict[str, object]]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_group_page(group: str, items: list[dict[str, object]]) -> str:
+    total_notes = sum(int(item["stats"]["markdown_count"]) for item in items)  # type: ignore[index]
+    total_pdfs = sum(int(item["stats"]["pdf_count"]) for item in items)  # type: ignore[index]
+    icon = GROUP_ICONS.get(group, ":material-folder-outline:")
+
+    lines = [
+        "---",
+        f"title: {group}",
+        "---",
+        "",
+        f"# {group}",
+        "",
+        f"{icon} 这个分区收录 `{len(items)}` 个专题、`{total_notes}` 篇笔记、`{total_pdfs}` 份 PDF。",
+        "",
+        "## 分区入口",
+        "",
+    ]
+    lines.extend(build_cards([
+        {
+            "title": f'{item["category"].icon} {item["category"].title}',  # type: ignore[index]
+            "href": f'{item["category"].slug}/{LANDING_PAGE}',  # type: ignore[index]
+            "summary": str(item["summary"]),
+            "meta": f'`{item["stats"]["markdown_count"]} 篇笔记 · {item["stats"]["pdf_count"]} 份 PDF`',  # type: ignore[index]
+        }
+        for item in items
+    ]))
+    return "\n".join(lines) + "\n"
+
+
 def build_usage_page() -> str:
     return """# 使用指南
 
@@ -446,6 +475,22 @@ def build_tags_page() -> str:
 """
 
 
+def build_404_page() -> str:
+    return """# 页面没有找到
+
+<div class="site-404" markdown>
+
+<div class="site-404__code">404</div>
+
+<p class="site-404__text">这个页面可能已经移动、改名，或者还没有同步进站点。</p>
+
+[回到首页](index.md){ .md-button .md-button--primary }
+[查看使用指南](使用指南.md){ .md-button }
+
+</div>
+"""
+
+
 def build_cards(items: list[dict[str, str]], classes: str = "") -> list[str]:
     class_names = "grid cards"
     if classes:
@@ -476,6 +521,12 @@ def build_mkdocs_config(category_data: list[dict[str, object]]) -> str:
         'repo_url: "https://github.com/Guoguo828/mkdocs_start"',
         'repo_name: "Guoguo828/mkdocs_start"',
         'edit_uri: "edit/main/docs/"',
+        "",
+        "extra:",
+        "  social:",
+        '    - icon: "fontawesome/brands/github"',
+        '      link: "https://github.com/Guoguo828/mkdocs_start"',
+        '      name: "GitHub 仓库"',
         "",
         "theme:",
         '  name: "material"',
@@ -595,6 +646,7 @@ def build_mkdocs_config(category_data: list[dict[str, object]]) -> str:
 
     for group in GROUP_ORDER:
         lines.append(f"  - {yaml_quote(nav_label(group))}:")
+        lines.append(f'      - {yaml_quote(nav_label(group))}: {yaml_quote(f"{group}.md")}')
         for item in group_map[group]:
             category: Category = item["category"]  # type: ignore[assignment]
             lines.append(f'      - {yaml_quote(nav_label(category.title))}: {yaml_quote(f"{category.slug}/{LANDING_PAGE}")}')
@@ -608,9 +660,16 @@ def main() -> None:
 
     docs = docs_root()
     (docs / "index.md").write_text(build_homepage(results), encoding="utf-8", newline="\n")
+    (docs / "404.md").write_text(build_404_page(), encoding="utf-8", newline="\n")
     (docs / "使用指南.md").write_text(build_usage_page(), encoding="utf-8", newline="\n")
     (docs / "更新记录.md").write_text(build_updates_page(results), encoding="utf-8", newline="\n")
     (docs / "tags.md").write_text(build_tags_page(), encoding="utf-8", newline="\n")
+
+    grouped: dict[str, list[dict[str, object]]] = {group: [] for group in GROUP_ORDER}
+    for item in results:
+        grouped[item["category"].group].append(item)
+    for group, items in grouped.items():
+        (docs / f"{group}.md").write_text(build_group_page(group, items), encoding="utf-8", newline="\n")
 
     config_path = start_root() / "mkdocs.yml"
     config_path.write_text(build_mkdocs_config(results), encoding="utf-8", newline="\n")

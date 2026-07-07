@@ -142,12 +142,16 @@ body[data-md-color-scheme="slate"] {
   width: auto;
 }
 
-.md-header__topic,
 .md-tabs__link,
 .md-header__button,
 .md-search__form {
   position: relative;
   z-index: 1;
+}
+
+.md-header__title,
+.md-header__ellipsis {
+  overflow: hidden;
 }
 
 /* ── 主内容区 ── */
@@ -584,6 +588,11 @@ body[data-md-color-scheme="slate"] {
   background: var(--md-accent-fg-color);
   border-radius: 999px;
   animation: siteLikeBurst 0.62s ease-out forwards;
+}
+
+.site-comments-note {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
 }
 
 @keyframes siteLikeBurst {

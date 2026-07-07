@@ -25,6 +25,8 @@ def main() -> None:
     assert "aria-pressed" in comments
     assert "isLocalPreview" in comments
     assert ".site-like" in css
+    assert ".md-header__topic,\n.md-tabs__link" not in css
+    assert ".md-header__ellipsis {\n  overflow: hidden;" in css
     assert js_path.exists()
 
     js = js_path.read_text(encoding="utf-8")
@@ -33,6 +35,10 @@ def main() -> None:
     assert "initLikeButton" in js
     assert "localStorage" in js
     assert "document$" in js
+
+    for group in ("计算机系统", "程序设计与算法", "理论与数据库", "研究与专题"):
+        assert f'{group}.md' in config
+        assert (ROOT / f"docs/{group}.md").exists()
 
     # ── 阅读进度条 ──
     assert "reading-progress" in css

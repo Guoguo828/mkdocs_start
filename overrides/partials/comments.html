@@ -23,9 +23,12 @@
     }
 
     function loadUtterances() {
-      if (isLocalPreview()) return;
       var container = document.getElementById("utterances-container");
       if (!container) return;
+      if (isLocalPreview()) {
+        container.innerHTML = '<p class="site-comments-note">本地预览不加载 GitHub 评论，部署到 GitHub Pages 后会显示 utterances 评论区。</p>';
+        return;
+      }
       container.innerHTML = "";
       var script = document.createElement("script");
       script.src = "https://utteranc.es/client.js";
